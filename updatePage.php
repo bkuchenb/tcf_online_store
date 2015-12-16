@@ -24,12 +24,9 @@ session_start();
 </div>
 <body>
 <?php
-if($_POST['choice3'] == '%')
-{$letter = '\''. $_POST['choice3']. '\'';}
-else{$letter = '\''. $_POST['choice3']. '%\'';}
-$_SESSION['choice3'] = $letter;//add the choosen letter to the session array
 $sport = $_SESSION['choice'];
 $year = $_SESSION['choice2'];
+$letter = $_SESSION['choice3'];
 
 //connect to the db
 require ('mysqli_connect.php');
@@ -55,14 +52,15 @@ if ($r)
  //fetch and print all the records:
   while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
   {
-	  echo '<tr><td class="tcf_table" align="left">' . $row['year'] . '</td>
+	  echo '<form method="post">
+	  <tr><td class="tcf_table" align="left">' . $row['year'] . '</td>
 	  <td class="tcf_table" align="left">' . $row['set_name'] . '</td>
-	  <td class="tcf_table" align="left">' . $row['top_loader'] . '</td>
-	  <td class="tcf_table" align="left">' . $row['nine_hundred'] . '</td>
-	  <td class="tcf_table" align="left">' . $row['triple_shoe'] . '</td>
+	  <td><input id="tl_update" type="text" class="tcf_table" align="left" value="' . $row['top_loader'] . '"</td>
+	  <td><input id="nh_update" type="text" class="tcf_table" align="left" value="' . $row['nine_hundred'] . '"</td>
+	  <td><input id="ts_update" type="text" class="tcf_table" align="left" value="' . $row['triple_shoe'] . '"</td>
 	  </tr>';
 	}
-echo '</table>'; // Close the table.
+echo '</table><form>'; // Close the table.
 	
 	mysqli_free_result ($r); // Free up the resources.	
 
@@ -79,7 +77,7 @@ echo '</table>'; // Close the table.
 </body>
 <div>
 <p></p>
-<center><input name="Update" type="submit" class="medium blue button"
-onclick="window.location.href='updatePage.php'" value="Update" /></center>
+<center><input name="Submit" type="submit" class="medium blue button"
+onclick="window.location.href='updatePage.php'" value="Sumbit" /></center>
 </div>
 </html>

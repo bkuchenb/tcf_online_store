@@ -63,8 +63,7 @@ session_start();
 <input name="choice3" type="submit" class="medium blue button" onclick="window.location.href='resultsPage.php'" value="Z" />
 <input id="bLetter" name="choice3" type="submit" class="medium blue button" onclick="window.location.href='resultsPage.php'"
 value="L" />
-<input id="bLetter" name="choice3" type="submit" class="medium blue button" onclick="window.location.href='resultsPage.php'"
-value="L" />
+<input name="choice3" type="submit" class="medium blue button" onclick="window.location.href='resultsPage.php'" value="%" />
 </p>
 </form>
 

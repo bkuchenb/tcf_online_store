@@ -31,7 +31,7 @@ session_start();
 </p>
 <p>
 <form method="post" action="yearPage.php" align="center">
-<input name="choice" class="xlarge blue button" type="submit" value="Non-Sport" onclick="window.location.href='yearPage.php'" />
+<input name="choice" class="xlarge blue button" type="submit" value="Non-sport" onclick="window.location.href='yearPage.php'" />
 <input name="choice" class="xlarge blue button" type="submit" value="Multisports" onclick="window.location.href='yearPage.php'" />
 <input name="choice" class="xlarge blue button" type="submit" value="Racing" onclick="window.location.href='yearPage.php'" />
 <input name="choice" class="xlarge blue button" type="submit" value="Wrestling" onclick="window.location.href='yearPage.php'" />

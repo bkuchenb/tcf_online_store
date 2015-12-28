@@ -35,6 +35,8 @@ session_start();
 <input name="sport" class="xlarge blue button" type="submit" value="Wrestling" />
 </p>
 <p>
+<input name="sport" class="xlarge blue button" type="submit" value="Soccer" />
+<input name="sport" class="xlarge blue button" type="submit" value="Golf" />
 <input name="sport" class="xlarge blue button" type="submit" value="Gaming" />
 <input name="sport" class="xlarge blue button" type="submit" value="Diecast" />
 </p></form>

@@ -109,8 +109,8 @@ value="2019" />
 </form>
 
 <?php
-$sport = $_POST['choice'];
-$_SESSION['choice'] = $sport;
+//add the sport choosen from the first page to the SESSION array
+$_SESSION['sport'] = $_POST['choice'];
 ?>
 </body>
 </html>

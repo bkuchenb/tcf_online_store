@@ -68,8 +68,8 @@ value="L" />
 </form>
 
 <?php
-$year = $_POST['choice2'];
-$_SESSION['choice2'] = $year;
+//add the year choosen from the previous page to the SESSION array
+$_SESSION['year'] = $_POST['choice2'];
 ?>
 </body>
 </html>

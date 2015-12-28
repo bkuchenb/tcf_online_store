@@ -1,9 +1,121 @@
-table.tcf_table {
+table
+{
+	table-layout: fixed;
+	margin: 0 auto;
+	width: 85%;
+	padding: 3px;
+	border-spacing: 3px;
+	text-align: left;
 	border: 1px solid black;
 }
-td.tcf_table {
+tr.header
+{
+	background-color: #5cd65c;
+}
+tr.table
+{
+	background-color:white;
 	border: 1px solid black;
 }
-tr.tcf_table {
+td.setCol_setResults
+{
+	width: 71%;
+	padding-left: 4px;
 	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_setUpdate
+{
+	width: 66%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_setPage
+{
+	width: 45%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_detailsPage
+{
+	width: 34%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_top_loader
+{
+	width: 9%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_triple
+{
+	width: 8%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_year, td.setCol_900, td.setCol_price, td.setCol_submitHeading, td.setCol_cardNum,
+input.setButton_Display, input.setButtonSubmit
+{
+	width: 6%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+td.setCol_qty
+{
+	width: 4%;
+	padding-left: 4px;
+	border: 1px solid black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.setInputWidth_100
+{
+	width: 100%;/*used to set the width of input text boxes and buttons*/
+	padding-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.setInputWidth_90
+{
+	width: 90%;/*used to set the width of input text boxes and buttons*/
+	padding-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.setInputWidth_80
+{
+	width: 80%;/*used to set the width of input text boxes and buttons*/
+	padding-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#matchBackground
+{
+	background-color:#bbff99;
+	border: none;
 }

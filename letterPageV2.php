@@ -11,7 +11,7 @@ lang="en">
 	charset=utf-8"  />
 	<link href="css/tcf_header.css" rel="stylesheet">
 	<link href="css/tcf_background.css" rel="stylesheet">
-	<link href="css/tcf_buttons.css" rel="stylesheet">
+	<link href="css/tcf_letter_buttons.css" rel="stylesheet">
 	<title>TCF Overflow Inventory</title>
 </head>
 <?php

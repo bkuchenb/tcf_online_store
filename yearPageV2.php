@@ -28,7 +28,7 @@ session_start();
 <form method="get" action="letterPageV2.php" align="center">
 <?php
 $counter = 0;//create a counter to put paragraph breaks between the rows
-for($i = 1960; $i < 2020; $i++)
+for($i = 1960; $i < 2019; $i++)
 {
 	if($counter == 10)
 	{
@@ -46,6 +46,7 @@ for($i = 1960; $i < 2020; $i++)
 	}
 	$counter++;
 }
+echo '<input name="year" type="submit" class="medium blue button" value="%" />';
 ?>
 </p>
 </form>

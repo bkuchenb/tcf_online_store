@@ -32,7 +32,9 @@ else{$letter = '\''. $_GET['letter']. '%\'';}
 ///add the year choosen from the previous page to the SESSION array
 $_SESSION['letter'] = $letter;
 $sport = $_SESSION['sport'];
-$year = $_SESSION['year'];
+if($_SESSION['year'] == '%')
+{$year = '\'' . $_SESSION['year'] . '\'';}
+else {$year = $_SESSION['year'];}
 
 //connect to the tcf_overflow database
 require ('mysqli_connect.php');
@@ -40,7 +42,7 @@ require ('mysqli_connect.php');
 //make the query:
 $q = "SELECT year, set_name, top_loader, nine_hundred, triple_shoe
       FROM $sport
-	  WHERE year = $year AND top_loader > 0 AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
+	  WHERE year LIKE $year AND top_loader > 0 AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
 //run the query
 $r = @mysqli_query ($dbc, $q);
 //if it runs ok, display the records

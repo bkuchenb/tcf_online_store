@@ -29,12 +29,13 @@ if($_GET['letter'] == '%')
 {$letter = '\''. $_GET['letter']. '\'';}
 //if any other letter was selected, return all sets that begin with that letter
 else{$letter = '\''. $_GET['letter']. '%\'';} 
-///add the year choosen from the previous page to the SESSION array
 $_SESSION['letter'] = $letter;
+//add the set and year choosen to local variables
 $sport = $_SESSION['sport'];
 if($_SESSION['year'] == '%')
 {$year = '\'' . $_SESSION['year'] . '\'';}
 else {$year = $_SESSION['year'];}
+$_SESSION['year'] = $year;//update the session variable for the updatePage
 
 //connect to the tcf_overflow database
 require ('mysqli_connect.php');

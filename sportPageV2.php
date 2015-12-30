@@ -17,6 +17,9 @@ lang="en">
 <?php
 session_start();
 ?>
+<style>
+#hiddenB{visibility: hidden;}
+</style>
 <body>
 <div>
 <center><button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" /></center>
@@ -44,6 +47,7 @@ session_start();
 <input name="sport" class="xlarge blue button" type="submit" value="Pokemon" />
 <input name="sport" class="xlarge blue button" type="submit" value="Gaming" />
 <input name="sport" class="xlarge blue button" type="submit" value="Diecast" />
+<input id="hiddenB" name="sport" class="xlarge blue button" type="submit" value="Diecast" />
 </p></form>
 </body>
 </html>

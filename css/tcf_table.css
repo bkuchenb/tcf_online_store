@@ -17,6 +17,10 @@ tr.table
 	background-color:white;
 	border: 1px solid black;
 }
+tr.table:hover 
+{
+  background-color: #5cd65c;
+}
 td.setCol_setResults
 {
 	width: 71%;

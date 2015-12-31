@@ -67,7 +67,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	//make the query:
 	$q = "SELECT id, year, set_name, top_loader, nine_hundred, triple_shoe
 		  FROM $sport
-		  WHERE year LIKE $year AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
+		  WHERE year=$year AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
 	//run the query
 	$r = @mysqli_query ($dbc, $q);
 	//if it runs ok, display the records

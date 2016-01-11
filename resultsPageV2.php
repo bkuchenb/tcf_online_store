@@ -17,8 +17,8 @@ lang="en">
 <?php
 session_start();
 ?>
-<div>
-<center><button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" /></center>
+<div class="freeze">
+<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
 </div>
 <body>
 <?php

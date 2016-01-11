@@ -20,10 +20,10 @@ session_start();
 <style>
 #hiddenB{visibility: hidden;}
 </style>
-<body>
-<div>
-<center><button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" /></center>
+<div class="freeze">
+<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
 </div>
+<body>
 <p>
 <form method="get" action="yearPageV2.php" align="center">
 <input name="sport" class="xlarge blue button" type="submit" value="Baseball" />

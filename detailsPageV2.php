@@ -17,8 +17,8 @@ lang="en">
 <?php
 session_start();
 ?>
-<div>
-<center><button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" /></center>
+<div class="freeze">
+<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
 </div>
 <body>
 <?php
@@ -86,6 +86,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
 		//initailize the counter
 		$counter = 0;
 		//fetch and process the query results
+
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
 	{	
 	  //store the query results in the resultsRow array

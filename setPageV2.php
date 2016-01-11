@@ -17,8 +17,8 @@ lang="en">
 <?php
 session_start();
 ?>
-<div>
-<center><button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" /></center>
+<div class="freeze">
+<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
 </div>
 <body>
 <?php
@@ -33,7 +33,7 @@ $letter = $_SESSION['letter'];
 		<td class="setCol_setPage"><b>Set</b></td>
 		<td class="setCol_setPage"><b>Click a button to view the individual cards.</b></td>
 		</tr>';
-		
+
 	for($i=0; $i < count($_SESSION['array']); $i++)
 	{
 		echo '<form method="post" action="detailsPageV2.php">

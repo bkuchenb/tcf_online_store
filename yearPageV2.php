@@ -20,8 +20,8 @@ session_start();
 <style>
 #hiddenB{visibility: hidden;}
 </style>
-<div>
-<center><button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" /></center>
+<div class="freeze">
+<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
 </div>
 <body>
 <p>

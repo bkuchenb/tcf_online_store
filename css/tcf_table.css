@@ -8,6 +8,14 @@ table
 	text-align: left;
 	border: 1px solid black;
 }
+div.tableHeader
+{
+	width: 100%;
+	margin: 0 auto;
+	background-color: #bbff99;
+	top: 130px;
+	position: fixed;
+}
 tr.header
 {
 	background-color: #5cd65c;

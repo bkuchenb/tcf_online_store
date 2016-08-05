@@ -1,0 +1,129 @@
+Viewing Order - Order #2494788 Export CSV  Print this Receipt
+
+Sell Date: 2016-01-25 17:27:45
+Date to Ship: 2016-01-28
+type: MARKETPLACE
+Shipped From: THE COLLECTOR'S FRIEND
+
+ID #	Item Description	Condition	Sport	Category	CSKU	Qty	Price	Total
+56313825
+(refund item)	1991 Pro Set #4 Rick Mast w/car 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+62134110
+(refund item)	1991 Pro Set NHRA #104 Don Prudhomme Funny Car 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+62134070
+(refund item)	1991 Pro Set NHRA #61 Jim Head's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+62134071
+(refund item)	1991 Pro Set NHRA #62 Don Prudhomme's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+55741250
+(refund item)	1992 Pro Set #112 Harry Gant's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+59394670
+(refund item)	1993 Finish Line NHRA #37 Don Prudhomme's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+55741808
+(refund item)	1994 Action Packed #49 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+56354014
+(refund item)	1994 Finish Line #127 Hut Stricklin's Car 
+
+* A quantity of 1 has been refunded.	NEAR MINT/MINT	Racing	Cards - Sports		2	$0.25	$0.50
+56353964
+(refund item)	1994 Finish Line #56 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		3	$0.25	$0.75
+80624424
+(refund item)	1994 Maxx #60 Harry Gant's Car 
+NEAR MINT	Racing	Cards - Sports		1	$0.25	$0.25
+56142194
+(refund item)	1994 Power #131 Hut Stricklin's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+56263640
+(refund item)	1994 VIP #73 Harry Gant ART 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+57876947
+(refund item)	1995 SP #115 Ricky Craven's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+56657441
+(refund item)	1995 Upper Deck #179 Ricky Craven SR 
+NEAR MINT/MINT	Racing	Cards - Sports		5	$0.25	$1.25
+56657539
+(refund item)	1995 Upper Deck #291 Ricky Craven's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		2	$0.25	$0.50
+56657332
+(refund item)	1995 Upper Deck #53 Rick Mast with Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+56657339
+(refund item)	1995 Upper Deck #62 Ken Schrader with Car 
+NEAR MINT/MINT	Racing	Cards - Sports		2	$0.25	$0.50
+56657341
+(refund item)	1995 Upper Deck #65 Harry Gant with Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+56657364
+(refund item)	1995 Upper Deck #90 Harry Gant's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+77183784
+(refund item)	1995 Upper Deck Silver Signature/Electric Silver #291 Ricky Craven's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+77183730
+(refund item)	1995 Upper Deck Silver Signature/Electric Silver #87 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		3	$0.25	$0.75
+77183740
+(refund item)	1995 Upper Deck Silver Signature/Electric Silver #98 Hut Stricklin's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		4	$0.25	$1.00
+70651165
+(refund item)	1996 Press Pass #44 Ricky Craven's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+58468362
+(refund item)	1996 Ultra #89 Jimmy Spencer's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+71163788
+(refund item)	1997 Pinnacle #52 Jimmy Spencer's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		2	$0.25	$0.50
+71169815
+(refund item)	1997 Pinnacle Portraits #39 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+71169816
+(refund item)	1997 Pinnacle Portraits #40 Jimmy Spencer's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+65516235
+(refund item)	1997 Pinnacle Totally Certified Platinum Blue #64 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.30	$0.30
+70620566
+(refund item)	1997 Press Pass #41 Ricky Craven's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+80622329
+(refund item)	1997 Upper Deck Road To The Cup #80 Steve Grissom's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+71201898
+(refund item)	1998 Maxx 1997 Year In Review #145 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$0.25	$0.25
+44094334
+(refund item)	1998 VIP Driving Force Die Cuts #DF17 Ken Schrader's Car 
+NEAR MINT/MINT	Racing	Cards - Sports		1	$3.00	$3.00
+Shipping (Free Shipping ):	 	$0.00
+Tax:	 	$0.00
+Total for THE COLLECTOR'S FRIEND:	71	$20.55
+Customer Information
+
+email: trentebox-order@yahoo.com
+first name: Trent
+last name: Eckel
+Phone Number: (760) 989-3471
+
+Shipping Address
+
+Trent Eckel
+P.O. Box 1741
+Borrego Springs, CA  92004
+United States
+
+Shipping Status
+
+This order has been marked as shipped.
+tracking number: 9400109699938157568364
+Refund Tools
+
+Full Order Refund   			

@@ -1,0 +1,34 @@
+Viewing Order - Order #2241322 Export CSV  Print this Receipt
+
+Sell Date: 2015-02-11 19:29:55
+Date to Ship: 2015-02-14
+type: MARKETPLACE
+Shipped From: THE COLLECTOR'S FRIEND
+
+ID #	Item Description	Condition	Sport	Category	CSKU	Qty	Price	Total
+82700590
+(refund item)	1992 Yankees WIZ 80s #18 Tom Brookens 
+NEAR MINT/MINT	Baseball	Cards - Sports		1	$0.25	$0.25
+Shipping (USPS First Class (Uninsured)):	 	$3.32
+Tax:	 	$0.00
+Total for THE COLLECTOR'S FRIEND:	1	$3.57
+Customer Information
+
+email: gtpropst13@frontier.com
+first name: Gregory
+last name: Propst
+Phone Number: 304-270-6269
+Shipping Address
+
+Gregory Propst
+59 Founders Court
+Martinsburg, WV  25405
+United States
+
+Shipping Status
+
+This order has been marked as shipped.
+tracking number: 9400109699938182628361
+Refund Tools
+
+Full Order Refund   / Refund Shipping				

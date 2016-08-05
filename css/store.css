@@ -1,0 +1,193 @@
+* 
+{
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.container_01
+{
+	background-color: #bbff99;/*Create a light green background.*/
+    min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+    text-align: center;/*Center all divs placed inside this container.*/
+    width: 100%;/*Fill the entire width of the screen.*/
+}
+.header_left/*Placed in container 1.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-height: 135px;/*Get no smaller than the logo.*/
+	min-width: 300px;/*Get no smaller than this.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.header_center/*Placed in container 1.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-height: 135px;/*Get no smaller than the logo.*/
+	min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.header_right/*Placed in container 1.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-height: 135px;/*Get no smaller than the logo.*/
+	min-width: 300px;/*Get no smaller than this.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: center;/*Center the items in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.container_02
+{
+	background-color: #bbff99;/*Create a light green background.*/
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+    min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+    text-align: center;/*Center all divs placed inside container.*/
+    width: 100%;/*Fill the entire screen.*/
+}
+.navbar_left/*Placed in container 2.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.navbar/*Placed in container 2.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-height: 40px;/*Get no smaller than the text in this div.*/
+	min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+#navcontainer ul/*Placed in navbar.*/
+{
+    margin: 0;
+	padding: 10px;
+	list-style-type: none;
+}
+#navcontainer ul li/*Placed in navbar.*/
+{
+	display: inline;
+}
+#navcontainer ul li a/*Placed in navbar.*/
+{
+	text-decoration: none;
+	padding: .2em 1em;
+	color: black;
+	background-color: #bbff99;
+}
+#navcontainer ul li a:hover/*Placed in navbar.*/
+{
+	background-color: #5cd65c;
+}
+.navbar_right/*Placed in container 2.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.container_03
+{
+	background-color: #bbff99;/*Create a light green background.*/
+	height: 450px;
+    min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+    text-align: center;/*Center all divs placed inside container.*/
+    width: 100%;/*Fill the entire screen.*/
+}
+.body_left/*Placed in container 3.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	width: 100px;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_left_cards/*Placed in container 3.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	width: 100px;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_center/*Placed in container 3.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+    height: 475px;
+	min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: center;/*Center the items in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_table_header/*Placed in body_center.*/
+{
+	border: 1px solid black;/*Place a black border around the table.*/
+	border-top: none;/*Remove upper border because container_02 already has one.*/
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	height: 35px;/*Get no smaller than the text in this div.*/
+	min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;/*Left align the elements in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_table_header_cards/*Placed in body_center.*/
+{
+	border: 1px solid black;/*Place a black border around the table.*/
+	border-top: none;/*Remove upper border because container_02 already has one.*/
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	height: 35px;/*Get no smaller than the text in this div.*/
+	min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;/*Left align the elements in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_table/*Placed in body_center.*/
+{
+	border: 1px solid black;/*Place a black border around the table.*/
+	border-top: none;/*Remove upper border because container_02 already has one.*/
+    display: block;/*Place item on new line.*/
+	height: 410px;/*Get no smaller than this.*/
+	min-width: 625px;/*Get no smaller than the logo.*/
+	overflow: scroll;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;/*Left align the elements in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_table_cards/*Placed in body_center.*/
+{
+	border: 1px solid black;/*Place a black border around the table.*/
+	border-top: none;/*Remove upper border because container_02 already has one.*/
+    display: block;/*Place items inline but allow height/width changes.*/
+	height: 410px;/*Get no smaller than this.*/
+	min-width: 625px;/*Get no smaller than the logo.*/
+	overflow: scroll;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;/*Left align the elements in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_right/*Placed in container 3.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	width: 100px;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.body_right_cards/*Placed in container 3.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	width: 100px;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
+.container_04
+{
+	margin-top: 20px;/*Force the text below the table scroll bar.*/
+    min-width: 625px;/*Get no smaller than the logo.*/
+	position: relative;/*Stack on top of each other for smaller screens.*/
+    text-align: left;
+    width: 100%;/*Fill the entire screen.*/
+}

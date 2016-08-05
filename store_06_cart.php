@@ -75,11 +75,14 @@ echo '<body>
 			<div class="body_table_cards">
 				<table class="table_cards">
 					<tbody>';
+		//Create a variable to hold the total due.
+		$total = 0.00;
 		foreach($_SESSION['cart'] as $entry)
 		{
+			//Get the table name and card_id.
 			$set_table = $entry['set_table'];
 			$card_id = $entry['card_id'];
-			//Get the table name.
+			//Get the rest of the information for the card.
 			$q = "SELECT *
 				  FROM $set_table
 				  WHERE card_id = $card_id";
@@ -103,6 +106,8 @@ echo '<body>
 								<input class="txt_qty align_right" name="' . $entry['card_id'] . '" type="text" 
 									value="" autocomplete="off" /></td>
 							  </tr>';
+					//Update the total due.
+					$total = $total + ((float)$row['cond_price'] * $entry['qty']);
 				}
 			}
 			else //start else: query didn't run
@@ -111,6 +116,10 @@ echo '<body>
 			}//end of else where query did not run*/
 		}
 echo'
+							<tr class="table_cards_row">
+							<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+							<td>$' . number_format($total, 2, '.', ',') . '</td>
+							</tr>
 						</form>
 					</tbody>
 				</table>

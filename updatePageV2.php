@@ -1,27 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//
-DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/
-xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/
-1999/xhtml" xml:lang="en"
-lang="en">
-<head>
-	<meta http-equiv="Content-Type"
-	content="text/html;
-	charset=utf-8"  />
-	<link href="css/tcf_header.css" rel="stylesheet">
-	<link href="css/tcf_background.css" rel="stylesheet">
-	<link href="css/tcf_table.css" rel="stylesheet">
-	<title>TCF Overflow Inventory</title>
-</head>
 <?php
 session_start();
-?>
-<div class="freeze">
-<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
-</div>
-<body>
-<?php
+//create the header
+include ('header.php');
+
+echo '<body>';
 $sport = $_SESSION['sport'];
 $year = $_SESSION['year'];
 $letter = $_SESSION['letter'];
@@ -37,16 +19,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		$tl_update = htmlspecialchars($_POST['data'][$_SESSION['array'][$j][0]]['tl']);
 		$nh_update = htmlspecialchars($_POST['data'][$_SESSION['array'][$j][0]]['nh']);
 		$ts_update = htmlspecialchars($_POST['data'][$_SESSION['array'][$j][0]]['ts']);
+		$details_update = htmlspecialchars($_POST['data'][$_SESSION['array'][$j][0]]['details']);
 
 		//validate the form input
 		if(is_numeric($tl_update) &&
 			is_numeric($nh_update) && 
-			is_numeric($ts_update))
+			is_numeric($ts_update) &&
+			is_numeric($details_update))
 			{
 				if($tl_update != $_SESSION['array'][$j][3] || $nh_update != $_SESSION['array'][$j][4] || 
-				$ts_update != $_SESSION['array'][$j][5])//make the query:
+				$ts_update != $_SESSION['array'][$j][5] || $details_update != $_SESSION['array'][$j][6])//make the query:
 				{
-					$q = "UPDATE $sport SET top_loader=$tl_update, nine_hundred=$nh_update, triple_shoe=$ts_update WHERE id=$id ";
+					$q = "UPDATE $sport SET top_loader=$tl_update, nine_hundred=$nh_update,
+						  triple_shoe=$ts_update, details=$details_update WHERE id=$id ";
 					//run the query
 					$r = @mysqli_query ($dbc, $q);
 					if($r)
@@ -65,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$endRec = 100;//initialize the end record
 	//if(isset($_GET['numRecords'])*/
 	//make the query:
-	$q = "SELECT id, year, set_name, top_loader, nine_hundred, triple_shoe
+	$q = "SELECT id, year, set_name, top_loader, nine_hundred, triple_shoe, details
 		  FROM $sport
 		  WHERE year=$year AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
 	//run the query
@@ -73,15 +58,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	//if it runs ok, display the records
 	if ($r)
 	{
-		/*echo '<form method="post" action="updatePageV2.php">
-		<center>Page <input size="1" name="page" type="text" align="left" value="' . $page . '"> of ' . $numPages . '
-		<select>
-			<option value="100">100</option>
-			<option value="250">250</option>
-			<option value="500">500</option>
-			<option value="1000">1000</option>
-			<option value="all">all</option>
-		</select></center>';*/
 		//table header
 		echo '<table>
 		<tr class="header">
@@ -90,6 +66,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		<td class="setCol_top_loader"><b>Top Loader</b></td>
 		<td class="setCol_900"><b>900 Box</b></td>
 		<td class="setCol_triple"><b>Triple Shoe</b></td>
+		<td class="setCol_triple"><b>Details</b></td>
 		<td id="matchBackground"><form method="post" action="setPageV2.php">
 		<input class="input.setButton_Display" name="submit" type="submit" value="Details"></td></form>
 		</tr>';
@@ -110,6 +87,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	  $resultsRow[3] = $row['top_loader'];
 	  $resultsRow[4] = $row['nine_hundred'];
 	  $resultsRow[5] = $row['triple_shoe'];
+	  $resultsRow[6] = $row['details'];
 	  //add the resultsRow array to the resultsArray
 	  $resultsArray[$counter] = $resultsRow;	  
 	  //update the counter
@@ -125,9 +103,14 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	  <tr class="table">
 	  <td class="setCol_year">' . $resultsArray[$i][1] . '</td>
 	  <td class="setCol_setUpdate">' . $resultsArray[$i][2] . '</td>
-	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] . '][tl]" type="text" value="' . $resultsArray[$i][3] . '"</td>
-	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] . '][nh]" type="text" value="' . $resultsArray[$i][4] . '"</td>
-	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] . '][ts]" type="text" value="' . $resultsArray[$i][5] . '"</td>
+	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] .
+	  '][tl]" type="text" value="' . $resultsArray[$i][3] . '" /></td>
+	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] .
+	  '][nh]" type="text" value="' . $resultsArray[$i][4] . '" /></td>
+	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] .
+	  '][ts]" type="text" value="' . $resultsArray[$i][5] . '" /></td>
+	  <td id="matchBackground"><input class="setInputWidth_90" name="data[' . $resultsArray[$i][0] .
+	  '][details]" type="text" value="' . $resultsArray[$i][6] . '" /></td>
 	  <td id="matchBackground"><input class="input.setButton_Submit" name="submit" type="submit" value="Submit" /></td>
 	  </tr>';
 	}//end of for loop
@@ -135,13 +118,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	echo '</table></form>'; // Close the table and form
 	mysqli_free_result ($r); // Free up the resources.	
 	}//end of if statement that checks to see if the query ran ok																				
- else 
+ else //start else: query didn't run
 	{
-		// If it did not run OK.
-		// Public message:
-		echo '<p class="error">Error: The data you requested is unavailable. We apologize for any inconvenience.</p>';
-		// Debugging message:
-		echo '<p>' . mysqli_error($dbc) . '<br /><br />Query: ' . $q . '</p>';
+		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
 	}//end of else where query did not run
 ?>
 </body>

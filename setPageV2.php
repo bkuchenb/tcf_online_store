@@ -1,27 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//
-DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/
-xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/
-1999/xhtml" xml:lang="en"
-lang="en">
-<head>
-	<meta http-equiv="Content-Type"
-	content="text/html;
-	charset=utf-8"  />
-	<link href="css/tcf_header.css" rel="stylesheet">
-	<link href="css/tcf_background.css" rel="stylesheet">
-	<link href="css/tcf_table.css" rel="stylesheet">
-	<title>TCF Overflow Inventory</title>
-</head>
 <?php
 session_start();
-?>
-<div class="freeze">
-<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
-</div>
-<body>
-<?php
+//create the header
+include ('header.php');
+echo '<body>';
+
 $sport = $_SESSION['sport'];
 $year = $_SESSION['year'];
 $letter = $_SESSION['letter'];
@@ -41,7 +23,7 @@ $letter = $_SESSION['letter'];
 		<td class="setCol_year">' . $_SESSION['array'][$i][1] . '</td>
 		<td class="setCol_setPage">' . $_SESSION['array'][$i][2] . '</td>
 		<td id="matchBackground"><input class="setButton_100" name="update" type="submit" 
-			value="' . $_SESSION['array'][$i][1] . '_' . $_SESSION['array'][$i][2] . '" /></td>
+			value="' . $sport . '_' . $_SESSION['array'][$i][0] . '" /></td>
 		</tr>';
 	}//end of for loop
 

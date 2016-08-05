@@ -1,28 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//
-DTD XHTML 1.0 Transitional//EN"
-"http://www.w3.org/TR/xhtml1/DTD/
-xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/
-1999/xhtml" xml:lang="en"
-lang="en">
-<head>
-	<meta http-equiv="Content-Type"
-	content="text/html;
-	charset=utf-8"  />
-	<link href="css/tcf_header.css" rel="stylesheet">
-	<link href="css/tcf_background.css" rel="stylesheet">
-	<link href="css/tcf_sport_buttons.css" rel="stylesheet">
-	<title>TCF Overflow Inventory</title>
-</head>
+<link href="css/tcf_sport_buttons.css" rel="stylesheet" />
 <?php
 session_start();
+$_SESSION['sport'] = '';
+$_SESSION['year'] = '';
+$_SESSION['letterClicked'] = '';
+$_SESSION['set'] = '';
+//create the header
+include ('header.php');
 ?>
-<style>
-#hiddenB{visibility: hidden;}
-</style>
-<div class="freeze">
-<button class="tcf_header" type="submit" onclick="window.location.href='sportPageV2.php'" />
-</div>
 <body>
 <p>
 <form method="get" action="yearPageV2.php" align="center">
@@ -48,6 +33,7 @@ session_start();
 <input name="sport" class="xlarge blue button" type="submit" value="Gaming" />
 <input name="sport" class="xlarge blue button" type="submit" value="Diecast" />
 <input id="hiddenB" name="sport" class="xlarge blue button" type="submit" value="Diecast" />
-</p></form>
+</p>
+</form>
 </body>
 </html>

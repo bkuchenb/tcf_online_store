@@ -1,5 +1,7 @@
 <?php
 session_start();
+//Import store functions.
+include ('store_000_functions.php');
 $year = $_SESSION['year'];
 $set_name = $_SESSION['set_name'];
 
@@ -125,15 +127,4 @@ echo'
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 </footer>
 </html>';
-
-function sanitize_string($var)
-{
-    if(get_magic_quotes_gpc())
-    {
-        $var = stripslashes($var);
-    }
-    $var = htmlentities($var);
-    $var = strip_tags($var);
-    return $var;
-}
 ?>

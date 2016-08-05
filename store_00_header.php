@@ -56,11 +56,4 @@ echo'
         </div>
 	</div>
 </header>';
-
-function sanitize_mysql($var)
-{
-    $var = mysql_real_escape_string($var);
-    $var = sanitze_string($var);
-    return $var;
-}
 ?>

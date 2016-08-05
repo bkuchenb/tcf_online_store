@@ -185,7 +185,7 @@ $r = @mysqli_query ($dbc, $q);
 	  <td class="table_cell_100 align_right">$' . $resultsArray[$i][4] . '</td>
 	  <td class="table_cell_50 align_right">' . $resultsArray[$i][0] . '</td>
 	  <td class="table_cell_100 table_cards_cell_qty">
-		<input class="txt_qty align_right" name="' . $resultsArray[$i][5] . '" type="text" /></td>
+		<input class="txt_qty align_right" name="' . $resultsArray[$i][5] . '" type="text" autocomplete="off" /></td>
 	  </tr>';
 	}//end of for loop
 

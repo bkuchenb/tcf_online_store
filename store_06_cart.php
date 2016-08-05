@@ -99,7 +99,7 @@ echo '<body>
 							  <td class="table_cell_50 align_right">' . $entry['qty'] . '</td>
 							  <td class="table_cell_100 table_cards_cell_qty">
 								<input class="txt_qty align_right" name="' . $entry['card_id'] . '" type="text" 
-									value=""/></td>
+									value="" autocomplete="off" /></td>
 							  </tr>';
 				}
 			}

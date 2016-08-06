@@ -117,7 +117,13 @@ echo '<body>
 		}
 echo'
 							<tr class="table_cards_row">
-							<td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
 							<td>$' . number_format($total, 2, '.', ',') . '</td>
 							</tr>
 						</form>

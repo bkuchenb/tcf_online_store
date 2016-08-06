@@ -131,6 +131,8 @@ $r = @mysqli_query ($dbc, $q);
 	  $resultsRow[4] = $row['cond_price'];
 	  $resultsRow[5] = $row['card_id'];
 	  $resultsRow[6] = $set_table;
+	  $resultsRow[8] = $row['img_front'];
+	  $resultsRow[9] = $row['img_back'];
 	  //Determine the condition from the price.
 	  $price = (float) $row['price'];
 	  $cond_price = (float) $row['cond_price'];
@@ -178,6 +180,7 @@ $r = @mysqli_query ($dbc, $q);
 	for($i=0; $i < count($resultsArray); $i++)
 	{
 	  echo '<tr class="table_cards_row">
+	  <td class="card_image"><img src="' . $resultsArray[$i][8] . '"</td>
       <td class="table_cell_100">' . $year . '</td>
 	  <td class="table_cell_150">' . mb_strimwidth($set_name, 0, 20, "...") . '</td>
 	  <td class="table_cell_50">' . $resultsArray[$i][1] . '</td>

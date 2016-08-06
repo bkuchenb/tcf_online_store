@@ -1,5 +1,7 @@
 <?php
 session_start();
+//Import store functions.
+include ('store_000_functions.php');
 $year = $_SESSION['year'];
 $set_name = $_SESSION['set_name'];
 
@@ -73,11 +75,14 @@ echo '<body>
 			<div class="body_table_cards">
 				<table class="table_cards">
 					<tbody>';
+		//Create a variable to hold the total due.
+		$total = 0.00;
 		foreach($_SESSION['cart'] as $entry)
 		{
+			//Get the table name and card_id.
 			$set_table = $entry['set_table'];
 			$card_id = $entry['card_id'];
-			//Get the table name.
+			//Get the rest of the information for the card.
 			$q = "SELECT *
 				  FROM $set_table
 				  WHERE card_id = $card_id";
@@ -99,8 +104,10 @@ echo '<body>
 							  <td class="table_cell_50 align_right">' . $entry['qty'] . '</td>
 							  <td class="table_cell_100 table_cards_cell_qty">
 								<input class="txt_qty align_right" name="' . $entry['card_id'] . '" type="text" 
-									value=""/></td>
+									value="" autocomplete="off" /></td>
 							  </tr>';
+					//Update the total due.
+					$total = $total + ((float)$row['cond_price'] * $entry['qty']);
 				}
 			}
 			else //start else: query didn't run
@@ -109,6 +116,16 @@ echo '<body>
 			}//end of else where query did not run*/
 		}
 echo'
+							<tr class="table_cards_row">
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td class="table_cell_blank"></td>
+							<td>$' . number_format($total, 2, '.', ',') . '</td>
+							</tr>
 						</form>
 					</tbody>
 				</table>
@@ -125,15 +142,4 @@ echo'
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 </footer>
 </html>';
-
-function sanitize_string($var)
-{
-    if(get_magic_quotes_gpc())
-    {
-        $var = stripslashes($var);
-    }
-    $var = htmlentities($var);
-    $var = strip_tags($var);
-    return $var;
-}
 ?>

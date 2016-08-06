@@ -7,7 +7,7 @@ echo'
 	<meta charset="utf-8" />
 	
 	<link type="text/css" href="css/store.css" rel="stylesheet"
-        media="screen and (min-device-width: 1225px)"/>
+        media="screen and (min-device-width: 625px)"/>
 	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
 </head>
@@ -56,11 +56,4 @@ echo'
         </div>
 	</div>
 </header>';
-
-function sanitize_mysql($var)
-{
-    $var = mysql_real_escape_string($var);
-    $var = sanitze_string($var);
-    return $var;
-}
 ?>

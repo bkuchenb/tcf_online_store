@@ -1,6 +1,7 @@
 <?php
 session_start();
-
+//Import store functions.
+include ('store_000_functions.php');
 $set_list_table = $_SESSION['set_list_table'];
 $sport = $_SESSION['sport'];
 $year = $_SESSION['year'];
@@ -185,7 +186,7 @@ $r = @mysqli_query ($dbc, $q);
 	  <td class="table_cell_100 align_right">$' . $resultsArray[$i][4] . '</td>
 	  <td class="table_cell_50 align_right">' . $resultsArray[$i][0] . '</td>
 	  <td class="table_cell_100 table_cards_cell_qty">
-		<input class="txt_qty align_right" name="' . $resultsArray[$i][5] . '" type="text" /></td>
+		<input class="txt_qty align_right" name="' . $resultsArray[$i][5] . '" type="text" autocomplete="off" /></td>
 	  </tr>';
 	}//end of for loop
 
@@ -209,15 +210,4 @@ echo'
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 </footer>
 </html>';
-
-function sanitize_string($var)
-{
-    if(get_magic_quotes_gpc())
-    {
-        $var = stripslashes($var);
-    }
-    $var = htmlentities($var);
-    $var = strip_tags($var);
-    return $var;
-}
 ?>

@@ -75,12 +75,20 @@ if($_SERVER['REQUEST_METHOD'] == 'GET')
 		$filter = 0;
 		if($_GET['sort'] == 'DESC')
 		{
+<<<<<<< HEAD
+			$q = "SELECT * FROM $table ORDER BY price_1 DESC, card_id ASC";
+=======
 			$q = "SELECT * FROM $table ORDER BY price DESC, card_id ASC";
+>>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 			$sort = 'ASC';
 		}
 		else
 		{
+<<<<<<< HEAD
+			$q = "SELECT *  FROM $table ORDER BY price_1 ASC, card_id ASC";
+=======
 			$q = "SELECT *  FROM $table ORDER BY price ASC, card_id ASC";
+>>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 			$sort = 'DESC';
 		}	
 	}//end if: high price was clicked
@@ -120,7 +128,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']))
 			if($qty_update != $_SESSION['details'][$j][1] || $p1_update != $_SESSION['details'][$j][6] || 
 				$p2_update != $_SESSION['details'][$j][7])//make the query:
 			{
+<<<<<<< HEAD
+				$q = "UPDATE $table SET quantity=$qty_update, price_1=$p1_update, price_2=$p2_update WHERE card_id=$num";
+=======
 				$q = "UPDATE $table SET quantity=$qty_update, price=$p1_update, cond_price=$p2_update WHERE card_id=$num";
+>>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 				//run the query
 				$r = @mysqli_query ($dbc, $q);
 				if($r)

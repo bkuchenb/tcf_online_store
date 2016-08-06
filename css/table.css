@@ -56,7 +56,7 @@ tr.table_sets_row_header, tr.table_cards_row_header
 {
 	width: 450px;
 }
-.table_sets_cell_view, .table_cards_cell_qty, .table_cell_btn
+.table_sets_cell_view, .table_cards_cell_qty, .table_cell_btn, .table_cell_blank
 {
 	background-color:#bbff99;
 	border: none;

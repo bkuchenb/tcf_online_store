@@ -125,7 +125,9 @@ $r = @mysqli_query ($dbc, $q);
 	//display the results
 	for($i=0; $i < count($resultsArray); $i++)
 	{
-	  echo'
+		if($resultsArray[$i][8] != '')
+		{
+			echo'
 			<div class="card">
 				<div class="image">' . $resultsArray[$i][8] . '</div>
 				<div class="card_info">
@@ -153,6 +155,8 @@ $r = @mysqli_query ($dbc, $q);
 					</div>
 				</div>
 			</div>';
+		}
+	  
 	}//end of for loop
 
 	mysqli_free_result ($r); // Free up the resources.	

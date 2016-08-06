@@ -7,7 +7,7 @@ echo'
 	<meta charset="utf-8" />
 	
 	<link type="text/css" href="css/store.css" rel="stylesheet"
-        media="screen and (min-device-width: 1225px)"/>
+        media="screen and (min-device-width: 625px)"/>
 	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
 </head>

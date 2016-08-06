@@ -66,12 +66,3 @@ tr.table_sets_row_header, tr.table_cards_row_header
 {
 	width: 150px;
 }
-.align_right
-{
-	padding-right: 4px;
-	text-align: right;
-}
-.txt_qty
-{
-	width: 100px;
-}

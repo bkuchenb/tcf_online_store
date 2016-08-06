@@ -94,103 +94,65 @@ $r = @mysqli_query ($dbc, $q);
 					<div class="body_left_cards">
 					</div>
 					<div class="body_center">
-						<div class="body_table_header_cards">
-							<form method="POST" action="store_05_view.php">
-							<table class="table_cards">
-								<thead>
-									<tr class="table_cards_row_header">
-										<th class="table_cell_100">Year</th>
-										<th class="table_cell_150">Set</th>
-										<th class="table_cell_50">#</th>
-										<th class="table_cell_350">Item Description</th>
-										<th class="table_cell_100">Condition</th>
-										<th class="table_cell_100">Price</th>
-										<th class="table_cell_50">Qty</th>
-										<th class="table_cell_100 table_cell_btn">
-											<input name="cart" type="submit" value="Add to Cart" /></th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-					<div class="body_table_cards">
-						<table class="table_cards">
-							<tbody>';
-		//create a 2 dimmensional array to store the results of the query
+						<form method="POST" action="store_05_view.php">';
+		//Create a 2 dimmensional array to store the results of the query.
 		$resultsArray = array();
 		$resultsRow = array();
 		//initailize the counter
 		$counter = 0;
-		//fetch and process the query results
+		//Fetch and process the query results.
 	while($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
 	{	
 	  //store the query results in the resultsRow array
 	  $resultsRow[0] = $row['quantity'];
 	  $resultsRow[1] = $row['card_number'];
 	  $resultsRow[2] = $row['name'];
-	  $resultsRow[3] = $row['price'];
+	  $resultsRow[3] = $row['cond'];
 	  $resultsRow[4] = $row['cond_price'];
 	  $resultsRow[5] = $row['card_id'];
 	  $resultsRow[6] = $set_table;
 	  $resultsRow[8] = $row['img_front'];
 	  $resultsRow[9] = $row['img_back'];
-	  //Determine the condition from the price.
-	  $price = (float) $row['price'];
-	  $cond_price = (float) $row['cond_price'];
-	  if($cond_price >= $price)
-	  {
-		  $resultsRow[7] = 'NM-MT';
-	  }
-	  elseif($cond_price >= ($price * .5))
-	  {
-		  $resultsRow[7] = 'NM';
-	  }
-	  elseif($cond_price >= ($price * .3))
-	  {
-		  $resultsRow[7] = 'EX-MT';
-	  }
-	  elseif($cond_price >= ($price * .2))
-	  {
-		  $resultsRow[7] = 'EX';
-	  }
-	  elseif($cond_price >= ($price * .15))
-	  {
-		  $resultsRow[7] = 'VG-EX';
-	  }
-	  elseif($cond_price >= ($price * .1))
-	  {
-		  $resultsRow[7] = 'VG';
-	  }
-	  elseif($cond_price >= ($price * .05))
-	  {
-		  $resultsRow[7] = 'GOOD';
-	  }
-	  else
-	  {
-		  $resultsRow[7] = 'POOR';
-	  }
-	  //add the resultsRow array to the resultsArray
+	  
+	  //Add the resultsRow array to the resultsArray.
 	  $resultsArray[$counter] = $resultsRow;	  
-	  //update the counter
+	  //Update the counter.
 	  $counter++;		   
-	}//end while statement
+	}
 	
 	//add the results array to the session array
 	$_SESSION['array'] = $resultsArray;
 	//display the results
 	for($i=0; $i < count($resultsArray); $i++)
 	{
-	  echo '<tr class="table_cards_row">
-	  <td class="card_image"><img src="' . $resultsArray[$i][8] . '"</td>
-      <td class="table_cell_100">' . $year . '</td>
-	  <td class="table_cell_150">' . mb_strimwidth($set_name, 0, 20, "...") . '</td>
-	  <td class="table_cell_50">' . $resultsArray[$i][1] . '</td>
-	  <td class="table_cell_350">' . mb_strimwidth($resultsArray[$i][2], 0, 45, "...") . '</td>
-	  <td class="table_cell_100">' . $resultsArray[$i][7] . '</td>
-	  <td class="table_cell_100 align_right">$' . $resultsArray[$i][4] . '</td>
-	  <td class="table_cell_50 align_right">' . $resultsArray[$i][0] . '</td>
-	  <td class="table_cell_100 table_cards_cell_qty">
-		<input class="txt_qty align_right" name="' . $resultsArray[$i][5] . '" type="text" autocomplete="off" /></td>
-	  </tr>';
+	  echo'
+			<div class="card">
+				<div class="image">' . $resultsArray[$i][8] . '</div>
+				<div class="card_info">
+					<div class="card_info_text">
+						<span>' . $year . '</span>
+						<span>' . $set_name . '</span>
+					</div>
+					<div class="card_info_text">
+						<span>Price: $' . $resultsArray[$i][4] . '</span>
+					</div>
+					<div class="card_info_text">
+						<span>' . $resultsArray[$i][1] . '</span>
+						<span>' . $resultsArray[$i][2] . '</span>
+					</div>
+					<div class="card_info_text">
+						<span>In Stock: ' . $resultsArray[$i][0] . '</span>
+					</div>
+					<div class="card_info_text">
+						<span>Condition: ' . $resultsArray[$i][3] . '</span>
+					</div>
+					<div class="card_info_text">
+						<input style="width:50px; text-align:right;" name="' . $resultsArray[$i][5] . '"
+							type="text" autocomplete="off" />
+						<input name="cart" type="submit" value="Add to Cart" />
+					</div>
+				</div>
+			</div>';
 	}//end of for loop
 
 	mysqli_free_result ($r); // Free up the resources.	
@@ -200,10 +162,7 @@ $r = @mysqli_query ($dbc, $q);
 		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
 	}//end of else where query did not run*/
 echo'
-						</tbody>
-					</table>
-				</form>
-			</div>
+			</form>
 		</div>
 		<div class="body_right_cards">
 		</div>

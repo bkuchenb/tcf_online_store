@@ -20,7 +20,7 @@ if(isset($_SESSION['set_name']))
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
 	//Update the cart if it was submitted.
-	if(isset($_POST['cart']))
+	if(isset($_POST['cart']) && isset($_SESSION['array']))
 	{		
 		//Cycle through the data in the form and compare with $_SESSION['array'].
 		for($j = 0; $j < count($_SESSION['array']); $j++)
@@ -39,13 +39,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 //Make sure the qty is greater than 0.
 				 if($qty_update > 0)
 				 {
-                     $in_cart = false;
-                     //Check to see if the card is already in the cart.
-                     foreach($_SESSION['cart'] as $cart_item)
-                     {
-                         if($card_id == $cart_item['card_id'])
-                         {$in_cart = true;}
-                     }
+                     if(!isset($_SESSION['cart']))
+					 {
+						 $_SESSION['cart'] = array();
+					 }
+					 else
+					 {
+						$in_cart = false;
+						 //Check to see if the card is already in the cart.
+						 foreach($_SESSION['cart'] as $cart_item)
+						 {
+							 if($card_id == $cart_item['card_id'])
+							 {$in_cart = true;}
+						 } 
+					 }
+                     
 					//Adjust the quantity to qty in stock.
 					if($qty_update > $qty)
 					{
@@ -91,7 +99,7 @@ require ('store_db_connect.php');
 $q = "SELECT *
 	  FROM $set_table
 	  WHERE quantity > 0
-	  AND img_front != ''";
+	  AND img_front != \"\"";
 //Run the query.
 $r = @mysqli_query ($dbc, $q);
 //If it runs okay, display the records.

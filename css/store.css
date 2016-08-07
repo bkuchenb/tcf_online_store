@@ -37,7 +37,7 @@
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.header_right_row/*Placed in header_right.*/
+.header_row/*Placed in header_left or header_right.*/
 {
     display: block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;/*Get no smaller than this.*/
@@ -113,16 +113,14 @@
 .body_left/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	width: 100px;
-	min-width: 100px;
+	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .body_left_cards/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	width: 100px;
-	min-width: 100px;
+	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
@@ -239,21 +237,24 @@
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
-	width: 245px;
+	width: 248px;
+}
+.section/*Placed in card_info_text.*/
+{
+    display: inline-block;/*Place items inline but allow height/width changes.*/
+	text-align: right;/*Left align the elements in this div.*/
 }
 .body_right/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	width: 100px;
-	min-width: 100px;
+	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .body_right_cards/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	width: 100px;
-	min-width: 100px;
+	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }

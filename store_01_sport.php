@@ -4,7 +4,7 @@ session_set_cookie_params(0);
 //Start a session to save user input.
 session_start();
 //Empty the cart if the button was clicked.
-if(isset($_GET))
+if(isset($_GET['empty']))
 {$_SESSION['cart'] = array();}
 //Initialize the variables that the user will choose.
 $_SESSION['sport'] = '';

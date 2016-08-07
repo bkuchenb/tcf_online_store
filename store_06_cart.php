@@ -84,22 +84,32 @@ echo'
 									<span>' . $set_name . '</span>
 								</div>
 								<div class="card_info_text">
-									<span>Price: $' . $row['cond_price'] . '</span>
+									<section class="section" style="width:100px;">
+										In Stock: ' . $row['quantity'] . '</section>
+									<section class="section" style="width:135px;">
+										Price: $' . $row['cond_price'] . '</section>
 								</div>
 								<div class="card_info_text">
 									<span>' . $row['card_number'] . '</span>
 									<span>' . $row['name'] . '</span>
 								</div>
 								<div class="card_info_text">
-									<span>In Stock: ' . $row['quantity'] . '</span>
+									<section class="section" style="width:100px;">
+										In Cart: ' . $entry['qty'] . '</section>
+									<section class="section" style="width:135px;">' .
+									'Subtotal: $' . number_format(($entry['qty'] * (float)$row['cond_price']), 2, '.', ',') . '</section>
 								</div>
 								<div class="card_info_text">
 									<span>Condition: ' . $row['cond'] . '</span>
 								</div>
 								<div class="card_info_text">
-									<input style="width:50px; text-align:right;" name="' . $row['card_id'] . '"
+									<section class="section" style="width:100px;">
+										<input style="width:50px;" name="' . $row['card_id'] . '"
 										type="text" autocomplete="off" />
-									<input name="cart" type="submit" value="Update Cart" />
+									</section>
+									<section class="section" style="width:135px;">
+										<input name="update_qty" type="submit" value="Update Cart" />
+									</section>
 								</div>
 							</div>
 						</div>';
@@ -115,7 +125,7 @@ echo'
 				</form>
 			</div>
 		<div class="body_right_cards">
-			$' . number_format($total, 2, '.', ',') . '
+			<b> Cart Total: $' . number_format($total, 2, '.', ',') . '</b>
 		</div>
 	</div>
 </body>

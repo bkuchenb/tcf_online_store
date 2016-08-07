@@ -193,37 +193,40 @@
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 26px;/*Get no smaller than the text in this div.*/
 	margin: 4px 0px 4px 2px;
+	overflow: hidden;/*Display ellipsis if text is too long.*/
 	padding-top: 2px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
-	width:145px;
+	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
+	white-space: nowrap;/*Display ellipsis if text is too long.*/
+	width: 145px;
 }
 .card/*Placed in body_center.*/
 {
 	border: 1px solid black;/*Place a black border around the div.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 100px;/*Get no smaller than the text image placed in this div.*/
-	width: 600px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 600px;/*Get no smaller than the logo.*/
 }
 .image/*Placed in card.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 100px;
-	width: 75px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 75px;
 }
 .card_info/*Placed in card.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	height: 100px;
-	width: 500px;
+	height: 100px;	
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 500px;
 }
 .card_info_text/*Placed in card_info.*/
 {

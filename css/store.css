@@ -94,7 +94,7 @@
 .container_03
 {
 	background-color: #bbff99;/*Create a light green background.*/
-	height: 475px;
+	height: 450px;
     min-width: 625px;/*Get no smaller than the logo.*/
 	overflow: scroll;
 	position: relative;/*Stack on top of each other for smaller screens.*/

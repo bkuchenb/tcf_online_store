@@ -1,12 +1,14 @@
 <?php
+//Start a session to save user input.
 session_start();
-//add the year choosen from the previous page to the SESSION array
+//Add the year choosen to the session.
 if(isset($_GET['year']))
 {
 	$_SESSION['year'] = $_GET['year'];
 }
-//create the header
+//Create the header.
 include ('store_00_header.php');
+//Create the letter buttons.
 echo'
 <body>
 	<div class="container_03">

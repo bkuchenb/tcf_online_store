@@ -1,12 +1,16 @@
 <?php
+//Force the browser to clear the shopping cart when it closes.
 session_set_cookie_params(0);
+//Start a session to save user input.
 session_start();
+//Initialize the variables that the user will choose.
 $_SESSION['sport'] = '';
 $_SESSION['year'] = '';
 $_SESSION['letterClicked'] = '';
-$_SESSION['set'] = '';
-//create the header
+$_SESSION['set_name'] = '';
+//Create the header
 include ('store_00_header.php');
+//Create the sport buttons.
 echo'
 <body>
 	<div class="container_03">

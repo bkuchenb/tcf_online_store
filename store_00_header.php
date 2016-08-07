@@ -48,8 +48,13 @@ echo'
 			<ul>
 			  <li><a href="store_01_sport.php">' . $_SESSION['sport'] . '</a></li>
 			  <li><a href="store_02_year.php">' . $_SESSION['year'] . '</a></li> 
-			  <li><a href="store_03_letter.php">' . $_SESSION['letterClicked'] . '</a></li>
-			  <li>' . $_SESSION['set'] . '</li>
+			  <li><a href="store_03_letter.php">' . $_SESSION['letterClicked'] . '</a></li>';
+			  if($_SESSION['set_name'] != '')
+			  {
+				  echo'
+				  <li><a href="store_05_view.php">' . $_SESSION['year'] . ' ' . $_SESSION['set_name'] . '</a></li>';
+			  }
+			echo'  
 			</ul>
 		</nav>
         <div class="navbar_right">

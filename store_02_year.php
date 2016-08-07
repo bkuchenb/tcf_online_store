@@ -1,12 +1,14 @@
 <?php
+//Start a session to save user input.
 session_start();
-//add the sport choosen from the first page to the SESSION array
+//Add the sport choosen to the session.
 if(isset($_GET['sport']))
 {
 	$_SESSION['sport'] = $_GET['sport'];
 }
-//create the header
+//Create the header.
 include ('store_00_header.php');
+//Create the year buttons.
 echo'
 <body>
 	<div class="container_03">
@@ -24,7 +26,7 @@ echo'
 							echo '<br>';
 						}
 						
-						if($i <= 2015)
+						if($i <= 2016)
 						{
 							echo '<input name="year" type="submit" class="large green button" value="' . $i . '" />';
 						}

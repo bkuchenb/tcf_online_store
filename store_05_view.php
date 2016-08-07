@@ -1,19 +1,27 @@
 <?php
+//Start a session to save user input.
 session_start();
 //Import store functions.
 include ('store_000_functions.php');
+//Update the local variables.
 $set_list_table = $_SESSION['set_list_table'];
 $sport = $_SESSION['sport'];
 $year = $_SESSION['year'];
 $letter = $_SESSION['letter'];
-
+if(isset($_SESSION['set_table']))
+{
+	$set_table = $_SESSION['set_table'];
+}
+if(isset($_SESSION['set_name']))
+{
+	$set_name = $_SESSION['set_name'];
+}
+//Process a submitted form.
 if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
+	//Update the cart if it was submitted.
 	if(isset($_POST['cart']))
-	{
-		//Update the local variables.
-		$set_name = $_SESSION['set_name'];
-		$set_table = $_SESSION['set_table'];
+	{		
 		//Cycle through the data in the form and compare with $_SESSION['array'].
 		for($j = 0; $j < count($_SESSION['array']); $j++)
 		{
@@ -66,25 +74,27 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		//Get the values passed from the previous page.
 		foreach($_POST as $key => $value)
 		{
-			$temp = $key;
+			if($value == 'View')
+			{$set_name = $key;}
+			if($value == 'Hidden')
+			{$set_table = $key;}
+		
 		}
-		$temp_array = explode(":", $temp);
-		$_SESSION['set'] = $year . ' ' . $temp_array[0];
-		$set_name = $temp_array[0];
+		//Add the set_name and set_table to the session.
 		$_SESSION['set_name'] = $set_name;
-		$set_table = $temp_array[1];
 		$_SESSION['set_table'] = $set_table;
 	}
-}//end if statement that checks to see if the form was submitted
+}//End of if statement that checks to see if the form was submitted
 //Connect to the db.
 require ('store_db_connect.php');
-//Get the table name.
+//Get all the card data store in set_table.
 $q = "SELECT *
 	  FROM $set_table
-	  WHERE quantity > 0";
-//Run the query
+	  WHERE quantity > 0
+	  AND img_front != ''";
+//Run the query.
 $r = @mysqli_query ($dbc, $q);
-//If it runs ok, display the records
+//If it runs okay, display the records.
 	if ($r)
 	{
 		//Create the header.
@@ -95,74 +105,63 @@ $r = @mysqli_query ($dbc, $q);
 					</div>
 					<div class="body_center">
 						<form method="POST" action="store_05_view.php">';
-		//Create a 2 dimmensional array to store the results of the query.
+		//Create an array to store the results of the query.
 		$resultsArray = array();
-		$resultsRow = array();
-		//initailize the counter
+		//Initailize the counter.
 		$counter = 0;
 		//Fetch and process the query results.
 		while($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
 		{	
-			//store the query results in the resultsRow array
-			$resultsRow[0] = $row['quantity'];
-			$resultsRow[1] = $row['card_number'];
-			$resultsRow[2] = $row['name'];
-			$resultsRow[3] = $row['cond'];
-			$resultsRow[4] = $row['cond_price'];
-			$resultsRow[5] = $row['card_id'];
-			$resultsRow[6] = $set_table;
-			$resultsRow[7] = $row['price'];
-			$resultsRow[8] = $row['img_front'];
-			$resultsRow[9] = $row['img_back'];
-		  
-			//Add the resultsRow array to the resultsArray.
-			$resultsArray[$counter] = $resultsRow;		
+			//Store the query results in the resultsRow array
+			$resultsArray[$counter] = $row;		
 			//Update the counter.
 			$counter++;		   
 		}
 		
-		//add the results array to the session array
+		//Add the results array to the session array.
 		$_SESSION['array'] = $resultsArray;
-		//display the results
+		//Display the results.
 		for($i=0; $i < count($resultsArray); $i++)
 		{
 			
 			echo'
 			<div class="card">
-				<div class="image">' . $resultsArray[$i][8] . '</div>
+				<div class="image">' . $resultsArray[$i]['img_front'] . '</div>
 				<div class="card_info">
 					<div class="card_info_text">
 						<span>' . $year . '</span>
 						<span>' . $set_name . '</span>
 					</div>
 					<div class="card_info_text">
-						<span>Price: $' . $resultsArray[$i][4] . '</span>
+						<span>Price: $' . $resultsArray[$i]['cond_price'] . '</span>
 					</div>
 					<div class="card_info_text">
-						<span>' . $resultsArray[$i][1] . '</span>
-						<span>' . $resultsArray[$i][2] . '</span>
+						<span>' . $resultsArray[$i]['card_number'] . '</span>
+						<span>' . $resultsArray[$i]['name'] . '</span>
 					</div>
 					<div class="card_info_text">
-						<span>In Stock: ' . $resultsArray[$i][0] . '</span>
+						<span>In Stock: ' . $resultsArray[$i]['quantity'] . '</span>
 					</div>
 					<div class="card_info_text">
-						<span>Condition: ' . $resultsArray[$i][3] . '</span>
+						<span>Condition: ' . $resultsArray[$i]['cond'] . '</span>
 					</div>
 					<div class="card_info_text">
-						<input style="width:50px; text-align:right;" name="' . $resultsArray[$i][5] . '"
+						<input style="width:50px; text-align:right;" name="' . $resultsArray[$i]['card_id'] . '"
 							type="text" autocomplete="off" />
 						<input name="cart" type="submit" value="Add to Cart" />
 					</div>
 				</div>
 			</div>';	  
-		}//end of for loop
+		}//End of for loop.
 
-		mysqli_free_result ($r); // Free up the resources.	
-		}//end of if statement that checks to see if the query ran ok																		
- else //start else: query didn't run
+		mysqli_free_result ($r); //Free up the resources.	
+		}//End of if statement that checks to see if the query ran okay.																	
+ else//The query did not run okay.
 	{
+		//Print an error message.
 		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
-	}//end of else where query did not run*/
+		echo '<br>There was a problem finding what you requested.<br>';
+	}
 echo'
 			</form>
 		</div>

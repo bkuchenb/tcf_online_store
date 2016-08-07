@@ -1,12 +1,13 @@
 <?php
+//Start a session to save user input.
 session_start();
 //Get the letter clicked on the last page.
 if(isset($_GET['letter']))
 	{
 		$_SESSION['letterClicked'] = $_GET['letter'];
 	}
-//Check to see what letter was choosen on the previous page
-//and format the $letter variable accordingly.
+//Check to see what letter was choosen.
+//Format the $letter variable accordingly.
 if($_GET['letter'] == '%')
 {
 	//If % was selected return all sets in inventory for the given year.
@@ -16,7 +17,8 @@ if($_GET['letter'] == '%')
 else
 {
 	$letter = '\''. $_GET['letter']. '%\'';
-} 
+}
+//Add the letter to the session.
 $_SESSION['letter'] = $letter;
 
 //Add the sport and year choosen to local variables.
@@ -31,6 +33,7 @@ else
 }
 //Build the table name from the choosen sport.
 $set_list_table = 'set_list_' . strtolower($sport);
+//Add the set_list_table to the session.
 $_SESSION['set_list_table'] = $set_list_table;
 //Connect to the correct database database.
 require ('store_db_connect.php');	
@@ -40,7 +43,7 @@ $q = "SELECT year, set_name, table_name
 	  WHERE year=$year AND active >= 0 AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
 //Run the query.
 $r = @mysqli_query ($dbc, $q);
-//If it runs ok, display the records.
+//If it runs okay, display the records.
 if ($r)
 {
 	//Create the header and table.
@@ -56,19 +59,15 @@ if ($r)
 						<div class="body_header_cards" style="width:145px;">View Cards</div>
 					</div>
 					<form method="POST" action="store_05_view.php">';
-	//Create a 2 dimmensional array to store the results of the query
+	//Create an array to store the results of the query.
 	$resultsArray = array();
-	$resultsRow = array();
 	//Create and initailize the counter
 	$counter = 0;
 	//Fetch, and add all the records to the results array.
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
 	{
-		$resultsRow[0] = $row['table_name'];
-		$resultsRow[1] = $row['year'];
-	    $resultsRow[2] = $row['set_name'];
-		//Add the resultsRow array to the resultsArray.
-		$resultsArray[$counter] = $resultsRow;	  
+		//Add the row to the resultsArray.
+		$resultsArray[$counter] = $row;	  
 		//Update the counter.
 		$counter++;		 
 	}
@@ -79,19 +78,22 @@ if ($r)
 	{
 		echo '
 				<div class="body_table">
-					<div class="body_table_cards" style="width:100px;">' . $resultsArray[$i][1] . '</div>
-					<div class="body_table_cards" style="width:335px;">' . $resultsArray[$i][2] . '</div>
+					<div class="body_table_cards" style="width:100px;">' . $resultsArray[$i]['year'] . '</div>
+					<div class="body_table_cards" style="width:335px;">' . $resultsArray[$i]['set_name'] . '</div>
 					<div class="div_button_view">
-						<input name="' . $resultsArray[$i][2] . ':' . $resultsArray[$i][0] . '"
+						<input name="' . $resultsArray[$i]['set_name'] . '"
 							style="width:145px;" type="submit" value="View" />
+						<input name="' . $resultsArray[$i]['table_name'] . '"
+							style="width:145px;" type="hidden" value="Hidden" />
+							
 					</div>
 				</div>';
 	}
-	mysqli_free_result ($r); // Free up the resources.
+	mysqli_free_result ($r); //Free up the resources.
 }
-else//it did not run OK
+else//The query did not run okay.
 {
-	// Error message:
+	//Print an error message.
 	echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
 	echo '<br>There was a problem finding what you requested.<br>';
 }

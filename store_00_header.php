@@ -35,7 +35,7 @@ echo'
 				}
 				else
 				{
-					echo '<b>Items in Cart: (0))</b>';
+					echo '<b>Items in Cart: (0)</b>';
 				}
 	echo'	</div>
 			<div class="header_row">

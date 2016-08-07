@@ -50,7 +50,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     					$cart_array['card_id'] = $_SESSION['array'][$j][5];
     					$cart_array['qty'] = $qty_update;
     					$cart_array['total_qty'] = $_SESSION['array'][$j][0];
-    					$cart_array['cond'] = $_SESSION['array'][$j][7];
+    					$cart_array['cond'] = $_SESSION['array'][$j][3];
     					array_push($_SESSION['cart'], $cart_array);
                     }
 				 }
@@ -101,32 +101,32 @@ $r = @mysqli_query ($dbc, $q);
 		//initailize the counter
 		$counter = 0;
 		//Fetch and process the query results.
-	while($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
-	{	
-	  //store the query results in the resultsRow array
-	  $resultsRow[0] = $row['quantity'];
-	  $resultsRow[1] = $row['card_number'];
-	  $resultsRow[2] = $row['name'];
-	  $resultsRow[3] = $row['cond'];
-	  $resultsRow[4] = $row['cond_price'];
-	  $resultsRow[5] = $row['card_id'];
-	  $resultsRow[6] = $set_table;
-	  $resultsRow[8] = $row['img_front'];
-	  $resultsRow[9] = $row['img_back'];
-	  
-	  //Add the resultsRow array to the resultsArray.
-	  $resultsArray[$counter] = $resultsRow;	  
-	  //Update the counter.
-	  $counter++;		   
-	}
-	
-	//add the results array to the session array
-	$_SESSION['array'] = $resultsArray;
-	//display the results
-	for($i=0; $i < count($resultsArray); $i++)
-	{
-		if($resultsArray[$i][8] != '')
+		while($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
+		{	
+			//store the query results in the resultsRow array
+			$resultsRow[0] = $row['quantity'];
+			$resultsRow[1] = $row['card_number'];
+			$resultsRow[2] = $row['name'];
+			$resultsRow[3] = $row['cond'];
+			$resultsRow[4] = $row['cond_price'];
+			$resultsRow[5] = $row['card_id'];
+			$resultsRow[6] = $set_table;
+			$resultsRow[7] = $row['price'];
+			$resultsRow[8] = $row['img_front'];
+			$resultsRow[9] = $row['img_back'];
+		  
+			//Add the resultsRow array to the resultsArray.
+			$resultsArray[$counter] = $resultsRow;		
+			//Update the counter.
+			$counter++;		   
+		}
+		
+		//add the results array to the session array
+		$_SESSION['array'] = $resultsArray;
+		//display the results
+		for($i=0; $i < count($resultsArray); $i++)
 		{
+			
 			echo'
 			<div class="card">
 				<div class="image">' . $resultsArray[$i][8] . '</div>
@@ -154,13 +154,11 @@ $r = @mysqli_query ($dbc, $q);
 						<input name="cart" type="submit" value="Add to Cart" />
 					</div>
 				</div>
-			</div>';
-		}
-	  
-	}//end of for loop
+			</div>';	  
+		}//end of for loop
 
-	mysqli_free_result ($r); // Free up the resources.	
-	}//end of if statement that checks to see if the query ran ok																				
+		mysqli_free_result ($r); // Free up the resources.	
+		}//end of if statement that checks to see if the query ran ok																		
  else //start else: query didn't run
 	{
 		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';

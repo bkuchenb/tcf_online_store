@@ -50,21 +50,12 @@ if ($r)
 				<div class="body_left">
 				</div>
 				<div class="body_center">
-					<div class="body_table_header">
-						<table class="table_sets">
-							<thead>
-								<tr class="table_sets_row_header">
-									<th class="table_cell_150">Year</th>
-									<th class="table_cell_450">Set</th>
-									<th class="table_cell_150">View Cards</th>
-								</tr>
-							</thead>
-						</table>
+					<div class="body_header">
+						<div class="body_header_cards" style="width:100px;">Year</div>
+						<div class="body_header_cards" style="width:335px;">Set</div>
+						<div class="body_header_cards" style="width:145px;">View Cards</div>
 					</div>
-					<div class="body_table">
-						<table class="table_sets">
-							<tbody>
-								<form method="POST" action="store_05_view.php">';
+					<form method="POST" action="store_05_view.php">';
 	//Create a 2 dimmensional array to store the results of the query
 	$resultsArray = array();
 	$resultsRow = array();
@@ -86,12 +77,15 @@ if ($r)
 	//Display the results.
 	for($i=0; $i < count($resultsArray); $i++)
 	{
-		echo '<tr class="table_sets_row">
-				<td class="table_cell_150">' . $resultsArray[$i][1] . '</td>
-				<td class="table_cell_450">' . $resultsArray[$i][2] . '</td>
-				<td class="table_cell_150 table_sets_cell_view"><input class="btn_view"
-					name="' . $resultsArray[$i][2] . ':' . $resultsArray[$i][0] . '" type="submit" value="View" /></td>
-			</tr>';
+		echo '
+				<div class="body_table">
+					<div class="body_table_cards" style="width:100px;">' . $resultsArray[$i][1] . '</div>
+					<div class="body_table_cards" style="width:335px;">' . $resultsArray[$i][2] . '</div>
+					<div class="div_button_view">
+						<input name="' . $resultsArray[$i][2] . ':' . $resultsArray[$i][0] . '"
+							style="width:145px;" type="submit" value="View" />
+					</div>
+				</div>';
 	}
 	mysqli_free_result ($r); // Free up the resources.
 }
@@ -102,10 +96,7 @@ else//it did not run OK
 	echo '<br>There was a problem finding what you requested.<br>';
 }
 echo'
-						</form>
-					</tbody>
-				</table>
-			</div>
+			</form>
 		</div>
 		<div class="body_right">
 		</div>

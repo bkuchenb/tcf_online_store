@@ -43,10 +43,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_qty']))
         unset($_SESSION['cart'][$value]);
     }  
 }//End of if statement that checks to see if the cart was updated.
-elseif($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['empty']))
-{
-	$_SESSION['cart'] = array();
-}
 //Create the header and table.
 include ('store_00_header.php');
 //Connect to the db.
@@ -57,7 +53,7 @@ echo'
 			<div class="body_left_cards">
 			</div>
 			<div class="body_center">
-				<form method="POST" action="store_06_view.php">';
+				<form method="POST" action="store_06_cart.php">';
 		//Create a variable to hold the total due.
 		$total = 0.00;
 		foreach($_SESSION['cart'] as $entry)
@@ -119,9 +115,6 @@ echo'
 				</form>
 			</div>
 		<div class="body_right_cards">
-			<form method="GET" action="store_06_cart.php">
-			 <input name="empty" type="submit" value="Empty Cart" />
-			</form>
 			$' . number_format($total, 2, '.', ',') . '
 		</div>
 	</div>

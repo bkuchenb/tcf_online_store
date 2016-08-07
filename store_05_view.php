@@ -26,10 +26,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		for($j = 0; $j < count($_SESSION['array']); $j++)
 		{
             //Get the card_id and quantity available.
-            $card_id = $_SESSION['array'][$j][5];
-			$qty = $_SESSION['array'][$j][0];
+            $card_id = $_SESSION['array'][$j]['card_id'];
+			$qty = $_SESSION['array'][$j]['quantity'];
             //Sanitize the user input.
-			$qty_update = sanitize_string($_POST[$_SESSION['array'][$j][5]]);
+			$qty_update = sanitize_string($_POST[$_SESSION['array'][$j]['card_id']]);
             //If the user didn't add a card, set the quantity to 0.
             if($qty_update == '')
             {$qty_update = 0;}
@@ -54,11 +54,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                     if($in_cart == false)
                     {
     					$cart_array = array();
-    					$cart_array['set_table'] = $_SESSION['array'][$j][6];
-    					$cart_array['card_id'] = $_SESSION['array'][$j][5];
+    					$cart_array['set_table'] = $_SESSION['set_table'];
+    					$cart_array['card_id'] = $_SESSION['array'][$j]['card_id'];
     					$cart_array['qty'] = $qty_update;
-    					$cart_array['total_qty'] = $_SESSION['array'][$j][0];
-    					$cart_array['cond'] = $_SESSION['array'][$j][3];
+    					$cart_array['total_qty'] = $_SESSION['array'][$j]['quantity'];
+    					$cart_array['cond'] = $_SESSION['array'][$j]['cond'];
     					array_push($_SESSION['cart'], $cart_array);
                     }
 				 }

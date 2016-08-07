@@ -37,6 +37,15 @@
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
+.header_right_row/*Placed in header_right.*/
+{
+    display: block;/*Place items inline but allow height/width changes.*/
+	min-width: 300px;/*Get no smaller than this.*/
+	padding-top: 6px;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: center;/*Center the items in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+}
 .container_02
 {
 	background-color: #bbff99;/*Create a light green background.*/
@@ -104,29 +113,23 @@
 .body_left/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-<<<<<<< HEAD
 	width: 100px;
-=======
 	min-width: 100px;
->>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .body_left_cards/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-<<<<<<< HEAD
 	width: 100px;
-=======
 	min-width: 100px;
->>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .body_center/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-    height: 475px;
+	margin-left: 16px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
@@ -241,22 +244,16 @@
 .body_right/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-<<<<<<< HEAD
 	width: 100px;
-=======
 	min-width: 100px;
->>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .body_right_cards/*Placed in container 3.*/
 {
     display: inline-block;/*Place items inline but allow height/width changes.*/
-<<<<<<< HEAD
 	width: 100px;
-=======
 	min-width: 100px;
->>>>>>> 64dbf5732aebd0d4e8d5189086c99a6a33289524
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }

@@ -7,7 +7,7 @@ echo'
 	<meta charset="utf-8" />
 	
 	<link type="text/css" href="css/store.css" rel="stylesheet"
-        media="screen and (min-device-width: 625px)"/>
+        media="screen and (min-device-width:625px)"/>
 	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
 </head>
@@ -25,20 +25,30 @@ echo'
 			<button class="logo" type="submit" onclick="window.location.href=\'store_01_sport.php\'" />
 		</div>
 		<div class="header_right">
-		<b>';
-        if(isset($_SESSION['cart']))
-		{
-            echo 'Items in Cart: (' . count($_SESSION['cart']) . ')';
-        }
-		else
-		{
-			echo 'Items in Cart: (0)';
-			$_SESSION['cart'] = array();
-		}
-        echo'
-        </b>
-		<p></p>
-		<button class="cart" type="submit" onclick="window.location.href=\'store_06_cart.php\'" />
+			<div class="header_right_row">';
+				if(isset($_SESSION['cart']))
+				{
+					echo '<b>Items in Cart: (' . count($_SESSION['cart']) . ')</b>';
+				}
+				else
+				{
+					echo '<b>Items in Cart: (0))</b>';
+				}
+	echo'	</div>
+			<div class="header_right_row">
+				<button class="cart" type="submit" onclick="window.location.href=\'store_06_cart.php\'" />
+			</div>';
+			if(isset($_SESSION['cart']))
+			{
+				echo'
+				<div class="header_right_row">
+					<form method="GET" action="store_01_sport.php">
+						<input name="empty" type="submit" value="Empty Cart" />
+					</form>
+				</div>';
+			}
+			echo'
+			</div>
 		</div>
 	</div>
 	<div class="container_02">

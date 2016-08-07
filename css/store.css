@@ -193,12 +193,9 @@
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 26px;/*Get no smaller than the text in this div.*/
 	margin: 4px 0px 4px 2px;
-	overflow: hidden;/*Display ellipsis if text is too long.*/
 	padding-top: 2px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
-	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
-	white-space: nowrap;/*Display ellipsis if text is too long.*/
 	width:145px;
 }
 .card/*Placed in body_center.*/
@@ -233,10 +230,13 @@
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	font-size: 18px;
 	height: 32px;/*Get no smaller than the text image placed in this div.*/
+	overflow: hidden;/*Display ellipsis if text is too long.*/
 	padding: 4px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
+	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
+	white-space: nowrap;/*Display ellipsis if text is too long.*/
 	width: 248px;
 }
 .section/*Placed in card_info_text.*/

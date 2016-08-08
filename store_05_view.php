@@ -100,7 +100,7 @@ require ('store_db_connect.php');
 $q = "SELECT *
 	  FROM $set_table
 	  WHERE quantity > 0
-	  AND img_front != \"\"";
+	  AND img_front <>''";
 //Run the query.
 $r = @mysqli_query ($dbc, $q);
 //If it runs okay, display the records.

@@ -36,6 +36,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			//Validate the form input
 			if(is_numeric($qty_update))
 			{
+				//Set default value for card found in cart.
+				$in_cart = false;
                 //Make sure the qty is greater than 0.
 				 if($qty_update > 0)
 				 {
@@ -45,7 +47,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 					 }
 					 else
 					 {
-						$in_cart = false;
 						 //Check to see if the card is already in the cart.
 						 foreach($_SESSION['cart'] as $cart_item)
 						 {

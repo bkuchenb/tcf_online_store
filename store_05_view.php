@@ -113,6 +113,10 @@ $r = @mysqli_query ($dbc, $q);
 					<div class="body_left_cards">
 					</div>
 					<div class="body_center">
+						<div id="image_popup" class="image_popup">
+							<img id="large_image" src="">
+							<span class="close">x</span>
+						</div>
 						<form method="POST" action="store_05_view.php">';
 		//Create an array to store the results of the query.
 		$resultsArray = array();
@@ -135,7 +139,11 @@ $r = @mysqli_query ($dbc, $q);
 			
 			echo'
 			<div class="card">
-				<div class="image">' . $resultsArray[$i]['img_front'] . '</div>
+				<div class="image" >
+					<img class="thumb" name="front" id="' . $resultsArray[$i]['card_id'] . '"
+						onclick="open_image(' . $resultsArray[$i]['card_id'] . ',' .  $i . ')"
+						src="' . $resultsArray[$i]['img_front'] . '">
+				</div>
 				<div class="card_info">
 					<div class="card_info_text">
 						<span>' . $year . '</span>

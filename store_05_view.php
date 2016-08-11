@@ -113,9 +113,12 @@ $r = @mysqli_query ($dbc, $q);
 					<div class="body_left_cards">
 					</div>
 					<div class="body_center">
-						<div id="image_popup" class="image_popup">
-							<img id="large_image" src="">
-							<span class="close">x</span>
+						<div id="popup" class="popup">
+							<div id="large_image_div">
+								<button name="close" id="btn_close" onclick="close()">X</button>
+								<button name="back" id="btn_back">Back</button>
+								<button name="front" id="btn_front">Front</button>
+							</div>
 						</div>
 						<form method="POST" action="store_05_view.php">';
 		//Create an array to store the results of the query.
@@ -185,6 +188,16 @@ echo'
 		<div class="body_right_cards">
 		</div>
 	</div>
+<script type="text/javascript">
+document.getElementById("btn_close").addEventListener("click",
+	function(e)
+	{
+		e.preventDefault();
+		this.parentNode..style.display = "none";
+	}, false);
+</script>
+
+
 </body>
 <footer>
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

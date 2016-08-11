@@ -270,18 +270,16 @@
     text-align: left;
     width: 100%;/*Fill the entire screen.*/
 }
-.image_popup
+.popup
 {
-	background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    display: none; /* Hidden by default */
-	height: 100%; /* Full height */
+	display: block;/*Place items inline but allow height/width changes.*/
+	height: 100%;
 	left: 0;
-	overflow: auto; /* Enable scroll if needed */
-    position: fixed; /* Stay in place */    
-    top: 0;
-    width: 100%; /* Full width */
-	z-index: 1; /* Sit on top */    
+	position: fixed;
+	text-align: center;/*Center the items in this div.*/
+	top: 135;
+	width: 100%;
+	z-index: 1; /*Place on top of container 3*/	   
 }
 .thumb
 {
@@ -293,15 +291,37 @@
  {
 	 opacity: 0.7;
 }
-#large_image
+#large_image_div
 {
-	height: 640px;
-	width: 460px;
+	background-color: black;
+	background-image: url("images/bb_1960_topps/EX/#1_F_EX.jpeg");
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: block;/*Place items inline but allow height/width changes.*/
+	height: 320px;
+	margin: auto;
+	position: relative;
+	width: 230px;
 }
-.close
+#btn_back
 {
-	color: #aaa;
-    float: right;
-    font-size: 28px;
+	bottom: 0;
     font-weight: bold;
+	left: 0;
+	position: absolute;
+	width: 50px;
+}
+#btn_front
+{
+	bottom: 0;
+    font-weight: bold;
+	position: absolute;
+	right: 0;
+	width: 50px;
+}
+#btn_close
+{
+	font-weight: bold;
+	position: absolute;
+	right: 0;
+	top: 0;
 }

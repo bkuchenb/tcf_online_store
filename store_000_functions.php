@@ -18,11 +18,11 @@ function sanitize_mysql($var)
 }
 
 echo'
-<script>
-function open_image(str, index)
-{
+<script type="text/javascript">
+function open_image(id, index)
+{	
 	var xhttp = new XMLHttpRequest();
-	var view = document.getElementById(str).name;
+	var view = document.getElementById(id).name;
 	var post_data = "view=" + view + "&index=" + index;
 	xhttp.onreadystatechange = function() 
 	{
@@ -30,22 +30,15 @@ function open_image(str, index)
 		{
 			if(view == "front")
 			{
-				document.getElementById(str).name = "back";
+				document.getElementById(id).name = "back";
 			}
 			else
 			{
-				document.getElementById(str).name = "front";
+				document.getElementById(id).name = "front";
 			}
 			//Change the thumbnail view.
 			var new_src = xhttp.responseText;
-			document.getElementById(str).src = new_src;
-
-			//Get the <span> element that closes the popup.
-			var span = document.getElementByClassName("close");
-			//Set the large image.
-			document.getElementById("large_image").style.src = new_src;
-			//Set the div to visible;
-			document.getElementById("image_popup").style.display = "block";
+			document.getElementById(id).src = new_src;
 		}
 	};
 	xhttp.open("POST", "store_001_open_image.php", true);
@@ -53,4 +46,13 @@ function open_image(str, index)
 	xhttp.send(post_data);
 }
 </script>';
+/*
+	
+	//Get the image location.
+	var url = document.getElementById(id).src;
+	//Set the image background of the large_image_div.
+	document.getElementById(large_image_div).style.background-image="url("url")";
+	//Make the popup div visible.
+	document.getElementById(popup).style.display = "block";
+*/
 ?>

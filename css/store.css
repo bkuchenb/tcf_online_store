@@ -279,7 +279,7 @@
 	text-align: center;/*Center the items in this div.*/
 	top: 135;
 	width: 100%;
-	z-index: 1; /*Place on top of container 3*/	   
+	z-index: 1; /*Place on top of container 3*/  
 }
 .thumb
 {

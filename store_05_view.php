@@ -115,7 +115,7 @@ $r = @mysqli_query ($dbc, $q);
 					<div class="body_center">
 						<div id="popup" class="popup">
 							<div class="popup_container">
-								<button name="close" id="btn_close" onclick="close()">X</button>
+								<button name="close" id="btn_close">X</button>
 								<div id="large_image_div">
 								</div>
 								<button name="back" id="btn_back">Back</button>
@@ -146,8 +146,7 @@ $r = @mysqli_query ($dbc, $q);
 			<div class="card">
 				<div class="image" >
 					<img class="thumb" name="front" id="' . $resultsArray[$i]['card_id'] . '"
-						src="' . $resultsArray[$i]['img_front'] . '"
-						onclick="display_popup(' . $resultsArray[$i]['card_id'] . ',' . $i . ')" />
+						src="' . $resultsArray[$i]['img_front'] . '" />
 				</div>
 				<div class="card_info">
 					<div class="card_info_text">
@@ -190,6 +189,8 @@ echo'
 		<div class="body_right_cards">
 		</div>
 	</div>
+	<script type="text/javascript" src="store_002_scripts.js">
+	</script>
 </body>
 <footer>
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

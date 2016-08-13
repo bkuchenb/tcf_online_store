@@ -1,24 +1,33 @@
-function display_popup(id, index){
-	//Get the view from the element.
-	var view = document.getElementById(id).name;
-	//Make an ajax request to display the image.
-	display_image(index, view);
+//Get all the image elements.
+var img_array = document.getElementsByClassName("thumb");
+//Cycle through the array of images.
+for(i = 0; i < img_array.length; i++){
+	//Make the counter and id global variables.
+	var index = i;
+	var id = img_array[i].id;
 	
-	//Add an event listener to each button in the popup.
-	document.getElementById("btn_close").addEventListener("click", function(event){
+	//Add an event listener to each image.
+	img_array[i].addEventListener("click", function(event){
 		event.preventDefault();
-		this.parentNode.parentNode.style.display = "none";
-	}, false);
+		//When clicked, open popup window.
+		//Make an ajax request to display the image.
+		display_image(index, this.name);
+		//Add an event listener to each button in the popup.
+		document.getElementById("btn_close").addEventListener("click", function(event){
+			event.preventDefault();
+			this.parentNode.parentNode.style.display = "none";
+		}, false);
 
-	document.getElementById("btn_back").addEventListener("click", function(event){
-		event.preventDefault();
-		document.getElementById(id).style.backgroundImage = display_image(index, 'back');
-	}, false);
+		document.getElementById("btn_back").addEventListener("click", function(event){
+			event.preventDefault();
+			document.getElementById(id).style.backgroundImage = display_image(index, 'back');
+		}, false);
 
 
-	document.getElementById("btn_front").addEventListener("click", function(event){
-		event.preventDefault();
-		document.getElementById(id).style.backgroundImage = display_image(index, 'front');
+		document.getElementById("btn_front").addEventListener("click", function(event){
+			event.preventDefault();
+			document.getElementById(id).style.backgroundImage = display_image(index, 'front');
+		}, false);
 	}, false);
 }
 
@@ -39,20 +48,3 @@ function display_image(index, view){
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(post_data);
 }
-/*
-	//Get the image location.
-	var url = document.getElementById(id).src;
-	//Set the image background of the large_image_div.
-	document.getElementById(large_image_div).style.background-image="url("url")";
-	//Make the popup div visible.
-	document.getElementById(popup).style.display = "block";
-	
-	if(view == "front")
-			{
-				document.getElementById(id).name = "back";
-			}
-			else
-			{
-				document.getElementById(id).name = "front";
-			}
-*/

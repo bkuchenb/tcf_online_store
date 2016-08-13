@@ -291,20 +291,32 @@
 	width: 100%;
 	z-index: 1; /*Place on top of container 3*/	   
 }
+.popup_container
+{
+	background-color: C6CCCA;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: block;/*Place items inline but allow height/width changes.*/
+	height: 360px;
+	margin: auto;
+	position: relative;
+	width: 230px;
+}
 #large_image_div
 {
-	background-color: black;
-	border: 1px solid black;/*Place a black border around the div.*/
+	background-repeat: no-repeat;
+    background-size: contain;
 	display: block;/*Place items inline but allow height/width changes.*/
 	height: 320px;
 	margin: auto;
-	position: relative;
+	position: absolute;
+	top: 25;
 	width: 230px;
 }
 #btn_back
 {
 	bottom: 0;
     font-weight: bold;
+	height: 25px;
 	left: 0;
 	position: absolute;
 	width: 50px;
@@ -313,6 +325,7 @@
 {
 	bottom: 0;
     font-weight: bold;
+	height: 25px;
 	position: absolute;
 	right: 0;
 	width: 50px;
@@ -320,6 +333,7 @@
 #btn_close
 {
 	font-weight: bold;
+	height: 25px;
 	position: absolute;
 	right: 0;
 	top: 0;

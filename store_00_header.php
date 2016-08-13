@@ -10,6 +10,7 @@ echo'
         media="screen"/>
 	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
 	<link type="text/css" href="css/table.css" rel="stylesheet" />
+	<script type="text/javascript" src="store_002_scripts.js"></script>
 </head>
 <header>
 	<div class="container_01">

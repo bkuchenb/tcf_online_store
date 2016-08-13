@@ -12,13 +12,13 @@ function display_popup(id, index){
 
 	document.getElementById("btn_back").addEventListener("click", function(event){
 		event.preventDefault();
-		this.parentNode.style.backgroundImage = display_image(index, 'back');
+		document.getElementById(id).style.backgroundImage = display_image(index, 'back');
 	}, false);
 
 
 	document.getElementById("btn_front").addEventListener("click", function(event){
 		event.preventDefault();
-		this.parentNode.style.backgroundImage = display_image(index, 'front');
+		document.getElementById(id).style.backgroundImage = display_image(index, 'front');
 	}, false);
 }
 

@@ -77,9 +77,9 @@ echo'
 					$total = $total + ((float)$row['cond_price'] * $entry['qty']);
 					echo'
 						<div class="card">
-							<div class="image" >
+							<div class="image">
 								<img class="thumb" name="front" id="' . $row['card_id'] . '"
-									src="' . $row['img_front'] . '">
+									src="' . $row['img_front'] . '" />
 							</div>
 							<div class="card_info">
 								<div class="card_info_text">

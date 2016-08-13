@@ -144,7 +144,6 @@ $r = @mysqli_query ($dbc, $q);
 			<div class="card">
 				<div class="image" >
 					<img class="thumb" name="front" id="' . $resultsArray[$i]['card_id'] . '"
-						onclick="open_image(' . $resultsArray[$i]['card_id'] . ',' .  $i . ')"
 						src="' . $resultsArray[$i]['img_front'] . '">
 				</div>
 				<div class="card_info">
@@ -188,16 +187,6 @@ echo'
 		<div class="body_right_cards">
 		</div>
 	</div>
-<script type="text/javascript">
-document.getElementById("btn_close").addEventListener("click",
-	function(e)
-	{
-		e.preventDefault();
-		this.parentNode..style.display = "none";
-	}, false);
-</script>
-
-
 </body>
 <footer>
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

@@ -19,6 +19,27 @@ function sanitize_mysql($var)
 
 echo'
 <script type="text/javascript">
+document.getElementById("btn_close").addEventListener("click", function(e){
+	e.preventDefault();
+	this.parentNode.parentNode.style.display = "none";
+}, false);
+
+document.getElementById("btn_back").addEventListener("click", function(e){
+	e.preventDefault();
+	this.parentNode.style.background-image = "images/1_B_EX.jpg";
+}, false);
+
+document.getElementById("btn_front").addEventListener("click", function(e){
+	e.preventDefault();
+	this.parentNode.style.background-image = "images/1_F_EX.jpg";
+}, false);
+
+document.getElementById("2").addEventListener("click", function(e){
+	e.preventDefault();
+	document.getElementById("large_image_div").style.background-image = "this.src";
+	document.getElementById("popup").style.display = "block";
+}, false);
+
 function open_image(id, index)
 {	
 	var xhttp = new XMLHttpRequest();

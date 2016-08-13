@@ -1,17 +1,18 @@
 //Get all the image elements.
 var img_array = document.getElementsByClassName("thumb");
+var i = 0;
 //Cycle through the array of images.
 for(i = 0; i < img_array.length; i++){
-	//Make the counter and id global variables.
-	var index = i;
-	var id = img_array[i].id;
-	
+	create_listener(i);
+}
+
+function create_listener(index){
 	//Add an event listener to each image.
-	img_array[i].addEventListener("click", function(event){
+	img_array[index].addEventListener("click", function(event){
 		event.preventDefault();
 		//When clicked, open popup window.
 		//Make an ajax request to display the image.
-		display_image(index, this.name);
+		display_image(index, img_array[index].name);
 		//Add an event listener to each button in the popup.
 		document.getElementById("btn_close").addEventListener("click", function(event){
 			event.preventDefault();
@@ -20,13 +21,13 @@ for(i = 0; i < img_array.length; i++){
 
 		document.getElementById("btn_back").addEventListener("click", function(event){
 			event.preventDefault();
-			document.getElementById(id).style.backgroundImage = display_image(index, 'back');
+			document.getElementById(img_array[index].id).style.backgroundImage = display_image(index, 'back');
 		}, false);
 
 
 		document.getElementById("btn_front").addEventListener("click", function(event){
 			event.preventDefault();
-			document.getElementById(id).style.backgroundImage = display_image(index, 'front');
+			document.getElementById(img_array[index].id).style.backgroundImage = display_image(index, 'front');
 		}, false);
 	}, false);
 }

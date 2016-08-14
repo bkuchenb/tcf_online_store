@@ -23,7 +23,7 @@ function destroy_session(){
 }
 
 function create_sport_buttons(){
-?>
+	echo'
 				<div class="first_button_row">
 					<input name="sport" class="xlarge green button" type="submit" value="Baseball" />
 					<input name="sport" class="xlarge green button" type="submit" value="Football" />
@@ -47,8 +47,7 @@ function create_sport_buttons(){
 					<input name="sport" class="xlarge green button" type="submit" value="Gaming" />
 					<input name="sport" class="xlarge green button" type="submit" value="Diecast" />
 					<input name="sport" class="xlarge green button btn_hidden" type="submit" value="Diecast" />
-				</div>
-<?php
+				</div>';
 }
 
 function create_year_buttons(){
@@ -56,61 +55,49 @@ function create_year_buttons(){
 	for($i = 1960; $i < 2020; $i++){
 		if($i <= 2016){
 			if($i == 1960){
-?>
-				<div class="first_button_row">
-<?php
+				echo'
+				<div class="first_button_row">';
 			}
 			elseif(substr(strval($i), -1) == '0'){
-?>
-				<div>
-<?php
+				echo'
+				<div>';
 			}
-?>
-					<input name="year" type="submit" class="large green button" value="<?php echo $i ?>" />
-<?php
+			echo'
+					<input name="year" type="submit" class="large green button" value="' . $i . '" />';
 			if(substr(strval($i), -1) == '9'){
-?>
-				</div>
-<?php
+				echo'
+				</div>';
 			}
 		}
 		else{
-?>
-					<input name="year" type="submit" class="large green button btn_hidden" value="<?php echo $i ?>" />
-<?php
+			echo'
+					<input name="year" type="submit" class="large green button btn_hidden" value="' . $i . '" />';
 			if(substr(strval($i), -1) == '9'){
-?>
-				</div>
-<?php
+				echo'
+				</div>';
 			}
 		}		
 	}
 }
 
 function create_letter_buttons(){
-?>
-				<div class="first_button_row">
-<?php
+	echo'
+				<div class="first_button_row">';
 	$letters = range('A', 'Z');
 	for($i = 0; $i < 26; $i++){
 		if($i <= 25){
-?>
-					<input name="letter" type="submit" class="medium green button" value="<?php echo $letters[$i] ?>" />
-<?php
+			echo'
+					<input name="letter" type="submit" class="medium green button" value="' . $letters[$i] . '" />';
 		}
 		if($letters[$i] == 'G' || $letters[$i] == 'N' || $letters[$i] == 'U'){
-?>
+			echo'
 				</div>
-				<div>
-<?php
-		}
-		
-		
+				<div>';
+		}	
 	}
-?>
+	echo'
 					<input name="letter" type="submit" class="medium green button btn_hidden" value="I" />
 					<input name="letter" type="submit" class="medium green button" value="%" />
-				</div>
-<?php
+				</div>';
 }
 ?>

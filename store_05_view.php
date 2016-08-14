@@ -1,13 +1,7 @@
-<?php
-//Start a session to save user input.
-session_start();
-?>
 <script type="text/javascript"></script>
 <?php
-//Include the store_000_head.html file.
-include ('store_000_head.html');
-//Include store functions.
-include ('store_000_functions.php');
+//Create the header.
+include ('store_00_header.php');
 //Update the local variables.
 $set_list_table = $_SESSION['set_list_table'];
 $sport = $_SESSION['sport'];
@@ -86,8 +80,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$_SESSION['set_table'] = $set_table;
 	}
 }//End of if statement that checks to see if the form was submitted.
-//Create the header.
-include ('store_00_header.php');
 //Connect to the db.
 require ('store_db_connect.php');
 //Get all the card data store in set_table.
@@ -99,8 +91,7 @@ $q = "SELECT *
 $r = @mysqli_query ($dbc, $q);
 //If it runs okay, display the records.
 	if ($r){
-?>
-
+echo'
 <body>
 	<div class="container_03">
 		<div class="body_left_cards">
@@ -115,8 +106,7 @@ $r = @mysqli_query ($dbc, $q);
 					<button name="front" id="btn_front">Front</button>
 				</div>
 			</div>
-			<form method="POST" action="store_05_view.php">
-<?php
+			<form method="POST" action="store_05_view.php">';
 		//Create an array to store the results of the query.
 		$resultsArray = array();
 		//Initailize the counter.
@@ -132,39 +122,37 @@ $r = @mysqli_query ($dbc, $q);
 		$_SESSION['array'] = $resultsArray;
 		//Display the results.
 		for($i=0; $i < count($resultsArray); $i++){
-?>
+			echo'
 				<div class="card">
 					<div class="image">
-						<img class="thumb" name="front" id="<?php echo $resultsArray[$i]['card_id']; ?>"
-							src="<?php echo $resultsArray[$i]['img_front']; ?>"
-							data-index="<?php echo $i; ?>" />
+						<img class="thumb" name="front" id="' . $resultsArray[$i]['card_id'] . '"
+							src="' . $resultsArray[$i]['img_front'] . '" data-index="' . $i . '" />
 					</div>
 					<div class="card_info">
 						<div class="card_info_text">
-							<span><?php echo $year; ?></span>
-							<span><?php echo $set_name; ?></span>
+							<span>' . $year . '</span>
+							<span>' . $set_name . '</span>
 						</div>
 						<div class="card_info_text">
-							<span>Price: $<?php echo $resultsArray[$i]['cond_price']; ?></span>
+							<span>Price: $' . $resultsArray[$i]['cond_price'] . '</span>
 						</div>
 						<div class="card_info_text">
-							<span><?php echo $resultsArray[$i]['card_number']; ?></span>
-							<span><?php echo $resultsArray[$i]['name']; ?></span>
+							<span>' . $resultsArray[$i]['card_number'] . '</span>
+							<span>' . $resultsArray[$i]['name'] . '</span>
 						</div>
 						<div class="card_info_text">
-							<span>In Stock: <?php echo $resultsArray[$i]['quantity']; ?></span>
+							<span>In Stock: ' . $resultsArray[$i]['quantity'] . '</span>
 						</div>
 						<div class="card_info_text">
-							<span>Condition: <?php echo $resultsArray[$i]['cond']; ?></span>
+							<span>Condition: ' . $resultsArray[$i]['cond'] . '</span>
 						</div>
 						<div class="card_info_text">
-							<input class="text_box_qty" name="<?php echo  $resultsArray[$i]['card_id']; ?>"
+							<input class="text_box_qty" name="' . $resultsArray[$i]['card_id'] . '"
 								type="text" autocomplete="off" />
 							<input name="cart" type="submit" value="Add to Cart" />
 						</div>
 					</div>
-				</div>
-<?php
+				</div>';
 		}//End of for loop that displays results.
 		//Free up the resources.
 		mysqli_free_result ($r); 
@@ -174,7 +162,7 @@ $r = @mysqli_query ($dbc, $q);
 		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
 		echo '<br>There was a problem finding what you requested.<br>';
 	}
-?>
+	echo'
 			</form>
 		</div>
 		<div class="body_right_cards">
@@ -182,15 +170,5 @@ $r = @mysqli_query ($dbc, $q);
 	</div>
 <script type="text/javascript" src="store_002_scripts.js"></script>
 </body>
-<footer>
-	<div class="container_04">
-		<div>Icons made by 
-			<a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a>
-			from 
-			<a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
-			is licensed by 
-			<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 B</a>
-		</div>
-	</div>
-</footer>
-</html>
+</html>';
+?>

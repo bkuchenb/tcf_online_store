@@ -1,12 +1,10 @@
 /*buttons*/
-* 
-{
+* {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-.button 
-{
+.button{
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
@@ -24,8 +22,7 @@
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
 }
-.cart
-{
+.cart{
     background-color: #bbff99;
 	background-image: url(../images/cart.png);
 	background-repeat: no-repeat;
@@ -36,12 +33,10 @@
 	margin:0 auto;
 	width: 64px;
 }
-.btn_hidden
-{
+.btn_hidden{
     visibility: hidden;
 }
-.logo
-{
+.logo{
 	background-color: #bbff99;
 	background-image: url(../images/tcf_logo.png);
 	background-repeat: no-repeat;
@@ -52,8 +47,7 @@
 	margin:0 auto;
 	width: 623px;
 }
-.green.button
- {
+.green.button{
 	text-decoration:none;
 	text-align:center;
 	border:solid 1px #4985c5;
@@ -75,8 +69,7 @@
 	filter: dropshadow(enabled=false) !important;
 	display: inline-block;
 }
-.green.button:hover
- {
+.green.button:hover{
 	border:solid 1px #4985c5;
 	-webkit-border-radius:6px;
 	-moz-border-radius:6px;
@@ -89,8 +82,7 @@
 	filter: dropshadow(color=#0d55a2, offx=1, offy=1);
 	filter: dropshadow(enabled=false) !important;
 }
-.green.button:active
- {
+.green.button:active{
 	border:solid 1px #006600;
 	-webkit-border-radius:6px;
 	-moz-border-radius:6px;
@@ -103,12 +95,10 @@
 	filter: dropshadow(color=#0d55a2, offx=1, offy=1);
 	filter: dropshadow(enabled=false) !important;
 }
-.button:hover
- {
+.button:hover{
 	 background-color:#111;
 }
-.xlarge.button
- {
+.xlarge.button{
 	color: #FFF;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 20px;
@@ -122,8 +112,7 @@
 	padding-top: 12px;
 	width: 148px;
 }
-.large.button 
-{
+.large.button{
 	color: #FFF;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
@@ -137,8 +126,7 @@
 	padding-top: 8px;
 	width: 56px;
 }
-.medium.button 
-{
+.medium.button{
 	color: #FFF;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 15px;
@@ -151,7 +139,37 @@
 	padding-top: 8px;
 	width: 80px;
 }
-.button:hover,.button:active 
-{
-	text-decoration:none;
+.button:hover,.button:active{
+	text-decoration: none;
+}
+.navbar_button{
+	font-weight: bold;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#btn_back{
+	bottom: 0;
+    font-weight: bold;
+	height: 25px;
+	left: 0;
+	position: absolute;
+	width: 50px;
+}
+#btn_front{
+	bottom: 0;
+    font-weight: bold;
+	height: 25px;
+	position: absolute;
+	right: 0;
+	width: 50px;
+}
+#btn_close{
+	font-weight: bold;
+	height: 25px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+#logout_btn{
+	display: none;
 }

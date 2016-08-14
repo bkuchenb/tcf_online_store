@@ -13,8 +13,15 @@ function sanitize_mysql($var){
     $var = sanitze_string($var);
     return $var;
 }
-?>
-<?php
+
+function destroy_session(){
+	$_SESSION = array();
+	if(session_id() != '' || isset($_COOKIE[session_name()])){
+	setcookie(session_name(),'',time()-2592000, '/');
+	}
+	session_destroy();
+}
+
 function create_sport_buttons(){
 ?>
 				<div class="first_button_row">
@@ -43,8 +50,7 @@ function create_sport_buttons(){
 				</div>
 <?php
 }
-?>
-<?php
+
 function create_year_buttons(){
 	//Create the buttons.
 	for($i = 1960; $i < 2020; $i++){
@@ -80,9 +86,7 @@ function create_year_buttons(){
 		}		
 	}
 }
-?>
 
-<?php
 function create_letter_buttons(){
 ?>
 				<div class="first_button_row">

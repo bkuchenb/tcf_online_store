@@ -7,7 +7,7 @@ include ('store_000_head.html');
 include ('store_000_functions.php');
 //Create the header.
 include ('store_00_header.php');
-//Initialize the $_SESSION variables.
+//Initialize the $_SESSION and local variables.
 $_SESSION['sport'] = '';
 $_SESSION['year'] = '';
 $_SESSION['letterClicked'] = '';

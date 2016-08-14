@@ -6,6 +6,18 @@ for(i = 0; i < img_array.length; i++){
 	create_listener(i);
 }
 
+//Add an event listener to the login button.
+document.getElementById("login_btn").addEventListener("click", function(event){
+	event.preventDefault();
+	document.getElementById("logout_btn").style.display = "block";
+}, false);
+
+//Add an event listener to the logout button.
+document.getElementById("logout_btn").addEventListener("click", function(event){
+	event.preventDefault();
+	document.getElementById("login_btn").style.display = "block";	
+}, false);
+
 //Add an event listener to each button in the popup.
 document.getElementById("btn_close").addEventListener("click", function(event){
 	event.preventDefault();

@@ -47,6 +47,11 @@ if(isset($_SESSION['cart'])){
 	</div>
 	<div class="container_02">
         <div class="navbar_left">
+			<button class="navbar_button" id="signup_btn" type="submit"
+				onclick="window.location.href='store_011_login.php'">Sign up</button>
+			<button class="navbar_button" id="login_btn" type="submit"
+				onclick="window.location.href='store_011_login.php'">Log in</button>
+			<button class="navbar_button" id="logout_btn" type="submit">Log out</button>
         </div>
 		<nav class="navbar" id="navcontainer">
 			<ul>

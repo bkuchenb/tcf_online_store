@@ -53,17 +53,18 @@
 }
 .navbar_left{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-width: 300px;/*Get no smaller than this.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
-	text-align: left;
+	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .navbar{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-height: 40px;/*Get no smaller than the text in this div.*/
-	min-width: 625px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;
 	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 625px;/*Get no smaller than the logo.*/
 }
 #navcontainer ul{/*Placed in navbar.*/
     margin: 0;
@@ -84,6 +85,7 @@
 }
 .navbar_right{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-width: 300px;/*Get no smaller than this.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;
 	vertical-align: top;/*Place div flush with the top of the container.*/
@@ -182,8 +184,9 @@
 }
 .card{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the div.*/
+	border-top: none;
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	height: 100px;/*Get no smaller than the text image placed in this div.*/
+	height: 102px;/*Get no smaller than the text image placed in this div.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
@@ -276,29 +279,6 @@
 	position: absolute;
 	top: 25;
 	width: 230px;
-}
-#btn_back{
-	bottom: 0;
-    font-weight: bold;
-	height: 25px;
-	left: 0;
-	position: absolute;
-	width: 50px;
-}
-#btn_front{
-	bottom: 0;
-    font-weight: bold;
-	height: 25px;
-	position: absolute;
-	right: 0;
-	width: 50px;
-}
-#btn_close{
-	font-weight: bold;
-	height: 25px;
-	position: absolute;
-	right: 0;
-	top: 0;
 }
 .align_center{
 	text-align: center;/*Center the items in this form.*/

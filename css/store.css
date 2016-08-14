@@ -306,3 +306,7 @@
 .first_button_row{
 	margin-top: 8px;
 }
+.text_box_qty{
+	text-align: right;
+	width: 50px;
+}

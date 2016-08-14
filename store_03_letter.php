@@ -1,10 +1,12 @@
 <?php
+//Include the head.
+include ('store_000_head.php');
 //Create the header.
-include ('store_00_header.php');
-//Add the year choosen to the session.
 if(isset($_GET['year'])){
 	$_SESSION['year'] = $_GET['year'];
 }
+//Include the header.
+include ('store_00_header.php');
 echo'
 <body>
 	<div class="container_03">

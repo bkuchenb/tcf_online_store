@@ -1,10 +1,12 @@
 <?php
+//Include the head.
+include ('store_000_head.php');
 //Create the header.
-include ('store_00_header.php');
-//Add the sport choosen to the session.
 if(isset($_GET['sport'])){
 	$_SESSION['sport'] = $_GET['sport'];
 }
+//Include the header.
+include ('store_00_header.php');
 echo'
 <body>
 	<div class="container_03">

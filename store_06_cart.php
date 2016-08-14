@@ -1,10 +1,6 @@
 <?php
-//Start a session to save user input.
-session_start();
-//Include the store_000_head.html file.
-include ('store_000_head.html');
-//Include store functions.
-include ('store_000_functions.php');
+//Include the head.
+include ('store_000_head.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_qty'])){
     //Create a new array to store cards to be deleted.
     $delete = array();
@@ -33,19 +29,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_qty'])){
         unset($_SESSION['cart'][$value]);
     }  
 }//End of if statement that checks to see if the cart was updated.
-//Create the header and table.
+//Include the header and table.
 include ('store_00_header.php');
-//Connect to the db.
-require ('store_db_connect.php');
-?>
-
+echo'
 <body>
 	<div class="container_03">
 		<div class="body_left_cards">
 		</div>
 		<div class="body_center">
-			<form method="POST" action="store_06_cart.php">
-<?php
+			<form method="POST" action="store_06_cart.php">';
 //Create a variable to hold the total due.
 $total = 0.00;
 foreach($_SESSION['cart'] as $entry){
@@ -66,43 +58,42 @@ foreach($_SESSION['cart'] as $entry){
 			$total = $total + ((float)$row['cond_price'] * $entry['qty']);
 			//Calculate the subtotal.
 			$subtotal = number_format(($entry['qty'] * (float)$row['cond_price']), 2, '.', ','); 
-?>
+			echo'
 				<div class="card">
 					<div class="image">
-						<img class="thumb" name="front" id="<?php echo $row['card_id']; ?>"
-							src="<?php echo $row['img_front']; ?>" />
+						<img class="thumb" name="front" id="' . $row['card_id'] . '"
+							src="' . $row['img_front'] . '" />
 					</div>
 					<div class="card_info">
 						<div class="card_info_text">
-							<span><?php echo $entry['year']; ?></span>
-							<span><?php echo $entry['set_name']; ?></span>
+							<span>' . $entry['year'] . '</span>
+							<span>' . $entry['set_name'] . '</span>
 						</div>
 						<div class="card_info_text">
-							<section class="section section_width_100">In Stock: <?php echo $row['quantity']; ?></section>
-							<section class="section section_width_135">Price: $<?php echo $row['cond_price']; ?></section>
+							<section class="section section_width_100">In Stock: ' . $row['quantity'] . '</section>
+							<section class="section section_width_135">Price: $' . $row['cond_price'] . '</section>
 						</div>
 						<div class="card_info_text">
-							<span><?php echo $row['card_number']; ?></span>
-							<span><?php echo $row['name']; ?></span>
+							<span>' . $row['card_number'] . '</span>
+							<span>' . $row['name'] . '</span>
 						</div>
 						<div class="card_info_text">
-							<section class="section section_width_100">In Cart: <?php echo $entry['qty']; ?></section>
-							<section class="section section_width_135">Subtotal: $<?php echo $subtotal; ?></section>
+							<section class="section section_width_100">In Cart: ' . $entry['qty'] . '</section>
+							<section class="section section_width_135">Subtotal: $' . $subtotal . '</section>
 						</div>
 						<div class="card_info_text">
-							<span>Condition: <?php echo $row['cond']; ?></span>
+							<span>Condition: ' . $row['cond'] . '</span>
 						</div>
 						<div class="card_info_text">
 							<section class="section section_width_100">
-								<input class="text_box_qty" name="<?php echo $row['card_id']; ?>" type="text" autocomplete="off" />
+								<input class="text_box_qty" name="' . $row['card_id'] . '" type="text" autocomplete="off" />
 							</section>
 							<section class="section section_width_135">
 								<input name="update_qty" type="submit" value="Update Cart" />
 							</section>
 						</div>
 					</div>
-				</div>
-<?php
+				</div>';
 		}//End of while statement that displays the results.
 	}//End of if statement, the query ran okay.
 	else{
@@ -110,23 +101,13 @@ foreach($_SESSION['cart'] as $entry){
 		echo '<br>There was a problem finding what you requested.<br>';
 	}
 }//End of foreach loop that cycles throught the cart.
-?>
+echo'
 			</form>
 		</div>
 		<div class="body_right_cards">
-			<b>Cart Total: $<?php echo number_format($total, 2, '.', ','); ?></b>
+			<b>Cart Total: $' . number_format($total, 2, '.', ',') . '</b>
 		</div>
 	</div>
 </body>
-<footer>
-	<div class="container_04">
-		<div>Icons made by 
-			<a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a>
-			from 
-			<a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>
-			is licensed by 
-			<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 B</a>
-		</div>
-	</div>
-</footer>
-</html>
+</html>';
+?>

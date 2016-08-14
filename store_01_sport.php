@@ -1,6 +1,6 @@
 <?php
-//Create the header.
-include ('store_00_header.php');
+//Include the head.
+include ('store_000_head.php');
 //Empty the cart if the button was clicked.
 if(isset($_GET['empty'])){
 	$_SESSION['cart'] = array();
@@ -10,6 +10,8 @@ $_SESSION['sport'] = '';
 $_SESSION['year'] = '';
 $_SESSION['letterClicked'] = '';
 $_SESSION['set_name'] = '';
+//Include the header.
+include ('store_00_header.php');
 echo'
 <body>
 	<div class="container_03">

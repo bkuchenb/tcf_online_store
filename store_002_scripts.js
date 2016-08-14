@@ -16,14 +16,12 @@ document.getElementById("btn_back").addEventListener("click", function(event){
 	event.preventDefault();
 	//Display the back view picture.
 	display_image(document.getElementById("large_image_div").name, 'back');
-	console.log(document.getElementById("large_image_div").name);
 }, false);
 
 document.getElementById("btn_front").addEventListener("click", function(event){
 	event.preventDefault();
 	//Display the front view picture.
 	display_image(document.getElementById("large_image_div").name, 'front');
-	console.log(document.getElementById("large_image_div").name);
 }, false);
 
 function create_listener(index){

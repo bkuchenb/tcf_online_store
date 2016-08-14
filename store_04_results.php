@@ -1,6 +1,6 @@
 <?php
-//Create the header.
-include ('store_00_header.php');
+//Include the head.
+include ('store_000_head.php');
 //Get the letter clicked on the last page.
 if(isset($_GET['letter'])){
 	$_SESSION['letterClicked'] = $_GET['letter'];
@@ -29,8 +29,8 @@ else{
 $set_list_table = 'set_list_' . strtolower($sport);
 //Add the set_list_table to the session.
 $_SESSION['set_list_table'] = $set_list_table;
-//Connect to the correct database database.
-require ('store_db_connect.php');	
+//Include the header.
+include ('store_00_header.php');
 //Query the database.
 $q = "SELECT year, set_name, table_name
       FROM $set_list_table

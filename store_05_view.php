@@ -1,7 +1,7 @@
 <script type="text/javascript"></script>
 <?php
-//Create the header.
-include ('store_00_header.php');
+//Include the head.
+include ('store_000_head.php');
 //Update the local variables.
 $set_list_table = $_SESSION['set_list_table'];
 $sport = $_SESSION['sport'];
@@ -80,8 +80,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$_SESSION['set_table'] = $set_table;
 	}
 }//End of if statement that checks to see if the form was submitted.
-//Connect to the db.
-require ('store_db_connect.php');
+//Include the header.
+include ('store_00_header.php');
 //Get all the card data store in set_table.
 $q = "SELECT *
 	  FROM $set_table
@@ -100,7 +100,7 @@ echo'
 			<div id="popup" class="popup">
 				<div class="popup_container">
 					<button name="close" id="btn_close">X</button>
-					<div id="large_image_div" name="">
+					<div id="large_image_div">
 					</div>
 					<button name="back" id="btn_back">Back</button>
 					<button name="front" id="btn_front">Front</button>

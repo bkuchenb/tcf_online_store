@@ -265,7 +265,7 @@
 	background-color: C6CCCA;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: block;/*Place items inline but allow height/width changes.*/
-	height: 360px;
+	height: 372px;
 	margin: auto;
 	position: relative;
 	width: 230px;
@@ -277,7 +277,7 @@
 	height: 320px;
 	margin: auto;
 	position: absolute;
-	top: 25;
+	top: 28;
 	width: 230px;
 }
 .align_center{

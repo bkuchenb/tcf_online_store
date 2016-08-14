@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+	<title>TCF Online Store</title>
+	<meta charset="utf-8" />
+	<link type="text/css" href="css/store.css" rel="stylesheet" media="screen" />
+	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
+	<link type="text/css" href="css/table.css" rel="stylesheet" />
+</head>
 <header>
 	<div class="container_01">
 		<div class="header_left">

@@ -10,11 +10,12 @@ echo'
 		<div class="body_left">
 		</div>
 		<div class="body_center">';
+			//Open the form.
+	echo' <form method="get" action="store_010_admin.php" class="align_center">';
 //Connect to the db.
 require ('store_db_connect.php');
 if(!isset($_SESSION['sport'])){
-	//Open the form.
-	echo' <form method="get" action="store_010_admin.php" align="center">';
+	
 	//Create the sport buttons.
 	create_sport_buttons();
 	echo'

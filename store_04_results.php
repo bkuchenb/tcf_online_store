@@ -46,7 +46,7 @@ $r = @mysqli_query ($dbc, $q);
 //If it runs okay, display the records.
 if ($r)
 {
-	//Create the header and table.
+	//Create the results header and table.
 	include ('store_00_header.php');
 	echo '<body>
 			<div class="container_03">

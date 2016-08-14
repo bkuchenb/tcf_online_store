@@ -1,6 +1,8 @@
 <?php
 //Start a session to save user input.
 session_start();
+//Include the store_000_head.html file.
+include ('store_000_head.html');
 //Get the letter clicked on the last page.
 if(isset($_GET['letter'])){
 	$_SESSION['letterClicked'] = $_GET['letter'];
@@ -29,6 +31,10 @@ else{
 $set_list_table = 'set_list_' . strtolower($sport);
 //Add the set_list_table to the session.
 $_SESSION['set_list_table'] = $set_list_table;
+//Include store functions.
+include ('store_000_functions.php');
+//Create the header.
+include ('store_00_header.php');
 //Connect to the correct database database.
 require ('store_db_connect.php');	
 //Query the database.
@@ -39,8 +45,6 @@ $q = "SELECT year, set_name, table_name
 $r = @mysqli_query ($dbc, $q);
 //If it runs okay, display the records.
 if ($r){
-	//Create the results header and table.
-	include ('store_00_header.php');
 ?>
 
 <body>

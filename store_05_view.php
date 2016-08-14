@@ -1,12 +1,13 @@
 <?php
 //Start a session to save user input.
 session_start();
-//Include store functions.
-include ('store_000_functions.php');
-//Add script tags, image popup won't work properly without this.
 ?>
 <script type="text/javascript"></script>
 <?php
+//Include the store_000_head.html file.
+include ('store_000_head.html');
+//Include store functions.
+include ('store_000_functions.php');
 //Update the local variables.
 $set_list_table = $_SESSION['set_list_table'];
 $sport = $_SESSION['sport'];
@@ -56,6 +57,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 					}
                     if($in_cart == false){
     					$cart_array = array();
+						$cart_array['sport'] = $sport;
+						$cart_array['year'] = $year;
+						$cart_array['set_name'] = $set_name;
     					$cart_array['set_table'] = $_SESSION['set_table'];
     					$cart_array['card_id'] = $_SESSION['array'][$j]['card_id'];
     					$cart_array['qty'] = $qty_update;
@@ -82,6 +86,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		$_SESSION['set_table'] = $set_table;
 	}
 }//End of if statement that checks to see if the form was submitted.
+//Create the header.
+include ('store_00_header.php');
 //Connect to the db.
 require ('store_db_connect.php');
 //Get all the card data store in set_table.
@@ -93,8 +99,6 @@ $q = "SELECT *
 $r = @mysqli_query ($dbc, $q);
 //If it runs okay, display the records.
 	if ($r){
-		//Create the header.
-		include ('store_00_header.php');
 ?>
 
 <body>
@@ -176,7 +180,7 @@ $r = @mysqli_query ($dbc, $q);
 		<div class="body_right_cards">
 		</div>
 	</div>
-	<script type="text/javascript" src="store_002_scripts.js"></script>
+<script type="text/javascript" src="store_002_scripts.js"></script>
 </body>
 <footer>
 	<div class="container_04">

@@ -1,11 +1,12 @@
 <?php
 //Start a session to save user input.
 session_start();
+//Include the store_000_head.html file.
+include ('store_000_head.html');
 //Include store functions.
 include ('store_000_functions.php');
 //Add the sport choosen to the session.
-if(isset($_GET['sport']))
-{
+if(isset($_GET['sport'])){
 	$_SESSION['sport'] = $_GET['sport'];
 }
 //Create the header.

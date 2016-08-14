@@ -1,55 +1,79 @@
 <?php
 //Start a session to save changes.
 session_start();
+//Include the store_000_head.html file.
+include ('store_000_head.html');
+//Include store functions.
+include ('store_000_functions.php');
 //Create the header.
 include ('store_00_header.php');
-//Create the body.
-echo'
+//Initialize the $_SESSION variables.
+$_SESSION['sport'] = '';
+$_SESSION['year'] = '';
+$_SESSION['letterClicked'] = '';
+$_SESSION['set_name'] = '';
+?>
+
 <body>
 	<div class="container_03">
 		<div class="body_left">
 		</div>
-		<div class="body_center">';
-			//Open the form.
-	echo' <form method="get" action="store_010_admin.php" class="align_center">';
+		<div class="body_center">
+			<form method="get" action="store_010_admin.php" class="align_center">
+<?php
 //Connect to the db.
 require ('store_db_connect.php');
-if(!isset($_SESSION['sport'])){
-	
+if(!isset($_SERVER['REQUEST_METHOD'])){
 	//Create the sport buttons.
 	create_sport_buttons();
-	echo'
-			</form>
-		</div>
-		<div class="body_right">
-		</div>
-	</div>
-</body>
-</html>';	
-}
-else{
-	$sport = $_SESSION['sport']
 }
 //Create the year buttons.
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['sport'])){
-	echo' <form method="get" action="store_010_admin.php" align="center">';
+if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['sport'])){
+	$_SESSION['sport'] = $_GET['sport'];
 	create_year_buttons();
-	echo'
+}
+//Create the letter buttons.
+if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['year'])){
+	$_SESSION['year'] = $_GET['year'];
+	create_letter_buttons();
+}
+//Get the letter clicked on the last page.
+if(isset($_GET['letter'])){
+	$_SESSION['letterClicked'] = $_GET['letter'];
+	//Check to see what letter was choosen.
+	//Format the $letter variable accordingly.
+	if($_GET['letter'] == '%'){
+		//If % was selected return all sets in inventory for the given year.
+		$letter = '\''. $_GET['letter']. '\'';
+	}
+	//If any other letter was selected, return all sets that begin with that letter.
+	else{
+		$letter = '\''. $_GET['letter']. '%\'';
+	}
+	//Add the letter to the session.
+	$_SESSION['letter'] = $letter;
+	//Add the sport and year choosen to local variables.
+	$sport = $_SESSION['sport'];
+	if($_SESSION['year'] == '%'){
+		$year = '\'' . $_SESSION['year'] . '\'';
+	}
+	else{
+		$year = $_SESSION['year'];
+	}
+	//Build the table name from the choosen sport.
+	$set_list_table = 'set_list_' . strtolower($sport);
+	//Add the set_list_table to the session.
+	$_SESSION['set_list_table'] = $set_list_table;
+}
+?>
 			</form>
 		</div>
 		<div class="body_right">
 		</div>
 	</div>
 </body>
-</html>';
-}
-else{
-	$year = $_SESSION['year']
-}
-//Create the letter buttons.
-if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['sport'])){
-	include ('store_01_sport.php');
-}
+</html>	
+	<!--
 	for($j = 0; $j < count($_SESSION['array']); $j++)
 	{
 		$id = $_SESSION['array'][$j][0];
@@ -162,3 +186,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['sport'])){
 ?>
 </body>
 </html>
+-->

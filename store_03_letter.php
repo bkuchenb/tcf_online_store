@@ -1,11 +1,12 @@
 <?php
 //Start a session to save user input.
 session_start();
+//Include the store_000_head.html file.
+include ('store_000_head.html');
 //Include store functions.
 include ('store_000_functions.php');
 //Add the year choosen to the session.
-if(isset($_GET['year']))
-{
+if(isset($_GET['year'])){
 	$_SESSION['year'] = $_GET['year'];
 }
 //Create the header.

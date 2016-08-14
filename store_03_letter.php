@@ -1,6 +1,8 @@
 <?php
 //Start a session to save user input.
 session_start();
+//Include store functions.
+include ('store_000_functions.php');
 //Add the year choosen to the session.
 if(isset($_GET['year']))
 {
@@ -15,26 +17,9 @@ echo'
 		<div class="body_left">
 		</div>
 		<div class="body_center">
-			<form method="get" action="store_04_results.php" align="center">
-				<p>';
-					$counter = 0;//create a counter to put paragraph breaks between the rows
-					$letters = range('A', 'Z');
-					for($i = 0; $i < 26; $i++)
-					{
-						if($counter == 7)
-						{
-							$counter = 0;
-							echo '</p><p>';
-						}
-						
-						if($i <= 25)
-						{echo '<input name="letter" type="submit" class="medium green button" value="' . $letters[$i] . '" />';}
-						$counter++;
-					}
-						echo '
-						<input name="letter" type="submit" class="medium green button btn_hidden" value="I" />
-						<input name="letter" type="submit" class="medium green button" value="%" />
-				</p>
+			<form method="get" action="store_04_results.php" align="center">';
+			create_letter_buttons();	
+			echo'
 			</form>
 		</div>
 		<div class="body_right">

@@ -1,11 +1,8 @@
 <?php
 //Start a session to save user input.
 session_start();
-//Import store functions.
+//Include store functions.
 include ('store_000_functions.php');
-//Update the local variables.
-$year = $_SESSION['year'];
-$set_name = $_SESSION['set_name'];
 
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_qty']))
 {

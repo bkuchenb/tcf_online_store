@@ -1,6 +1,8 @@
 <?php
 //Start a session to save user input.
 session_start();
+//Include store functions.
+include ('store_000_functions.php');
 //Add the sport choosen to the session.
 if(isset($_GET['sport']))
 {
@@ -15,29 +17,9 @@ echo'
 		<div class="body_left">
 		</div>
 		<div class="body_center">
-			<form method="get" action="store_03_letter.php" align="center">
-				<p>';
-					$counter = 0;//create a counter to put paragraph breaks between the rows
-					for($i = 1960; $i < 2020; $i++)
-					{
-						if($counter == 10)
-						{
-							$counter = 0;
-							echo '<br>';
-						}
-						
-						if($i <= 2016)
-						{
-							echo '<input name="year" type="submit" class="large green button" value="' . $i . '" />';
-						}
-						else
-						{
-							echo '<input name="year" type="submit" class="large green button btn_hidden" value="' . $i . '" />';
-						}
-						$counter++;
-					}
-echo'
-				</p>
+			<form method="get" action="store_03_letter.php" align="center">';
+			create_year_buttons();
+			echo'
 			</form>
 		</div>
 		<div class="body_right">

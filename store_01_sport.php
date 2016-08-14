@@ -3,6 +3,8 @@
 session_set_cookie_params(0);
 //Start a session to save user input.
 session_start();
+//Include store functions.
+include ('store_000_functions.php');
 //Empty the cart if the button was clicked.
 if(isset($_GET['empty']))
 {$_SESSION['cart'] = array();}
@@ -20,31 +22,9 @@ echo'
 		<div class="body_left">
 		</div>
 		<div class="body_center">
-			<form method="get" action="store_02_year.php" align="center">
-				<p>
-					<input name="sport" class="xlarge green button" type="submit" value="Baseball" />
-					<input name="sport" class="xlarge green button" type="submit" value="Football" />
-					<input name="sport" class="xlarge green button" type="submit" value="Basketball" />
-					<input name="sport" class="xlarge green button" type="submit" value="Hockey" />
-				</p>
-				<p>
-					<input name="sport" class="xlarge green button" type="submit" value="Nonsports" />
-					<input name="sport" class="xlarge green button" type="submit" value="Multisport" />
-					<input name="sport" class="xlarge green button" type="submit" value="Racing" />
-					<input name="sport" class="xlarge green button" type="submit" value="Wrestling" />
-				</p>
-				<p>
-					<input name="sport" class="xlarge green button" type="submit" value="Soccer" />
-					<input name="sport" class="xlarge green button" type="submit" value="Golf" />
-					<input name="sport" class="xlarge green button" type="submit" value="Magic" />
-					<input name="sport" class="xlarge green button" type="submit" value="YuGiOh" />
-				</p>
-				<p>
-					<input name="sport" class="xlarge green button" type="submit" value="Pokemon" />
-					<input name="sport" class="xlarge green button" type="submit" value="Gaming" />
-					<input name="sport" class="xlarge green button" type="submit" value="Diecast" />
-					<input name="sport" class="xlarge green button btn_hidden" type="submit" value="Diecast" />
-				</p>
+			<form method="get" action="store_02_year.php" align="center">';
+			create_sport_buttons();
+			echo'
 			</form>
 		</div>
 		<div class="body_right">

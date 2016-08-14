@@ -26,9 +26,24 @@ if(!isset($_SESSION['sport'])){
 </body>
 </html>';	
 }
+else{
+	$sport = $_SESSION['sport']
+}
 //Create the year buttons.
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['sport'])){
-	include ('store_01_sport.php');
+	echo' <form method="get" action="store_010_admin.php" align="center">';
+	create_year_buttons();
+	echo'
+			</form>
+		</div>
+		<div class="body_right">
+		</div>
+	</div>
+</body>
+</html>';
+}
+else{
+	$year = $_SESSION['year']
 }
 //Create the letter buttons.
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['sport'])){

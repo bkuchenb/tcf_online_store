@@ -1,8 +1,10 @@
 <?php
 //Start a session to save user input.
 session_start();
-//Import store functions.
+//Include store functions.
 include ('store_000_functions.php');
+//Add script tags, image popup won't work properly without this.
+echo' <script type="text/javascript"></script>';
 //Update the local variables.
 $set_list_table = $_SESSION['set_list_table'];
 $sport = $_SESSION['sport'];
@@ -190,8 +192,7 @@ echo'
 		<div class="body_right_cards">
 		</div>
 	</div>
-	<script type="text/javascript" src="store_002_scripts.js">
-	</script>
+	<script type="text/javascript" src="store_002_scripts.js"></script>
 </body>
 <footer>
 <div class="container_04">Icons made by <a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>

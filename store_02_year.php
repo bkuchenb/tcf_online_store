@@ -28,7 +28,8 @@ create_year_buttons();
 		</div>
 	</div>
 </body>
-<div class="container_04">
+<footer>
+	<div class="container_04">
 		<div>Icons made by 
 			<a href="http://www.flaticon.com/authors/stephen-hutchings" title="Stephen Hutchings">Stephen Hutchings</a>
 			from 
@@ -37,4 +38,5 @@ create_year_buttons();
 			<a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 B</a>
 		</div>
 	</div>
+</footer>
 </html>

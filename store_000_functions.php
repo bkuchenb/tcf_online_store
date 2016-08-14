@@ -84,24 +84,29 @@ function create_year_buttons(){
 
 <?php
 function create_letter_buttons(){
-	echo'
-	<p>';
-		$counter = 0;//create a counter to put paragraph breaks between the rows
-		$letters = range('A', 'Z');
-		for($i = 0; $i < 26; $i++){
-			if($counter == 7)
-			{
-				$counter = 0;
-				echo '</p><p>';
-			}
-			
-			if($i <= 25)
-			{echo '<input name="letter" type="submit" class="medium green button" value="' . $letters[$i] . '" />';}
-			$counter++;
+?>
+				<div class="first_button_row">
+<?php
+	$letters = range('A', 'Z');
+	for($i = 0; $i < 26; $i++){
+		if($i <= 25){
+?>
+					<input name="letter" type="submit" class="medium green button" value="<?php echo $letters[$i] ?>" />
+<?php
 		}
-		echo '
-		<input name="letter" type="submit" class="medium green button btn_hidden" value="I" />
-		<input name="letter" type="submit" class="medium green button" value="%" />
-	</p>';
+		if($letters[$i] == 'G' || $letters[$i] == 'N' || $letters[$i] == 'U'){
+?>
+				</div>
+				<div>
+<?php
+		}
+		
+		
+	}
+?>
+					<input name="letter" type="submit" class="medium green button btn_hidden" value="I" />
+					<input name="letter" type="submit" class="medium green button" value="%" />
+				</div>
+<?php
 }
 ?>

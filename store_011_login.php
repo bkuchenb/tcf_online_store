@@ -7,8 +7,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	$choice = $_GET['choice'];
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+	//Sanitize the user input.
 	$email = sanitize_string($_POST['email']);
 	$password = sanitize_string($_POST['password']);
+	//Hide the sign in and log in buttons, display the logout button.
+	echo'
+		<script type="text/javascript">
+			document.getElementById("signup_btn").type = "hidden";
+			document.getElementById("login_btn").type = "hidden";
+			document.getElementById("logout_btn").type = "submit";
+		</script>';
 }
 echo'
 <body>

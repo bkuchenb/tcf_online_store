@@ -5,32 +5,28 @@
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-.container_01
-{
+.container_01{
 	background-color: #bbff99;/*Create a light green background.*/
     min-width: 625px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
     text-align: center;/*Center all divs placed inside this container.*/
     width: 100%;/*Fill the entire width of the screen.*/
 }
-.header_left/*Placed in container 1.*/
-{
+.header_left{/*Placed in container 1.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-height: 135px;/*Get no smaller than the logo.*/
 	min-width: 300px;/*Get no smaller than this.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.header_center/*Placed in container 1.*/
-{
+.header_center{/*Placed in container 1.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-height: 135px;/*Get no smaller than the logo.*/
 	min-width: 625px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.header_right/*Placed in container 1.*/
-{
+.header_right{/*Placed in container 1.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-height: 135px;/*Get no smaller than the logo.*/
 	min-width: 300px;/*Get no smaller than this.*/
@@ -38,8 +34,7 @@
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.header_row/*Placed in header_left or header_right.*/
-{
+.header_row{/*Placed in header_left or header_right.*/
     display: block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;/*Get no smaller than this.*/
 	padding-top: 6px;
@@ -47,8 +42,7 @@
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.container_02
-{
+.container_02{
 	background-color: #bbff99;/*Create a light green background.*/
 	border-bottom: 1px solid black;
 	border-top: 1px solid black;
@@ -57,52 +51,46 @@
     text-align: center;/*Center all divs placed inside container.*/
     width: 100%;/*Fill the entire screen.*/
 }
-.navbar_left/*Placed in container 2.*/
-{
+.navbar_left{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-width: 300px;/*Get no smaller than this.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
-	text-align: left;
+	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.navbar/*Placed in container 2.*/
-{
+.navbar{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-height: 40px;/*Get no smaller than the text in this div.*/
-	min-width: 625px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;
 	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 625px;/*Get no smaller than the logo.*/
 }
-#navcontainer ul/*Placed in navbar.*/
-{
+#navcontainer ul{/*Placed in navbar.*/
     margin: 0;
 	padding: 10px;
 	list-style-type: none;
 }
-#navcontainer ul li/*Placed in navbar.*/
-{
+#navcontainer ul li{/*Placed in navbar.*/
 	display: inline;
 }
-#navcontainer ul li a/*Placed in navbar.*/
-{
+#navcontainer ul li a{/*Placed in navbar.*/
 	text-decoration: none;
 	padding: .2em 1em;
 	color: black;
 	background-color: #bbff99;
 }
-#navcontainer ul li a:hover/*Placed in navbar.*/
-{
+#navcontainer ul li a:hover{/*Placed in navbar.*/
 	background-color: #5cd65c;
 }
-.navbar_right/*Placed in container 2.*/
-{
+.navbar_right{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-width: 300px;/*Get no smaller than this.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.container_03
-{
+.container_03{
 	background-color: #bbff99;/*Create a light green background.*/
 	height: 450px;
     min-width: 625px;/*Get no smaller than the logo.*/
@@ -111,22 +99,19 @@
     text-align: center;/*Center all divs placed inside container.*/
     width: 100%;/*Fill the entire screen.*/
 }
-.body_left/*Placed in container 3.*/
-{
+.body_left{/*Placed in container 3.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.body_left_cards/*Placed in container 3.*/
-{
+.body_left_cards{/*Placed in container 3.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.body_center/*Placed in container 3.*/
-{
+.body_center{/*Placed in container 3.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	margin-left: 16px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
@@ -134,8 +119,7 @@
 	vertical-align: top;/*Place div flush with the top of the container.*/
 	width: 625px;
 }
-.body_header/*Placed in body_center.*/
-{
+.body_header{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the table.*/
 	border-top: none;
     display: inline-block;/*Place items inline but allow height/width changes.*/
@@ -146,8 +130,7 @@
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.body_header_cards/*Placed in body_header.*/
-{
+.body_header_cards{/*Placed in body_header.*/
 	background-color: #5cd65c;
 	border: 1px solid black;/*Place a black border around the table.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
@@ -161,8 +144,7 @@
 	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
 	white-space: nowrap;/*Display ellipsis if text is too long.*/
 }
-.body_table/*Placed in body_center.*/
-{
+.body_table{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the table.*/
 	border-top: none;
     display: inline-block;/*Place items inline but allow height/width changes.*/
@@ -173,8 +155,7 @@
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.body_table_cards/*Placed in body_table.*/
-{
+.body_table_cards{/*Placed in body_table.*/
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the table.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
@@ -187,8 +168,7 @@
 	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
 	white-space: nowrap;/*Display ellipsis if text is too long.*/
 }
-.div_button_view/*Placed in body_table.*/
-{
+.div_button_view{/*Placed in body_table.*/
 	background-color: #bbff99;
 	border: none;
     display: inline-block;/*Place items inline but allow height/width changes.*/
@@ -202,26 +182,24 @@
 	white-space: nowrap;/*Display ellipsis if text is too long.*/
 	width: 145px;
 }
-.card/*Placed in body_center.*/
-{
+.card{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the div.*/
+	border-top: none;
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	height: 100px;/*Get no smaller than the text image placed in this div.*/
+	height: 102px;/*Get no smaller than the text image placed in this div.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 	width: 600px;/*Get no smaller than the logo.*/
 }
-.image/*Placed in card.*/
-{
+.image{/*Placed in card.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 100px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 	width: 75px;
 }
-.card_info/*Placed in card.*/
-{
+.card_info{/*Placed in card.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 100px;	
 	position: relative;/*Stack on top of each other for smaller screens.*/
@@ -229,8 +207,7 @@
 	vertical-align: top;/*Place div flush with the top of the container.*/
 	width: 500px;
 }
-.card_info_text/*Placed in card_info.*/
-{
+.card_info_text{/*Placed in card_info.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	font-size: 18px;
 	height: 32px;/*Get no smaller than the text image placed in this div.*/
@@ -243,36 +220,39 @@
 	white-space: nowrap;/*Display ellipsis if text is too long.*/
 	width: 248px;
 }
-.section/*Placed in card_info_text.*/
-{
+.section{/*Placed in card_info_text.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	text-align: right;/*Left align the elements in this div.*/
 }
-.body_right/*Placed in container 3.*/
-{
+.body_right{/*Placed in container 3.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.body_right_cards/*Placed in container 3.*/
-{
+.body_right_cards{/*Placed in container 3.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
-.container_04
-{
+.container_04{
 	margin-top: 20px;/*Force the text below the table scroll bar.*/
     min-width: 625px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
     text-align: left;
     width: 100%;/*Fill the entire screen.*/
 }
-.popup
-{
-	display: block;/*Place items inline but allow height/width changes.*/
+.thumb{
+	cursor: pointer;
+	height: 100px;
+	width: 75px;
+}
+.thumb:hover {
+	 opacity: 0.7;
+}
+.popup{
+	display: none;/*Place items inline but allow height/width changes.*/
 	height: 100%;
 	left: 0;
 	position: fixed;
@@ -281,47 +261,38 @@
 	width: 100%;
 	z-index: 1; /*Place on top of container 3*/  
 }
-.thumb
-{
-	cursor: pointer;
-	height: 100px;
-	width: 75px;
-}
-.thumb:hover
- {
-	 opacity: 0.7;
-}
-#large_image_div
-{
-	background-color: black;
-	background-image: url("images/bb_1960_topps/EX/#1_F_EX.jpeg");
+.popup_container{
+	background-color: C6CCCA;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: block;/*Place items inline but allow height/width changes.*/
-	height: 320px;
+	height: 372px;
 	margin: auto;
 	position: relative;
 	width: 230px;
 }
-#btn_back
-{
-	bottom: 0;
-    font-weight: bold;
-	left: 0;
+#large_image_div{
+	background-repeat: no-repeat;
+    background-size: contain;
+	display: block;/*Place items inline but allow height/width changes.*/
+	height: 320px;
+	margin: auto;
 	position: absolute;
+	top: 28;
+	width: 230px;
+}
+.align_center{
+	text-align: center;/*Center the items in this form.*/
+}
+.first_button_row{
+	margin-top: 8px;
+}
+.text_box_qty{
+	text-align: right;
 	width: 50px;
 }
-#btn_front
-{
-	bottom: 0;
-    font-weight: bold;
-	position: absolute;
-	right: 0;
-	width: 50px;
+.section_width_100{
+	width: 100px;
 }
-#btn_close
-{
-	font-weight: bold;
-	position: absolute;
-	right: 0;
-	top: 0;
+.section_width_135{
+	width: 135px;
 }

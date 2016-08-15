@@ -45,11 +45,11 @@ echo'
 	</div>
 	<div class="container_02">
         <div class="navbar_left">
-			<button class="navbar_button" id="signup_btn" type="submit"
-				onclick="window.location.href=\'store_011_login.php\'">Sign up</button>
-			<button class="navbar_button" id="login_btn" type="submit"
-				onclick="window.location.href=\'store_011_login.php\'">Log in</button>
-			<button class="navbar_button" id="logout_btn" type="submit">Log out</button>
+			<form method="GET" action="store_011_login.php">
+				<input class="navbar_button" name="choice" id="signup_btn" type="submit" value="Sign up"/>
+				<input class="navbar_button" name="choice" id="login_btn" type="submit" value="Log in"/>
+				<input class="navbar_button" name="choice" id="logout_btn" type="submit" value="Log out"/>
+			</form>
         </div>
 		<nav class="navbar" id="navcontainer">
 			<ul>

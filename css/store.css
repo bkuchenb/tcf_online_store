@@ -273,7 +273,7 @@
 #large_image_div{
 	background-repeat: no-repeat;
     background-size: contain;
-	display: block;/*Place items inline but allow height/width changes.*/
+	display: block;
 	height: 320px;
 	margin: auto;
 	position: absolute;
@@ -295,4 +295,19 @@
 }
 .section_width_135{
 	width: 135px;
+}
+#sign_up_message{
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 6px;
+	margin-top: 6px;
+	text-align: left;
+	
+}
+.user_info_div{
+	padding: 6px;
+	text-align: left;
+}
+.user_info{
+	width: 300px;
 }

@@ -5,11 +5,17 @@ include ('store_000_head.php');
 include ('store_00_header.php');
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 	$choice = $_GET['choice'];
+	$_SESSION['choice'] = $choice;
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
+	//Get the choice the user made.
+	$choice = $_SESSION['choice'];
 	//Sanitize the user input.
 	$email = sanitize_string($_POST['email']);
 	$password = sanitize_string($_POST['password']);
+	if($choice == 'Sign up'){
+		
+	}
 	//Hide the sign in and log in buttons, display the logout button.
 	echo'
 		<script type="text/javascript">
@@ -37,6 +43,7 @@ echo'
 		<div class="body_right">
 		</div>
 	</div>
+<script type="text/javascript" src="store_002_scripts_login.js"></script>
 </body>
 </html>';
 ?>

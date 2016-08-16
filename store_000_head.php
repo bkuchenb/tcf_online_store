@@ -15,6 +15,6 @@ echo'
 	<meta charset="utf-8" />
 	<link type="text/css" href="css/store.css" rel="stylesheet" media="screen" />
 	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
-	<link type="text/css" href="css/table.css" rel="stylesheet" />
+	<script type="text/javascript" src="store_002_javascript_functions.js"></script>
 </head>';
 ?>

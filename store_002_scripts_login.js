@@ -7,17 +7,18 @@ email.addEventListener("onblur", function(event){
 	event.preventDefault();
 	//Check to see if this user already exists.
 	console.log(email.value)
-	var exists = check_email(email.value, pword.value);
+	var exists = check_email(email, pword);
 }, false);
 
 function check_email(email, pword){
 	var xhttp = new XMLHttpRequest();
-	var post_data = "email=" + email + "&password=" + pword;
+	var post_data = "email=" + email.value + "&password=" + pword.value;
 	xhttp.onreadystatechange = function(){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
-			//Get the response from php.
-			var img_return = xhttp.responseText;
-			//Set the image in the large_image_div and set the data-index.
+			//Get the response from ajax.
+			var user_added = xhttp.responseText;
+			if(user_added = false){
+				//Set the image in the large_image_div and set the data-index.
 			document.getElementById("large_image_div").style.backgroundImage = 'url(' + img_return + ')';
 			document.getElementById("large_image_div").name = index;
 			//Display the popup.

@@ -1,5 +1,7 @@
 <?php
+//Start a session to retrieve data.
 session_start();
+
 if(isset($_POST['view']))
 {
 	if($_POST['view'] == 'front')

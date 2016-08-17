@@ -296,7 +296,7 @@
 .section_width_135{
 	width: 135px;
 }
-#sign_up_message{
+#opening_message{
 	font-size: 20px;
 	font-weight: bold;
 	margin-left: 6px;
@@ -309,5 +309,6 @@
 	text-align: left;
 }
 .user_info{
+	margin-top: 5px;
 	width: 300px;
 }

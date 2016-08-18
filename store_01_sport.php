@@ -5,7 +5,8 @@ include ('store_000_head.php');
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['empty'])){
 	$_SESSION['cart'] = array();
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])
+	&& isset($_POST['password'])){
 	//Connect to the TCFonlineStore database.
 	require ('store_db2_connect.php');
 	//Get the choice the user made.
@@ -13,12 +14,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	//Sanitize the user input.
 	$email = sanitize_string($_POST['email']);
 	$password = SHA1(sanitize_string($_POST['password']));
-	$first_name = sanitize_string($_POST['first_name']);
-	$last_name = sanitize_string($_POST['last_name']);
-	//Add slashes to the variables.
+	if(isset($_POST['first_name'])){
+		$first_name = sanitize_string($_POST['first_name']);
+	}
+	if(isset($_POST['last_name'])){
+		$last_name = sanitize_string($_POST['last_name']);
+	}
+	
+	//Add slashes to the email and password variables.
 	$email = mysqli_real_escape_string($dbc2, $email);
 	$password = mysqli_real_escape_string($dbc2, $password);
-	//Validate the email.
+	//Validate the email. If it isn't in the proper format, set a flag.
 	if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 		$valid_email = false; 
 	}

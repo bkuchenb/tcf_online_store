@@ -45,10 +45,18 @@ echo'
 	</div>
 	<div class="container_02">
         <div class="navbar_left">
-			<form method="GET" action="store_011_login.php">
+			<form method="GET" action="store_011_login.php">';
+if(isset($_SESSION['logged_in'])){
+	echo'
+				<h3>Welcome back ' . $_SESSION['user_info']['first_name'] . '</h3>
+				<input class="navbar_button" name="choice" id="logout_btn" type="submit" value="Log out"/>';
+}
+else{
+	echo'
 				<input class="navbar_button" name="choice" id="signup_btn" type="submit" value="Sign up"/>
-				<input class="navbar_button" name="choice" id="login_btn" type="submit" value="Log in"/>
-				<input class="navbar_button" name="choice" id="logout_btn" type="submit" value="Log out"/>
+				<input class="navbar_button" name="choice" id="login_btn" type="submit" value="Log in"/>';
+}
+echo'				
 			</form>
         </div>
 		<nav class="navbar" id="navcontainer">

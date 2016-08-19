@@ -6,7 +6,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['empty'])){
 	$_SESSION['cart'] = array();
 }
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])
-	&& isset($_POST['password'])){
+	&& isset($_POST['password']) && !isset($_SESSION['logged_in'])){
 	//Connect to the TCFonlineStore database.
 	require ('store_db2_connect.php');
 	//Get the choice the user made.
@@ -71,6 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])
 	if($choice == 'Log in' && $_SESSION['email_found'] == true
 		&& $_SESSION['password_found'] == true){
 			$_SESSION['logged_in'] = true;
+			echo $_SESSION['logged_in'];
 			$_SESSION['user_info'] = $user_info;
 	}
 	//If sign up was clicked add the user to the database.
@@ -82,6 +83,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['email'])
 		$r = mysqli_query ($dbc2, $q);
 		if($r){
 			$_SESSION['logged_in'] = true;
+			echo $_SESSION['logged_in'];
 		}
 		else{
 			//Print an error message.

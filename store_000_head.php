@@ -7,7 +7,7 @@ session_start();
 include ('store_000_functions.php');
 //Connect to the correct database.
 require ('store_db_connect.php');
-echo'
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
@@ -15,5 +15,4 @@ echo'
 	<meta charset="utf-8" />
 	<link type="text/css" href="css/store.css" rel="stylesheet" media="screen" />
 	<link type="text/css" href="css/buttons.css" rel="stylesheet" />
-</head>';
-?>
+</head>

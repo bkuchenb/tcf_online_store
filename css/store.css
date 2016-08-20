@@ -54,6 +54,7 @@
 .navbar_left{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;/*Get no smaller than this.*/
+	padding: 10px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/

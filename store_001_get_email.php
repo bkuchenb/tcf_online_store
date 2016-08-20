@@ -7,6 +7,8 @@ include ('store_000_functions.php');
 require ('store_db2_connect.php');
 
 if(isset($_POST['email'])){
+	//Create flag.
+	$email_exists = false;
 	//Sanitize the user input.
 	$email = sanitize_string($_POST['email']);
 	//Add slashes to the email.
@@ -21,18 +23,13 @@ if(isset($_POST['email'])){
 	//If it runs okay, return the value.
 	if($r){
 		//Fetch the results.
-		while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)){
+		$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 			//Save the user info.
 			$user_info = $row;
 			//If the email was found check to see if the password matches.
 			if(isset($row['email'])){
 				$email_exists = true;
-			}
-			else{
-				$email_exists = false;
-			}
-		}
 	}
-	echo json_encode($email_exists);
+	echo $email_exists;
 }	
 ?>

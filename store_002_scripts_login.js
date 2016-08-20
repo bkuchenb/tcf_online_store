@@ -11,7 +11,7 @@ function check_email(email){
 	xhttp.onreadystatechange = function(){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the response from ajax.
-			var email_exists = JSON.parse(xhttp.responseText);
+			var email_exists = xhttp.responseText;
 			console.log(email_exists);
 			if(email_exists == true){
 				//Get the password section element.

@@ -48,7 +48,7 @@ echo'
 			<form method="GET" action="store_011_login.php">';
 if($_SESSION['logged_in']){
 	echo'
-				<span><b>Welcome back ' . $_SESSION['user_info']['first_name'] . '</b></span>
+				<span id="welcome"><b>Welcome back ' . $_SESSION['user_info']['first_name'] . '</b></span>
 				<input class="navbar_button" name="choice" id="logout_btn" type="submit" value="Log out" />';
 }
 else{

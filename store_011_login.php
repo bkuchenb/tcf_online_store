@@ -6,10 +6,13 @@ include ('store_00_header.php');
 if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['choice'])){
 	$choice = $_GET['choice'];
 	$_SESSION['choice'] = $choice;
+	//Create a message to the user that will change with the button clicked.
+	$message = 'Please enter the following information to ' . strtolower($choice) . '.';
 }
-if($_SERVER['REQUEST_METHOD'] == 'POST' && $_POST['choice'] == 'Log out'){
+if($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['choice'] == 'Log out'){
 	$choice = '';
-	unset($_SESSION['logged_in']);
+	$_SESSION['logged_in'] = false;
+	$message = 'Visit us again soon.';
 }
 echo'
 <body>
@@ -17,7 +20,7 @@ echo'
 		<div class="body_left">
 		</div>
 		<div class="body_center">
-			<section id="opening_message">Please enter the following information to ' . strtolower($choice) . '.</section>
+			<section id="opening_message">' . $message . '</section>
 			<form method="POST" action="store_01_sport.php">
 				<div class="user_info_div">';
 if($_SESSION['logged_in'] == false && $choice == 'Sign up'){
@@ -27,7 +30,7 @@ if($_SESSION['logged_in'] == false && $choice == 'Sign up'){
 					<section class="user_info">Last Name</section>
 					<input class="user_info" name="last_name" id="last_name" type="text" />';
 }
-elseif($_SESSION['logged_in'] == false && ($choice == 'Sign up' || $choice == 'Log in'))
+if($_SESSION['logged_in'] == false && ($choice == 'Sign up' || $choice == 'Log in'))
 echo'
 					<section class="user_info" id="section_email">Email</section>
 					<input class="user_info" name="email" id="email" type="text" />

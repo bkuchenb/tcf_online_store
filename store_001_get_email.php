@@ -29,7 +29,8 @@ if(isset($_POST['email'])){
 			//If the email was found check to see if the password matches.
 			if(isset($row['email'])){
 				$email_exists = true;
+			}
 	}
-	echo $email_exists;
+	echo JSON_encode($email_exists);
 }	
 ?>

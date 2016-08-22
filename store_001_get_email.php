@@ -31,6 +31,6 @@ if(isset($_POST['email'])){
 				$email_exists = true;
 			}
 	}
-	echo JSON_encode($email_exists);
+	echo $email_exists;
 }	
 ?>

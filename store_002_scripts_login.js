@@ -11,11 +11,12 @@ function check_email(email){
 	xhttp.onreadystatechange = function(){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the response from ajax.
-			var email_exists = JSON.parse(xhttp.responseText);
+			var email_exists = xhttp.responseText;
+			console.log('Email exists = ' + email_exists);
 			//var first_name = document.getElementById('first_name');
 			var sign_up = document.body.contains(document.getElementById('first_name'));
-			console.log(sign_up);
-			if(email_exists.email_exists == true){
+			console.log('Sign up clicked = ' + sign_up);
+			if(email_exists && sign_up){
 				//Get the password section element.
 				section_password = document.getElementById('section_password');
 				//Make the text in this element red.

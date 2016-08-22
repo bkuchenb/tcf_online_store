@@ -23,6 +23,13 @@ echo'
 			<section id="opening_message">' . $message . '</section>
 			<form method="POST" action="store_01_sport.php">
 				<div class="user_info_div">';
+if($_SESSION['logged_in'] == false && ($choice == 'Sign up' || $choice == 'Log in')){
+	echo'
+					<section class="user_info" id="section_email">Email</section>
+					<input class="user_info" name="email" id="email" type="text" />
+					<section class="user_info" id="section_password">Password</section>
+					<input class="user_info" name="password" id="password" type="password" />';
+}
 if($_SESSION['logged_in'] == false && $choice == 'Sign up'){
 	echo'
 					<section class="user_info">First Name</section>
@@ -30,12 +37,7 @@ if($_SESSION['logged_in'] == false && $choice == 'Sign up'){
 					<section class="user_info">Last Name</section>
 					<input class="user_info" name="last_name" id="last_name" type="text" />';
 }
-if($_SESSION['logged_in'] == false && ($choice == 'Sign up' || $choice == 'Log in'))
 echo'
-					<section class="user_info" id="section_email">Email</section>
-					<input class="user_info" name="email" id="email" type="text" />
-					<section class="user_info" id="section_password">Password</section>
-					<input class="user_info" name="password" id="password" type="password" />
 					<section class="user_info">
 					<input type="submit" value="Submit" /></section>
 				</div>

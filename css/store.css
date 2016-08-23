@@ -54,9 +54,9 @@
 .navbar_left{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
 	min-width: 300px;/*Get no smaller than this.*/
-	padding: 10px;
+	padding-top: 10px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
-	text-align: center;/*Center the items in this div.*/
+	text-align: left;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .navbar{/*Placed in container 2.*/
@@ -86,7 +86,9 @@
 }
 .navbar_right{/*Placed in container 2.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
+	min-height: 40px;/*Get no smaller than the text in this div.*/
 	min-width: 300px;/*Get no smaller than this.*/
+	padding-top: 10px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;
 	vertical-align: top;/*Place div flush with the top of the container.*/
@@ -97,6 +99,13 @@
     min-width: 625px;/*Get no smaller than the logo.*/
 	overflow: scroll;
 	position: relative;/*Stack on top of each other for smaller screens.*/
+    text-align: center;/*Center all divs placed inside container.*/
+    width: 100%;/*Fill the entire screen.*/
+}
+.container_03_admin{
+	background-color: #bbff99;/*Create a light green background.*/
+    min-width: 625px;/*Get no smaller than the logo.*/
+	position: static;/*Stack on top of each other for smaller screens.*/
     text-align: center;/*Center all divs placed inside container.*/
     width: 100%;/*Fill the entire screen.*/
 }
@@ -119,6 +128,24 @@
 	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 	width: 625px;
+}
+.body_admin_header{/*Placed in container 3.*/
+    display: block;/*Place items inline but allow height/width changes.*/
+	margin: 0 auto;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;/*Center the items in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 80%;
+}
+.body_admin{/*Placed in container 3.*/
+    display: block;/*Place items inline but allow height/width changes.*/
+	height: 425px;
+	margin: 0 auto;
+	overflow: scroll;
+	position: relative;/*Stack on top of each other for smaller screens.*/
+	text-align: left;/*Center the items in this div.*/
+	vertical-align: top;/*Place div flush with the top of the container.*/
+	width: 80%;
 }
 .body_header{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the table.*/

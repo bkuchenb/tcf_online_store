@@ -71,7 +71,14 @@ if($_SESSION['set_name'] != ''){
 echo'
 			</ul>
 		</nav>
-        <div class="navbar_right">
+        <div class="navbar_right">';
+if($_SESSION['user_info']['user_type'] == 'admin'){
+	echo'
+			<form method="POST" action="store_012_admin.php">
+				<input class="navbar_button" name="admin" id="btn_admin" type="submit" value="Admin" />
+			</form>';
+}
+echo'
         </div>
 	</div>
 </header>';

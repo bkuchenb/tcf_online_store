@@ -1,3 +1,22 @@
+//Get the header element.
+var elem_form = document.getElementsByTagName('FORM');
+//If the logout button is present, hide the button and the message.
+if(elem_form[0].contains(document.getElementById('logout_btn'))){
+	//Remove the Log out button.
+	elem_form[0].removeChild(document.getElementById('logout_btn'));
+	//Remove the welcome message.
+	elem_form[0].removeChild(document.getElementById('welcome'));
+	//Hide the Submit button.
+	document.getElementById('btn_submit').style.visibility = 'hidden';
+	//Display the Login button.
+	btn_login = document.createElement('INPUT');
+	btn_login.className = 'navbar_button';
+	btn_login.id = 'login_btn';
+	btn_login.name = 'choice';
+	btn_login.type = 'submit';
+	btn_login.value = 'Log in';
+	elem_form[0].appendChild(btn_login);
+}
 //Add an event listener to the email.
 document.getElementById('email').addEventListener('blur', function(event){
 	event.preventDefault();
@@ -12,10 +31,8 @@ function check_email(email){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the response from ajax.
 			var email_exists = xhttp.responseText;
-			console.log('Email exists = ' + email_exists);
 			//var first_name = document.getElementById('first_name');
 			var sign_up = document.body.contains(document.getElementById('first_name'));
-			console.log('Sign up clicked = ' + sign_up);
 			if(email_exists && sign_up){
 				//Get the password section element.
 				section_password = document.getElementById('section_password');

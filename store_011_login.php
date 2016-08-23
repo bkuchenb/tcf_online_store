@@ -39,7 +39,7 @@ if($_SESSION['logged_in'] == false && $choice == 'Sign up'){
 }
 echo'
 					<section class="user_info">
-					<input type="submit" value="Submit" /></section>
+					<input id="btn_submit" type="submit" value="Submit" /></section>
 				</div>
 			</form>
 		</div>

@@ -131,6 +131,7 @@
 }
 .body_admin_header{/*Placed in container 3.*/
     display: block;/*Place items inline but allow height/width changes.*/
+	font-weight: bold;
 	margin: 0 auto;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Center the items in this div.*/
@@ -330,7 +331,6 @@
 	margin-left: 6px;
 	margin-top: 6px;
 	text-align: left;
-	
 }
 .user_info_div{
 	padding: 6px;
@@ -339,4 +339,47 @@
 .user_info{
 	margin-top: 5px;
 	width: 300px;
+}
+.admin_add, .admin_qty, .admin_num,
+.admin_cond{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	padding-left: 5px;
+	width: 50px;
+}
+.admin_price, .admin_price_cond, .admin_front, .admin_back{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	padding-left: 5px;
+	width: 75px;
+}
+.admin_year{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	padding-left: 5px;
+	width: 100px;
+}
+.admin_set, .admin_name{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	overflow: hidden;
+	padding-left: 5px;
+	text-overflow: ellipsis;
+	vertical-align: bottom;
+	white-space: nowrap;
+	width: 200px;
+}
+.admin_text_add, .admin_text_cond{
+	width: 50px;
+}
+.admin_text_price, .admin_text_front, .admin_text_back{
+	width: 75px;
 }

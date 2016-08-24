@@ -16,20 +16,21 @@ if(elem_form[0].contains(document.getElementById('logout_btn'))){
 	btn_login.type = 'submit';
 	btn_login.value = 'Log in';
 	elem_form[0].appendChild(btn_login);
-	console.log(elem_form.length);
 	//Remove the admin button if it is displayed.
 	if(elem_form[1].contains(document.getElementById('btn_admin'))){
-		console.log('Admin button exists.');
 		elem_form[1].removeChild(document.getElementById('btn_admin'));
 	}
 }
-
-//Add an event listener to the email.
-document.getElementById('email').addEventListener('blur', function(event){
+//Check to see if the email element is present.
+if(document.body.contains(document.getElementById('email'))){
+	//Add an event listener to the email.
+	document.getElementById('email').addEventListener('blur', function(event){
 	event.preventDefault();
 	//Check to see if this user already exists.
 	check_email(email.value);
 }, false);
+}
+
 
 function check_email(email){
 	var xhttp = new XMLHttpRequest();

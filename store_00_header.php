@@ -72,7 +72,7 @@ echo'
 			</ul>
 		</nav>
         <div class="navbar_right">';
-if(isset($_SESSION['user_info']['user_type'])){
+if(isset($_SESSION['user_info']['user_type']) && $_SESSION['set_name'] != ''){
 	if($_SESSION['user_info']['user_type'] == 'admin'){
 		echo'
 			<form id="form_navbar_right" method="POST" action="store_012_admin.php">

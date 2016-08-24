@@ -56,7 +56,7 @@
 	min-width: 300px;/*Get no smaller than this.*/
 	padding-top: 10px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
-	text-align: left;/*Center the items in this div.*/
+	text-align: center;/*Center the items in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .navbar{/*Placed in container 2.*/

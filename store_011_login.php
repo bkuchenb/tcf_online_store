@@ -12,6 +12,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['choice'])){
 if($_SERVER['REQUEST_METHOD'] == 'GET' && $_GET['choice'] == 'Log out'){
 	$choice = '';
 	$_SESSION['logged_in'] = false;
+	//Clear the user info.
+	$_SESSION['user_info'] = array();
 	$message = 'Visit us again soon.';
 }
 echo'

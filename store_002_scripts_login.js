@@ -1,4 +1,4 @@
-//Get the header element.
+//Get all the form elements.
 var elem_form = document.getElementsByTagName('FORM');
 //If the logout button is present, hide the button and the message.
 if(elem_form[0].contains(document.getElementById('logout_btn'))){
@@ -16,7 +16,14 @@ if(elem_form[0].contains(document.getElementById('logout_btn'))){
 	btn_login.type = 'submit';
 	btn_login.value = 'Log in';
 	elem_form[0].appendChild(btn_login);
+	console.log(elem_form.length);
+	//Remove the admin button if it is displayed.
+	if(elem_form[1].contains(document.getElementById('btn_admin'))){
+		console.log('Admin button exists.');
+		elem_form[1].removeChild(document.getElementById('btn_admin'));
+	}
 }
+
 //Add an event listener to the email.
 document.getElementById('email').addEventListener('blur', function(event){
 	event.preventDefault();

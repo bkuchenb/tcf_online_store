@@ -191,7 +191,7 @@
 	height: 26px;/*Get no smaller than the text in this div.*/
 	margin: 4px 0px 4px 2px;
 	overflow: hidden;/*Display ellipsis if text is too long.*/
-	padding: 4px 0px 2px 4px;
+	padding: 3px 4px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
@@ -357,7 +357,7 @@
 	padding-left: 5px;
 	width: 75px;
 }
-.admin_year{
+{
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
@@ -365,7 +365,7 @@
 	padding-left: 5px;
 	width: 100px;
 }
-.admin_set, .admin_name{
+.admin_desc{
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
@@ -375,7 +375,7 @@
 	text-overflow: ellipsis;
 	vertical-align: bottom;
 	white-space: nowrap;
-	width: 200px;
+	width: 400px;
 }
 .admin_text_add, .admin_text_cond{
 	width: 50px;

@@ -19,11 +19,11 @@ var image_box   = document.getElementsByClassName('image_box');
 //Cycle through the image_box elements.
 for(var i = 0; i < image_box.length; i++){
 	image_box[i].ondragover = function(){
-		//this.innerHTML = '';
+		//this.style.backgroundColor = '#5cd65c';
 		return false;
 	};
 	image_box[i].ondragend = function(){
-		//this.innerHTML = '';
+		//this.style.backgroundColor = 'white';
 		return false;
 	};
 	image_box[i].ondrop = function(e){

@@ -385,6 +385,7 @@
 	width: 75px;
 }
 .image_box{
+	background-color: white;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
 	margin-top: 5px;
@@ -399,5 +400,4 @@
 }
 #form_navbar_right{
 	display: inline;
-}
 }

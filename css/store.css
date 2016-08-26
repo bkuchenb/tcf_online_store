@@ -350,12 +350,16 @@
 	width: 50px;
 }
 .admin_price, .admin_price_cond, .admin_front,
-.admin_back, .image_box{
+.admin_back{
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
 	margin-top: 5px;
+	overflow: hidden;
 	padding-left: 5px;
+	text-overflow: ellipsis;
+	vertical-align: bottom;
+	white-space: nowrap;
 	width: 75px;
 }
 .admin_desc{
@@ -371,8 +375,29 @@
 	width: 400px;
 }
 .admin_text_add, .admin_text_cond{
+	margin-top: 5px;
+	padding-left: 5px;
 	width: 50px;
 }
 .admin_text_price, .admin_text_front, .admin_text_back{
+	margin-top: 5px;
+	padding-left: 5px;
 	width: 75px;
+}
+.image_box{
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	padding-left: 5px;
+	width: 75px;
+}
+.admin_text_front, .admin_text_back{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: bottom;
+	white-space: nowrap;
+}
+#form_navbar_right{
+	display: inline;
+}
 }

@@ -7,6 +7,13 @@ window.addEventListener("drop",function(e){
   e = e || event;
   e.preventDefault();
 },false);
+//Get the navbar_right element.
+navbar_right = document.getElementsByClassName('navbar_right');
+//Add a submit button to the navbar.
+btn_submit = document.createElement('BUTTON');
+btn_submit.innerHTML = 'Submit';
+btn_submit.style.fontWeight = 'bold';
+navbar_right[0].appendChild(btn_submit);
 //Get all the image_box divs.
 var image_box   = document.getElementsByClassName('image_box');
 //Cycle through the image_box elements.
@@ -20,65 +27,23 @@ for(var i = 0; i < image_box.length; i++){
 		return false;
 	};
 	image_box[i].ondrop = function(e){
-		//Display the number of files added.
+		//Remove the text and border from the div.
+		this.innerHTML = '';
+		this.style.border = 'none';
+		this.style.paddingLeft = '0px';
+		//Get the files added.
 		var files = e.dataTransfer.files;
-		this.innerHTML = files[0].name;
+		//Create and img tag and display the image.
+		img = document.createElement('IMG');
+		img.className = 'thumb';
+		if (files[0].type.indexOf("image") == 0){
+			var reader = new FileReader();
+			reader.onload = function(e){
+				img.src = e.target.result;
+			}
+			reader.readAsDataURL(files[0]);
+		}
+		this.appendChild(img);
 		return false;
 	};
 }
-/* //Check to make sure browser supports HTML5 drag and drop.
-if(window.FileReader){
-	console.log('window.FileReader = true')
-	addEventHandler(window, 'load', function(){
-		function cancel(e){
-			if(e.preventDefault){
-				e.preventDefault();
-			}
-			return false;
-		}
-		console.log(image_box.length);
-		//Tell the browser that we can drop on these elements.
-		for(var i = 0; i < image_box.length; i++){
-			addEventHandler(image_box[i], 'dragover', cancel);
-			addEventHandler(image_box[i], 'dragenter', cancel);
-			addEventHandler(image_box[i], 'drop', function(e){
-				//Get window.event if e argument missing (in IE)
-				e = e || window.event;
-				//Stop the browser from redirecting off to the image.
-				if(e.preventDefault){
-					e.preventDefault();
-				} 
-
-				var dt = e.dataTransfer;
-				var files = dt.files;
-				for(var i = 0; i < files.length; i++){
-					var file = files[i];
-					var reader = new FileReader();
-					//Attach event handlers here...
-			   
-					reader.readAsDataURL(file);
-				}
-				return false;
-			});
-		}
-	});
-}
-else{ 
-  console.log('Your browser does not support the HTML5 FileReader.');
-}
-
-//Cancel the browser's default behavior.
-function addEventHandler(obj, evt, handler){
-    if(obj.addEventListener){
-        //W3C method.
-        obj.addEventListener(evt, handler, false);
-    } 
-	else if(obj.attachEvent){
-        //IE method.
-        obj.attachEvent('on' + evt, handler);
-    }
-	else{
-        // Old school method.
-        obj['on' + evt] = handler;
-    }
-} */

@@ -126,7 +126,7 @@ echo'
 				<div class="card">
 					<div class="image">
 						<img class="thumb" name="front" id="' . $resultsArray[$i]['card_id'] . '"
-							src="' . $resultsArray[$i]['img_front'] . '" data-index="' . $i . '" />
+							src="' . $resultsArray[$i]['img_front'] . '" />
 					</div>
 					<div class="card_info">
 						<div class="card_info_text">

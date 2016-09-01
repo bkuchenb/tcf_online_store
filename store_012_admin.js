@@ -27,23 +27,17 @@ for(var i = 0; i < image_box.length; i++){
 		return false;
 	};
 	image_box[i].ondrop = function(e){
-		//Remove the text and border from the div.
-		this.innerHTML = '';
-		this.style.border = 'none';
-		this.style.paddingLeft = '0px';
 		//Get the files added.
 		var files = e.dataTransfer.files;
-		//Create and img tag and display the image.
-		img = document.createElement('IMG');
-		img.className = 'thumb';
 		if (files[0].type.indexOf("image") == 0){
 			var reader = new FileReader();
 			reader.onload = function(e){
-				img.src = e.target.result;
+				file_upload = e.target.result;
 			}
 			reader.readAsDataURL(files[0]);
 		}
-		this.appendChild(img);
+		//Change the text displayed.
+		this.innerHTML = files[0].name;
 		return false;
 	};
 }

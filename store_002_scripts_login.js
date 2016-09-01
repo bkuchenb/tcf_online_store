@@ -23,11 +23,15 @@ if(elem_form[0].contains(document.getElementById('logout_btn'))){
 }
 //Check to see if the email element is present.
 if(document.body.contains(document.getElementById('email'))){
+	//Save the email text box element.
+	input_email = document.getElementById('email');
+	//Set the focus to the email text box.
+	input_email.focus();
 	//Add an event listener to the email.
-	document.getElementById('email').addEventListener('blur', function(event){
+	input_email.addEventListener('blur', function(event){
 	event.preventDefault();
 	//Check to see if this user already exists.
-	check_email(email.value);
+	check_email(input_email.value);
 }, false);
 }
 
@@ -39,7 +43,7 @@ function check_email(email){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the response from ajax.
 			var email_exists = xhttp.responseText;
-			//var first_name = document.getElementById('first_name');
+			//Check to see if sign up was clicked.
 			var sign_up = document.body.contains(document.getElementById('first_name'));
 			if(email_exists && sign_up){
 				//Get the password section element.

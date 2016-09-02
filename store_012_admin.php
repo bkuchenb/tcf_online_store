@@ -132,7 +132,7 @@ echo'
 						<input class="admin_text_price" type="text "value="' . $resultsArray[$i]['cond_price'] . '" />
 						<input class="admin_text_front" name="front" id="' . $resultsArray[$i]['card_id'] . '"
 									value="' . $resultsArray[$i]['img_front'] . '" />
-						<input class="admin_text_back" name="front" id="' . $resultsArray[$i]['card_id'] . '"
+						<input class="admin_text_back" name="back" id="' . $resultsArray[$i]['card_id'] . '"
 									value="' . $resultsArray[$i]['img_back'] . '" />
 						<div class="image_box">Drop</div>
 						<div class="image_box">Drop</div>

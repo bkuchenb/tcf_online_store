@@ -26,40 +26,15 @@ btn_submit.addEventListener("click", function(event){
 		}
 	}
 }, false);
-//Create a two dimmensional array to save page elements.
-var page_elements = [];
 
-//Get all the add quantity, conditions, and price inputs.
-var input_adds = document.getElementsByName('input_add');
-var input_conds = document.getElementsByName('input_cond');
-var input_prices = document.getElementsByName('input_price');
-//Get all the image location inputs.
-var input_fronts = document.getElementsByName('input_front');
-var input_backs = document.getElementsByName('input_back');
-//Get all the image_box divs.
-var image_box_fronts = document.getElementsByName('image_box_front');
-var image_box_backs = document.getElementsByName('image_box_back');
-
-//Add all page elements to the page_elements array.
-for(var k = 0; k < image_box_fronts.length; k++){
-	page_elements.push({
-		input_add: input_adds[k],
-		input_cond: input_conds[k],
-		input_price: input_prices[k],
-		input_front: input_fronts[k],
-		input_back: input_backs[k],
-		image_box_front: image_box_fronts[k],
-		image_box_back: image_box_backs[k],
-		file_front: 'empty',
-		file_back: 'empty'
-		});
-}
+//Create an array to save page elements.
+var page_elements = get_page_elements();
 
 //Add an event listener to each of the drop boxes.
-for(var i = 0; i < image_box_fronts.length; i++){
+for(var i = 0; i < page_elements.length; i++){
 	//When an image is dropped in the box, save the file.
 	!function outer(i){
-		image_box_fronts[i].addEventListener('drop', function inner(event){
+		page_elements[i]['image_box_front'].addEventListener('drop', function inner(event){
 			event.preventDefault();
 			//Get the files added.
 			var files = event.dataTransfer.files;
@@ -69,7 +44,7 @@ for(var i = 0; i < image_box_fronts.length; i++){
 				this.innerHTML = files[0].name;
 			}
 		}, false);
-		image_box_backs[i].addEventListener('drop', function inner(event){
+		page_elements[i]['image_box_back'].addEventListener('drop', function inner(event){
 			event.preventDefault();
 			//Get the files added.
 			var files = event.dataTransfer.files;
@@ -80,6 +55,42 @@ for(var i = 0; i < image_box_fronts.length; i++){
 			}
 		}, false);
 	}(i)
+}
+
+function get_page_elements(){
+	//Create a temp array to hold the page elements
+	var temp = [];
+	//Get the qty and card_id elements.
+	var quantities = document.getElementsByName('qty');
+	var ids = document.getElementsByName('card_id');
+	//Get all the add quantity, condition, and price inputs.
+	var input_adds = document.getElementsByName('input_add');
+	var input_conds = document.getElementsByName('input_cond');
+	var input_prices = document.getElementsByName('input_price');
+	//Get all the image location inputs.
+	var input_fronts = document.getElementsByName('input_front');
+	var input_backs = document.getElementsByName('input_back');
+	//Get all the image_box divs.
+	var image_box_fronts = document.getElementsByName('image_box_front');
+	var image_box_backs = document.getElementsByName('image_box_back');
+
+	//Add all page elements to the temp array.
+	for(var k = 0; k < image_box_fronts.length; k++){
+		temp.push({
+			'ids': ids[k],
+			'quantities': quantities[k],
+			'input_add': input_adds[k],
+			'input_cond': input_conds[k],
+			'input_price': input_prices[k],
+			'input_front': input_fronts[k],
+			'input_back': input_backs[k],
+			'image_box_front': image_box_fronts[k],
+			'image_box_back': image_box_backs[k],
+			'file_front': 'empty',
+			'file_back': 'empty'
+			});
+	}
+	return temp;
 }
 
 function upload_images(file, orient, index){

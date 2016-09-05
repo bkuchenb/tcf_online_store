@@ -60,7 +60,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     					$cart_array['cond'] = $_SESSION['array'][$j]['cond'];
     					array_push($_SESSION['cart'], $cart_array);
                     }
-				 }
+				}
 			}//End of if statement that validates numeric input.
 		}//End of for statement that cycles through $_SESSION['array'].
 	}//End of if that checks to see if items were added to the cart.
@@ -81,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }//End of if statement that checks to see if the form was submitted.
 //Include the header.
 include ('store_00_header.php');
-//Get all the card data store in set_table.
+//Get all the card data stored in set_table.
 $q = "SELECT *
 	  FROM $set_table
 	  LIMIT 100";

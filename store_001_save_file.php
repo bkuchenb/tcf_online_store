@@ -19,7 +19,7 @@ $q = 'SELECT *
 	  LIMIT 1';
 //Run the query.
 $r = mysqli_query($dbc, $q);
-//If it runs okay, display the records.
+//If it runs okay, get the record.
 if($r){
 	$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
 }
@@ -71,16 +71,30 @@ if(isset($_POST)){
 	$q = rtrim($q, ', ') . ' WHERE card_id=' . $_POST['card_id'];
 	//Run the query.
 	$r = mysqli_query($dbc, $q);
-	//If it runs okay, echo test message.
+	//If it runs okay, query the database and get the updated record.
 	if($r){
-		echo $q;
+		$q = 'SELECT *
+			  FROM ' . $set_table . '
+			  WHERE card_id = "' . $_POST['card_id'] . '"
+			  LIMIT 1';
+		//Run the query.
+		$r = mysqli_query($dbc, $q);
+		//Return the record.
+		if($r){
+			$row = mysqli_fetch_array($r, MYSQLI_ASSOC);
+			echo json_encode($row);
+		}
+		else{
+			//Print an error message.
+			echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
+			echo '<br>There was a problem finding what you requested.<br>';
+		}
 	}
 	else{
 		//Print an error message.
 		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';
 		echo '<br>There was a problem finding what you requested.<br>';
 	}
-	echo true;
 }
 else{
 	echo false;

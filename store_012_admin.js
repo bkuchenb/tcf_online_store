@@ -119,11 +119,14 @@ function update_database(obj){
 	xhttp.onreadystatechange = function(){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the response from ajax.
-			var image_uploaded = xhttp.responseText;
-			if(image_uploaded){
+			var update = JSON.parse(xhttp.responseText);
+			if(update){
 				//Update the input text boxes.
-				obj['element_input_front'].value = obj['value_file_front'].name;
+				obj['element_input_front'].value = update.img_front;
 				obj['element_image_box_front'].innerHTML = 'Drop';
+				//Update the input text boxes.
+				obj['element_input_back'].value = update.img_back;
+				obj['element_image_box_back'].innerHTML = 'Drop';
 			}
 		}
 	}

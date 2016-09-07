@@ -1,12 +1,59 @@
 //Create an array to save page data.
 var page_data = get_page_data();
 
-//Add an event listener to each of the drop boxes.
+//Add event listeners to elements in each row.
 for(var i = 0; i < page_data.length; i++){
-	//When an image is dropped in the box, save the file.
+	//Cycle through the saved elements.
 	!function outer(i){
+		//Turn the row dark green on hover.
+		page_data[i]['element_row'].addEventListener('mouseover', function inner(event){
+			event.preventDefault();
+			page_data[i]['element_input_add'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_qty'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_input_cond'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_input_price'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_input_front'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_input_back'].style.backgroundColor = '#5cd65c';
+			page_data[i + 1]['element_desc'].style.backgroundColor = '#5cd65c';
+			page_data[i + 1]['element_price'].style.backgroundColor = '#5cd65c';
+		}, false);
+		page_data[i]['element_row'].addEventListener('mouseout', function inner(event){
+			event.preventDefault();
+			page_data[i]['element_input_add'].style.backgroundColor = 'white';
+			page_data[i]['element_qty'].style.backgroundColor = 'white';
+			page_data[i]['element_input_cond'].style.backgroundColor = 'white';
+			page_data[i]['element_input_price'].style.backgroundColor = 'white';
+			page_data[i]['element_input_front'].style.backgroundColor = 'white';
+			page_data[i]['element_input_back'].style.backgroundColor = 'white';
+			page_data[i + 1]['element_desc'].style.backgroundColor = 'white';
+			page_data[i +1]['element_price'].style.backgroundColor = 'white';
+		}, false);
+		
+		//Turn the drop boxes dark green on hover.
+		page_data[i]['element_image_box_front'].addEventListener('dragenter', function inner(event){
+			event.preventDefault();
+			page_data[i]['element_image_box_front'].style.backgroundColor = '#5cd65c';
+		}, false);
+		page_data[i]['element_image_box_back'].addEventListener('dragenter', function inner(event){
+			event.preventDefault();
+			page_data[i]['element_image_box_back'].style.backgroundColor = '#5cd65c';
+		}, false);
+		
+		//Turn the drop boxes white when the mouse moves out.
+		page_data[i]['element_image_box_front'].addEventListener('dragleave', function inner(event){
+			event.preventDefault();
+			page_data[i]['element_image_box_front'].style.backgroundColor = 'white';
+		}, false);
+		page_data[i]['element_image_box_back'].addEventListener('dragleave', function inner(event){
+			event.preventDefault();
+			page_data[i]['element_image_box_back'].style.backgroundColor = 'white';
+		}, false);
+		
+		//When an image is dropped in the box, save the file.
 		page_data[i]['element_image_box_front'].addEventListener('drop', function inner(event){
 			event.preventDefault();
+			//Change the background back to white.
+			page_data[i]['element_image_box_front'].style.backgroundColor = 'white';
 			//Get the files added.
 			var files = event.dataTransfer.files;
 			if(files[0].type.indexOf("image") == 0){
@@ -17,6 +64,8 @@ for(var i = 0; i < page_data.length; i++){
 		}, false);
 		page_data[i]['element_image_box_back'].addEventListener('drop', function inner(event){
 			event.preventDefault();
+			//Change the background back to white.
+			page_data[i]['element_image_box_back'].style.backgroundColor = 'white';
 			//Get the files added.
 			var files = event.dataTransfer.files;
 			if(files[0].type.indexOf("image") == 0){
@@ -70,6 +119,8 @@ btn_submit.addEventListener("click", function(event){
 function get_page_data(){
 	//Create a temp array to hold the page elements
 	var temp = [];
+	//Get the div that contains the elements.
+	var table_rows = document.getElementsByClassName('table_row');
 	//Get the qty and card_id elements.
 	var quantities = document.getElementsByName('qty');
 	var ids = document.getElementsByName('card_id');
@@ -83,14 +134,21 @@ function get_page_data(){
 	//Get all the image_box divs.
 	var image_box_fronts = document.getElementsByName('image_box_front');
 	var image_box_backs = document.getElementsByName('image_box_back');
+	//Get the description and price elements.
+	var div_desc = document.getElementsByClassName('admin_desc');
+	var div_price = document.getElementsByClassName('admin_price');
 
 	//Add all page elements to the temp array.
 	for(var k = 0; k < image_box_fronts.length; k++){
 		temp.push({
+			'element_row': table_rows[k],
 			'value_card_id': ids[k].value,
 			'element_input_add': input_adds[k],
 			'value_add': input_adds[k].value,
+			'element_qty': quantities[k],
 			'value_qty': quantities[k].innerHTML,
+			'element_desc': div_desc[k],
+			'element_price': div_price[k],
 			'element_input_cond': input_conds[k],
 			'value_cond': input_conds[k].value,
 			'element_input_price': input_prices[k],
@@ -122,10 +180,18 @@ function update_database(obj){
 			var update = JSON.parse(xhttp.responseText);
 			if(update){
 				//Update the input text boxes.
+				obj['element_input_add'].value = '';
+				obj['element_qty'].innerHTML = update.quantity;
+				obj['element_qty'].style.backgroundColor = '#ffff1a';
+				obj['element_input_cond'].value = update.cond;
+				obj['element_input_cond'].style.backgroundColor = '#ffff1a';
+				obj['element_input_price'].value = update.cond_price;
+				obj['element_input_price'].style.backgroundColor = '#ffff1a';
 				obj['element_input_front'].value = update.img_front;
+				obj['element_input_front'].style.backgroundColor = '#ffff1a';
 				obj['element_image_box_front'].innerHTML = 'Drop';
-				//Update the input text boxes.
 				obj['element_input_back'].value = update.img_back;
+				obj['element_input_back'].style.backgroundColor = '#ffff1a';
 				obj['element_image_box_back'].innerHTML = 'Drop';
 			}
 		}

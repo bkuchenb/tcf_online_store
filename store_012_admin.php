@@ -122,7 +122,7 @@ echo'
 		//Display the results.
 		for($i=0; $i < count($resultsArray); $i++){
 			echo'
-					<div>
+					<div class="table_row">
 						<input class="admin_text_add" name="input_add" id="input_add_' . $resultsArray[$i]['card_id'] . '" type="text" />
 						<div class="admin_qty" name="qty" id="qty_' . $resultsArray[$i]['card_id'] . '">' . $resultsArray[$i]['quantity'] . '</div>
 						<div class="admin_desc">' . $year . ' ' . $set_name . ' '

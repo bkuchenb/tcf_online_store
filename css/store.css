@@ -379,7 +379,7 @@
 	padding-left: 5px;
 	width: 50px;
 }
-.admin_text_price, .admin_text_front, .admin_text_back{
+.admin_text_price{
 	margin-top: 5px;
 	padding-left: 5px;
 	width: 75px;
@@ -397,10 +397,13 @@
 	width: 75px;
 }
 .admin_text_front, .admin_text_back{
-	overflow: hidden;
-	text-overflow: ellipsis;
+	margin-top: 5px;
+	/* overflow: hidden; */
+	padding-left: 5px;
+	/* text-overflow: ellipsis; */
 	vertical-align: bottom;
-	white-space: nowrap;
+	/* white-space: nowrap; */
+	width: 68px;
 }
 #form_navbar_right{
 	display: inline;

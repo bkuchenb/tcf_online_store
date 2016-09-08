@@ -132,10 +132,26 @@ echo'
 							type="text" value="' . $resultsArray[$i]['cond'] . '" />
 						<input class="admin_text_price" name="input_price" id="input_price_' . $resultsArray[$i]['card_id'] . '"
 							type="text "value="' . $resultsArray[$i]['cond_price'] . '" />
-						<input class="admin_text_front" name="input_front" id="input_front_' . $resultsArray[$i]['card_id'] . '"
-									value="' . $resultsArray[$i]['img_front'] . '" />
-						<input class="admin_text_back" name="input_back" id="input_back_' . $resultsArray[$i]['card_id'] . '"
-									value="' . $resultsArray[$i]['img_back'] . '" />
+						<div class="admin_front">
+							<input class="admin_text_front" name="input_front" id="input_front_' . $resultsArray[$i]['card_id'] . '"
+									type="checkbox" ';
+			if($resultsArray[$i]['img_front'] != ''){
+				echo 'checked="checked" /></div>';
+				}
+			else{
+				echo '/></div>';
+			}
+			echo'
+						<div class="admin_back">
+							<input class="admin_text_back" name="input_back" id="input_back_' . $resultsArray[$i]['card_id'] . '"
+									type="checkbox" ';
+			if($resultsArray[$i]['img_back'] != ''){
+				echo 'checked="checked" /></div>';
+				}
+			else{
+				echo '/></div>';
+			}
+			echo'
 						<div class="image_box" name="image_box_front" id="drop_front_' . $resultsArray[$i]['card_id'] . '">Drop</div>
 						<div class="image_box" name="image_box_back" id="drop_back_' . $resultsArray[$i]['card_id'] . '">Drop</div>
 						<input type="hidden" name="card_id" value="' . $resultsArray[$i]['card_id'] . '" />

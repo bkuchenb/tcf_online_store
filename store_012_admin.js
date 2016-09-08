@@ -1,4 +1,4 @@
-//Create an array to save page data.
+//Get the page element that will be needed.
 var page_data = get_page_data();
 
 //Add event listeners to elements in each row.
@@ -12,21 +12,28 @@ for(var i = 0; i < page_data.length; i++){
 			page_data[i]['element_qty'].style.backgroundColor = '#5cd65c';
 			page_data[i]['element_input_cond'].style.backgroundColor = '#5cd65c';
 			page_data[i]['element_input_price'].style.backgroundColor = '#5cd65c';
-			page_data[i]['element_input_front'].style.backgroundColor = '#5cd65c';
-			page_data[i]['element_input_back'].style.backgroundColor = '#5cd65c';
-			page_data[i + 1]['element_desc'].style.backgroundColor = '#5cd65c';
-			page_data[i + 1]['element_price'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_div_front'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_div_back'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_desc'].style.backgroundColor = '#5cd65c';
+			page_data[i]['element_price'].style.backgroundColor = '#5cd65c';
 		}, false);
 		page_data[i]['element_row'].addEventListener('mouseout', function inner(event){
 			event.preventDefault();
-			page_data[i]['element_input_add'].style.backgroundColor = 'white';
-			page_data[i]['element_qty'].style.backgroundColor = 'white';
-			page_data[i]['element_input_cond'].style.backgroundColor = 'white';
-			page_data[i]['element_input_price'].style.backgroundColor = 'white';
-			page_data[i]['element_input_front'].style.backgroundColor = 'white';
-			page_data[i]['element_input_back'].style.backgroundColor = 'white';
-			page_data[i + 1]['element_desc'].style.backgroundColor = 'white';
-			page_data[i +1]['element_price'].style.backgroundColor = 'white';
+			//If the row has been changed, keep the yellow backgroundColor.
+			if(page_data[i]['changed'] == true){
+				var color = '#ffff1a';
+			}
+			else{
+				var color = 'white';
+			}
+			page_data[i]['element_input_add'].style.backgroundColor = color;
+			page_data[i]['element_qty'].style.backgroundColor = color;
+			page_data[i]['element_input_cond'].style.backgroundColor = color;
+			page_data[i]['element_input_price'].style.backgroundColor = color;
+			page_data[i]['element_div_front'].style.backgroundColor = color;
+			page_data[i]['element_div_back'].style.backgroundColor = color;
+			page_data[i]['element_desc'].style.backgroundColor = color;
+			page_data[i]['element_price'].style.backgroundColor = color;
 		}, false);
 		
 		//Turn the drop boxes dark green on hover.
@@ -107,6 +114,8 @@ btn_submit.addEventListener("click", function(event){
 			page_data[j]['value_price'] != page_data_update[j]['value_price'] ||
 			page_data[j]['value_file_front'] != page_data_update[j]['value_file_front'] ||
 			page_data[j]['value_file_back'] != page_data_update[j]['value_file_back']){
+				//Set a flag to tell that this row has been changed.
+				page_data[j]['changed'] = true;
 				//Add the front image to page_data_update.
 				page_data_update[j]['value_file_front'] = page_data[j]['value_file_front'];
 				//Add the back image to page_data_update.
@@ -128,9 +137,11 @@ function get_page_data(){
 	var input_adds = document.getElementsByName('input_add');
 	var input_conds = document.getElementsByName('input_cond');
 	var input_prices = document.getElementsByName('input_price');
-	//Get all the image location inputs.
+	//Get all the image location inputs and the parent divs.
 	var input_fronts = document.getElementsByName('input_front');
 	var input_backs = document.getElementsByName('input_back');
+	var div_fronts = document.getElementsByClassName('admin_front');
+	var div_backs = document.getElementsByClassName('admin_back');
 	//Get all the image_box divs.
 	var image_box_fronts = document.getElementsByName('image_box_front');
 	var image_box_backs = document.getElementsByName('image_box_back');
@@ -141,18 +152,22 @@ function get_page_data(){
 	//Add all page elements to the temp array.
 	for(var k = 0; k < image_box_fronts.length; k++){
 		temp.push({
+			//Used to tell if the row has been changed.
+			'changed': false,
 			'element_row': table_rows[k],
 			'value_card_id': ids[k].value,
 			'element_input_add': input_adds[k],
 			'value_add': input_adds[k].value,
 			'element_qty': quantities[k],
 			'value_qty': quantities[k].innerHTML,
-			'element_desc': div_desc[k],
-			'element_price': div_price[k],
+			'element_desc': div_desc[k + 1],
+			'element_price': div_price[k + 1],
 			'element_input_cond': input_conds[k],
 			'value_cond': input_conds[k].value,
 			'element_input_price': input_prices[k],
 			'value_price': input_prices[k].value,
+			'element_div_front': div_fronts[k + 2],
+			'element_div_back': div_backs[k + 2],
 			'element_input_front': input_fronts[k],
 			'element_input_back': input_backs[k],
 			'element_image_box_front': image_box_fronts[k],
@@ -183,15 +198,21 @@ function update_database(obj){
 				obj['element_input_add'].value = '';
 				obj['element_qty'].innerHTML = update.quantity;
 				obj['element_qty'].style.backgroundColor = '#ffff1a';
+				obj['element_desc'].style.backgroundColor = '#ffff1a';
+				obj['element_price'].style.backgroundColor = '#ffff1a';
 				obj['element_input_cond'].value = update.cond;
 				obj['element_input_cond'].style.backgroundColor = '#ffff1a';
 				obj['element_input_price'].value = update.cond_price;
 				obj['element_input_price'].style.backgroundColor = '#ffff1a';
-				obj['element_input_front'].value = update.img_front;
-				obj['element_input_front'].style.backgroundColor = '#ffff1a';
+				if(update.img_front != ''){
+					obj['element_input_front'].checked = 'checked';
+				}
+				obj['element_div_front'].style.backgroundColor = '#ffff1a';
 				obj['element_image_box_front'].innerHTML = 'Drop';
-				obj['element_input_back'].value = update.img_back;
-				obj['element_input_back'].style.backgroundColor = '#ffff1a';
+				if(update.img_back != ''){
+					obj['element_input_back'].checked = 'checked';
+				}
+				obj['element_div_back'].style.backgroundColor = '#ffff1a';
 				obj['element_image_box_back'].innerHTML = 'Drop';
 			}
 		}
@@ -199,7 +220,7 @@ function update_database(obj){
 	xhttp.open('POST', 'store_001_save_file.php', true);
 	xhttp.send(formdata);
 }
-
+//This function is not used.
 function upload_images(file, orient, index){
 	var xhttp = new XMLHttpRequest();
 	var formdata = new FormData();

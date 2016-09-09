@@ -124,15 +124,15 @@ echo'
 			echo'
 					<div class="table_row">
 						<input class="admin_text_add" name="input_add" id="input_add_' . $resultsArray[$i]['card_id'] . '" type="text" />
-						<div class="admin_qty" name="qty" id="qty_' . $resultsArray[$i]['card_id'] . '">' . $resultsArray[$i]['quantity'] . '</div>
-						<div class="admin_desc">' . $year . ' ' . $set_name . ' '
+						<div class="admin_text_qty" name="qty" id="qty_' . $resultsArray[$i]['card_id'] . '">' . $resultsArray[$i]['quantity'] . '</div>
+						<div class="admin_text_desc">' . $year . ' ' . $set_name . ' '
 							. $resultsArray[$i]['card_number'] . ' ' . $resultsArray[$i]['name'] . '</div>
-						<div class="admin_price">' . $resultsArray[$i]['price'] . '</div>
+						<div class="admin_text_price">$' . $resultsArray[$i]['price'] . '</div>
 						<input class="admin_text_cond" name="input_cond" id="input_cond_' . $resultsArray[$i]['card_id'] . '"
 							type="text" value="' . $resultsArray[$i]['cond'] . '" />
-						<input class="admin_text_price" name="input_price" id="input_price_' . $resultsArray[$i]['card_id'] . '"
-							type="text "value="' . $resultsArray[$i]['cond_price'] . '" />
-						<div class="admin_front">
+						<input class="admin_text_cond_price" name="input_price" id="input_price_' . $resultsArray[$i]['card_id'] . '"
+							type="text "value="$' . $resultsArray[$i]['cond_price'] . '" />
+						<div class="admin_table_front">
 							<input class="admin_text_front" name="input_front" id="input_front_' . $resultsArray[$i]['card_id'] . '"
 									type="checkbox" ';
 			if($resultsArray[$i]['img_front'] != ''){
@@ -142,7 +142,7 @@ echo'
 				echo '/></div>';
 			}
 			echo'
-						<div class="admin_back">
+						<div class="admin_table_back">
 							<input class="admin_text_back" name="input_back" id="input_back_' . $resultsArray[$i]['card_id'] . '"
 									type="checkbox" ';
 			if($resultsArray[$i]['img_back'] != ''){

@@ -340,48 +340,77 @@
 	margin-top: 5px;
 	width: 300px;
 }
-.admin_add, .admin_qty, .admin_num,
-.admin_cond{
-	background-color: white;
+.admin_add, .admin_qty, .admin_cond{
+	background-color: #5cd65c;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
 	margin-top: 5px;
-	padding-left: 5px;
+	text-align: center;
 	width: 50px;
 }
 .admin_price, .admin_price_cond, .admin_front,
 .admin_back{
+	background-color: #5cd65c;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	text-align: center;
+	width: 75px;
+}
+.admin_table_front, .admin_table_back{
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
 	margin-top: 5px;
-	overflow: hidden;
-	padding-left: 5px;
-	text-overflow: ellipsis;
-	vertical-align: bottom;
-	white-space: nowrap;
+	text-align: center;
 	width: 75px;
 }
 .admin_desc{
+	background-color: #5cd65c;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	text-align: center;
+	width: 400px;
+}
+.admin_text_desc{
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
 	margin-top: 5px;
 	overflow: hidden;
 	padding-left: 5px;
+	text-align: left;
 	text-overflow: ellipsis;
 	vertical-align: bottom;
 	white-space: nowrap;
 	width: 400px;
 }
-.admin_text_add, .admin_text_cond{
+.admin_text_add, .admin_text_qty{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
 	margin-top: 5px;
-	padding-left: 5px;
+	padding-right: 5px;
+	text-align: right;
 	width: 50px;
 }
-.admin_text_price{
+.admin_text_cond{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
 	margin-top: 5px;
 	padding-left: 5px;
+	text-align: left;
+	width: 50px;
+}
+.admin_text_price, .admin_text_cond_price{
+	background-color: white;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	padding-right: 5px;
+	text-align: right;
 	width: 75px;
 }
 .image_box{

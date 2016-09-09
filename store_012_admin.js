@@ -26,7 +26,7 @@ for(var i = 0; i < page_data.length; i++){
 			else{
 				var color = 'white';
 			}
-			page_data[i]['element_input_add'].style.backgroundColor = color;
+			page_data[i]['element_input_add'].style.backgroundColor = 'white';
 			page_data[i]['element_qty'].style.backgroundColor = color;
 			page_data[i]['element_input_cond'].style.backgroundColor = color;
 			page_data[i]['element_input_price'].style.backgroundColor = color;
@@ -140,14 +140,14 @@ function get_page_data(){
 	//Get all the image location inputs and the parent divs.
 	var input_fronts = document.getElementsByName('input_front');
 	var input_backs = document.getElementsByName('input_back');
-	var div_fronts = document.getElementsByClassName('admin_front');
-	var div_backs = document.getElementsByClassName('admin_back');
+	var div_fronts = document.getElementsByClassName('admin_table_front');
+	var div_backs = document.getElementsByClassName('admin_table_back');
 	//Get all the image_box divs.
 	var image_box_fronts = document.getElementsByName('image_box_front');
 	var image_box_backs = document.getElementsByName('image_box_back');
 	//Get the description and price elements.
-	var div_desc = document.getElementsByClassName('admin_desc');
-	var div_price = document.getElementsByClassName('admin_price');
+	var div_desc = document.getElementsByClassName('admin_text_desc');
+	var div_price = document.getElementsByClassName('admin_text_price');
 
 	//Add all page elements to the temp array.
 	for(var k = 0; k < image_box_fronts.length; k++){
@@ -160,14 +160,14 @@ function get_page_data(){
 			'value_add': input_adds[k].value,
 			'element_qty': quantities[k],
 			'value_qty': quantities[k].innerHTML,
-			'element_desc': div_desc[k + 1],
-			'element_price': div_price[k + 1],
+			'element_desc': div_desc[k],
+			'element_price': div_price[k],
 			'element_input_cond': input_conds[k],
 			'value_cond': input_conds[k].value,
 			'element_input_price': input_prices[k],
-			'value_price': input_prices[k].value,
-			'element_div_front': div_fronts[k + 2],
-			'element_div_back': div_backs[k + 2],
+			'value_price': input_prices[k].value.replace('$', ''),
+			'element_div_front': div_fronts[k],
+			'element_div_back': div_backs[k],
 			'element_input_front': input_fronts[k],
 			'element_input_back': input_backs[k],
 			'element_image_box_front': image_box_fronts[k],
@@ -202,7 +202,7 @@ function update_database(obj){
 				obj['element_price'].style.backgroundColor = '#ffff1a';
 				obj['element_input_cond'].value = update.cond;
 				obj['element_input_cond'].style.backgroundColor = '#ffff1a';
-				obj['element_input_price'].value = update.cond_price;
+				obj['element_input_price'].value = ('$' + update.cond_price);
 				obj['element_input_price'].style.backgroundColor = '#ffff1a';
 				if(update.img_front != ''){
 					obj['element_input_front'].checked = 'checked';

@@ -1,10 +1,22 @@
 //Get the page element that will be needed.
 var page_data = get_page_data();
+//Set the focus to the first add box.
+page_data[0]['element_input_add'].focus();
 
 //Add event listeners to elements in each row.
 for(var i = 0; i < page_data.length; i++){
 	//Cycle through the saved elements.
 	!function outer(i){
+		//Change add text boxes on down or up arrow.
+		page_data[i]['element_input_add'].addEventListener('keyup', function inner(event){
+			event.preventDefault();
+			if(event.keyCode == 40 && i != (page_data.length - 1)){
+				page_data[i + 1]['element_input_add'].focus();
+			}
+			if(event.keyCode == 38 && i != 0){
+				page_data[i - 1]['element_input_add'].focus();
+			}
+		}, false);
 		//Turn the row dark green on hover.
 		page_data[i]['element_row'].addEventListener('mouseover', function inner(event){
 			event.preventDefault();

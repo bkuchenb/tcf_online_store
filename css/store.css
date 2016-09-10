@@ -104,6 +104,7 @@
 }
 .container_03_admin{
 	background-color: #bbff99;/*Create a light green background.*/
+	height: 445px;
     min-width: 625px;/*Get no smaller than the logo.*/
 	position: static;/*Stack on top of each other for smaller screens.*/
     text-align: center;/*Center all divs placed inside container.*/
@@ -140,7 +141,7 @@
 }
 .body_admin{/*Placed in container 3.*/
     display: block;/*Place items inline but allow height/width changes.*/
-	height: 425px;
+	height: 410px;
 	margin: 0 auto;
 	overflow: scroll;
 	position: relative;/*Stack on top of each other for smaller screens.*/
@@ -266,10 +267,12 @@
 	vertical-align: top;/*Place div flush with the top of the container.*/
 }
 .container_04{
-	margin-top: 20px;/*Force the text below the table scroll bar.*/
+	background-color: #bbff99;/*Create a light green background.*/
+	display: inline-block;/*Place items inline but allow height/width changes.*/
+	margin-top: 0px;/*Force the text below the table scroll bar.*/
     min-width: 625px;/*Get no smaller than the logo.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
-    text-align: left;
+    text-align: center;
     width: 100%;/*Fill the entire screen.*/
 }
 .thumb{
@@ -340,7 +343,7 @@
 	margin-top: 5px;
 	width: 300px;
 }
-.admin_add, .admin_qty, .admin_cond{
+.admin_add, .admin_qty{
 	background-color: #5cd65c;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
@@ -348,14 +351,22 @@
 	text-align: center;
 	width: 50px;
 }
-.admin_price, .admin_price_cond, .admin_front,
-.admin_back{
+.admin_price, .admin_price_cond,
+.admin_front, .admin_back{
 	background-color: #5cd65c;
 	border: 1px solid black;/*Place a black border around the div.*/
 	display: inline-block;
 	margin-top: 5px;
 	text-align: center;
 	width: 75px;
+}
+.admin_cond{
+	background-color: #5cd65c;
+	border: 1px solid black;/*Place a black border around the div.*/
+	display: inline-block;
+	margin-top: 5px;
+	text-align: center;
+	width: 80px;
 }
 .admin_table_front, .admin_table_back{
 	background-color: white;
@@ -371,7 +382,7 @@
 	display: inline-block;
 	margin-top: 5px;
 	text-align: center;
-	width: 400px;
+	width: 370px;
 }
 .admin_text_desc{
 	background-color: white;
@@ -384,7 +395,7 @@
 	text-overflow: ellipsis;
 	vertical-align: bottom;
 	white-space: nowrap;
-	width: 400px;
+	width: 370px;
 }
 .admin_text_add, .admin_text_qty{
 	background-color: white;
@@ -402,7 +413,7 @@
 	margin-top: 5px;
 	padding-left: 5px;
 	text-align: left;
-	width: 50px;
+	width: 80px;
 }
 .admin_text_price, .admin_text_cond_price{
 	background-color: white;
@@ -434,6 +445,12 @@
 	/* white-space: nowrap; */
 	width: 68px;
 }
-#form_navbar_right{
+.admin_form, #form_navbar_right{
 	display: inline;
+}
+.page_box{
+	margin-left: 4px;
+	margin-right: 4px;
+	text-align: center;
+	width: 25px;
 }

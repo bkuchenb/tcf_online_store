@@ -12,83 +12,72 @@ if(isset($_SESSION['set_table'])){
 if(isset($_SESSION['set_name'])){
 	$set_name = $_SESSION['set_name'];
 }
-//Process the submitted form.
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-	//Update the cart if it was submitted.
-	if(isset($_POST['cart']) && isset($_SESSION['array'])){		
-		//Cycle through the data in the form and compare with $_SESSION['array'].
-		for($j = 0; $j < count($_SESSION['array']); $j++){
-            //Get the card_id and quantity available.
-            $card_id = $_SESSION['array'][$j]['card_id'];
-			$qty = $_SESSION['array'][$j]['quantity'];
-            //Sanitize the user input.
-			$qty_update = sanitize_string($_POST[$_SESSION['array'][$j]['card_id']]);
-            //If the user didn't add a card, set the quantity to 0.
-            if($qty_update == ''){
-				$qty_update = 0;
+//Create variables to store the page number and records.
+$page = 1;
+$record_start = 0;
+$record_end = 99;
+
+//Process page change request.
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['array'])){
+	//Change which records are displayed.
+	if(isset($_POST['location'])){
+		if($_POST['location'] == '<<'){
+			$page = 1;
+			$record_start = 0;
+			$record_end = 99;
+		}
+		if($_POST['location'] == '<' && $_SESSION['page'] != 1){
+			$page = $_SESSION['page'] - 1;
+			$record_start = $_SESSION['start'] - 100;
+			$record_end = $record_start + 99;
+		}
+		if($_POST['location'] == '>' && $_SESSION['page'] != ceil(count($_SESSION['array'])/100)){
+			$page = $_SESSION['page'] + 1;
+			$record_start = $_SESSION['start'] + 100;
+			$record_end = $record_start + 99;
+		}
+		if($_POST['location'] == '>>'){
+			$page = ceil(count($_SESSION['array'])/100);
+			$record_start = ($page - 1) * 100;
+			$record_end = count($_SESSION['array']);
+		}
+	}
+	if(isset($_POST['page'])){
+		$page = sanitize_string($_POST['page']);
+		if(is_numeric($page)){
+			//Change the page number if the entry is out of range.
+			if($page < 1){
+				$page = 1;
 			}
-			//Validate the form input
-			if(is_numeric($qty_update)){
-				//Set default value for card found in cart.
-				$in_cart = false;
-                //Make sure the qty is greater than 0.
-				if($qty_update > 0){
-					if(!isset($_SESSION['cart'])){
-						$_SESSION['cart'] = array();
-					}
-					else{
-						//Check to see if the card is already in the cart.
-						foreach($_SESSION['cart'] as $cart_item){
-							if($card_id == $cart_item['card_id']){
-								$in_cart = true;
-							}
-						} 
-					}
-					//Adjust the quantity to qty in stock.
-					if($qty_update > $qty){
-						$qty_update = $qty;
-					}
-                    if($in_cart == false){
-    					$cart_array = array();
-						$cart_array['sport'] = $sport;
-						$cart_array['year'] = $year;
-						$cart_array['set_name'] = $set_name;
-    					$cart_array['set_table'] = $_SESSION['set_table'];
-    					$cart_array['card_id'] = $_SESSION['array'][$j]['card_id'];
-    					$cart_array['qty'] = $qty_update;
-    					$cart_array['total_qty'] = $_SESSION['array'][$j]['quantity'];
-    					$cart_array['cond'] = $_SESSION['array'][$j]['cond'];
-    					array_push($_SESSION['cart'], $cart_array);
-                    }
-				}
-			}//End of if statement that validates numeric input.
-		}//End of for statement that cycles through $_SESSION['array'].
-	}//End of if that checks to see if items were added to the cart.
-	else{
-		//Get the values passed from the previous page.
-		foreach($_POST as $key => $value){
-			if($value == 'View'){
-				$set_name = $key;
+			if($page > ceil(count($_SESSION['array'])/100)){
+				$page = ceil(count($_SESSION['array'])/100);
 			}
-			if($value == 'Hidden'){
-				$set_table = $key;
+			$record_start = ($page - 1) * 100;
+			if($page != ceil(count($_SESSION['array'])/100)){
+				$record_end = $record_start + 99;
+			}
+			else{
+				$record_end = count($_SESSION['array']);
 			}
 		}
-		//Add the set_name and set_table to the session.
-		$_SESSION['set_name'] = $set_name;
-		$_SESSION['set_table'] = $set_table;
+		else{
+			$page = 1;
+		}
 	}
-}//End of if statement that checks to see if the form was submitted.
+}
+//Save the page values to the SESSION.
+$_SESSION['page'] = $page;
+$_SESSION['start'] = $record_start;
+		
 //Include the header.
 include ('store_00_header.php');
 //Get all the card data stored in set_table.
 $q = "SELECT *
-	  FROM $set_table
-	  LIMIT 100";
+	  FROM $set_table";
 //Run the query.
 $r = mysqli_query($dbc, $q);
 //If it runs okay, display the records.
-	if($r){
+if($r){
 echo'
 <body>
 	<div class="container_03_admin">
@@ -119,8 +108,10 @@ echo'
 		}
 		//Add the results array to the session array.
 		$_SESSION['array'] = $resultsArray;
+		//Create an array to store condition
+		$conditions = ['', 'GEM-MT', 'MINT', 'NM-MT', 'NM', 'EX-MT', 'EX', 'VG-EX', 'VG', 'GOOD', 'FR', 'PR'];
 		//Display the results.
-		for($i=0; $i < count($resultsArray); $i++){
+		for($i = $record_start; $i < $record_end; $i++){
 			echo'
 					<div class="table_row">
 						<input class="admin_text_add" name="input_add" id="input_add_' . $resultsArray[$i]['card_id'] . '" type="text" />
@@ -128,8 +119,17 @@ echo'
 						<div class="admin_text_desc">' . $year . ' ' . $set_name . ' '
 							. $resultsArray[$i]['card_number'] . ' ' . $resultsArray[$i]['name'] . '</div>
 						<div class="admin_text_price">$' . $resultsArray[$i]['price'] . '</div>
-						<input class="admin_text_cond" name="input_cond" id="input_cond_' . $resultsArray[$i]['card_id'] . '"
-							type="text" value="' . $resultsArray[$i]['cond'] . '" />
+						<select class="admin_text_cond" name="input_cond" id="input_cond_' . $resultsArray[$i]['card_id'] . '">';
+			foreach($conditions as $cd){
+				if($cd == $resultsArray[$i]['cond']){
+					echo'	<option selected="selected">' . $cd . '</option>';
+				}
+				else{
+					echo'	<option>' . $cd . '</option>';
+				}
+			}
+			echo'		
+						</select>
 						<input class="admin_text_cond_price" name="input_price" id="input_price_' . $resultsArray[$i]['card_id'] . '"
 							type="text "value="$' . $resultsArray[$i]['cond_price'] . '" />
 						<div class="admin_table_front">
@@ -168,8 +168,21 @@ echo'
 	echo'
 			</form>
 		</div>
-		<div class="body_right_cards">
-		</div>
+	</div>
+	<div class="container_04">
+		<form class="admin_form" method="POST" action="store_012_admin.php">
+			<input type="submit" name="location" value="<<" />
+			<input type="submit" name="location" value="<" />
+			<span>Page</span>
+		</form>
+		<form class="admin_form" method="POST" action="store_012_admin.php">
+			<input class="page_box" name="page" type="text" value="' . $page . '" />
+		</form>
+		<form class="admin_form" method="POST" action="store_012_admin.php">
+			<span>of ' . ceil(count($resultsArray)/100) . '</span>
+			<input type="submit" name="location" value=">" />
+			<input type="submit" name="location" value=">>" />
+		</form>
 	</div>
 <script type="text/javascript" src="store_012_admin.js"></script>
 </body>

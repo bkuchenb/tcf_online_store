@@ -16,6 +16,9 @@ if(isset($_SESSION['set_name'])){
 $page = 1;
 $record_start = 0;
 $record_end = 99;
+//Create variables to save the sort order.
+$main_sort = 'card_id';
+$sort_order = 'ASC';
 
 //Process page change request.
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['array'])){
@@ -65,6 +68,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['array'])){
 		}
 	}
 }
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
+	$main_sort = $_GET['main_sort'];
+	$sort_order = $_GET['sort_order'];
+}
 //Save the page values to the SESSION.
 $_SESSION['page'] = $page;
 $_SESSION['start'] = $record_start;
@@ -73,7 +80,16 @@ $_SESSION['start'] = $record_start;
 include ('store_00_header.php');
 //Get all the card data stored in set_table.
 $q = "SELECT *
-	  FROM $set_table";
+	  FROM $set_table
+	  ORDER BY $main_sort
+	  $sort_order";
+//Change the sort order if the button is pressed again.
+if($sort_order == 'ASC'){
+	$sort_order = 'DESC';
+}
+else{
+	$sort_order = 'ASC';
+}
 //Run the query.
 $r = mysqli_query($dbc, $q);
 //If it runs okay, display the records.
@@ -83,13 +99,27 @@ echo'
 	<div class="container_03_admin">
 		<div class="body_admin_header">
 			<div class="admin_add">Add</div>
-			<div class="admin_qty">Qty</div>
-			<div class="admin_desc">Description</div>
-			<div class="admin_price">Price</div>
-			<div class="admin_cond">Cond</div>
-			<div class="admin_price_cond">C_Price</div>
-			<div class="admin_front">Img(F)</div>
-			<div class="admin_back">Img(B)</div>
+			<div class="admin_qty">
+				<a class="link" href="/store_012_admin.php?main_sort=quantity&sort_order=' . $sort_order . '">Qty</a>
+			</div>
+			<div class="admin_desc">
+				<a class="link" href="/store_012_admin.php?main_sort=card_id&sort_order=' . $sort_order . '">Description</a>
+			</div>
+			<div class="admin_price">
+				<a class="link" href="/store_012_admin.php?main_sort=price&sort_order=' . $sort_order . '">Price</a>
+			</div>
+			<div class="admin_cond">
+				<a class="link" href="/store_012_admin.php?main_sort=cond&sort_order=' . $sort_order . '">Cond</a>
+			</div>
+			<div class="admin_price_cond">
+				<a class="link" href="/store_012_admin.php?main_sort=cond_price&sort_order=' . $sort_order . '">C_Price</a>
+			</div>
+			<div class="admin_front">
+				<a class="link" href="/store_012_admin.php?main_sort=img_front&sort_order=' . $sort_order . '">Img(F)</a>
+			</div>
+			<div class="admin_back">
+				<a class="link" href="/store_012_admin.php?main_sort=img_back&sort_order=' . $sort_order . '">Img(B)</a>
+			</div>
 			<div class="admin_front">Front</div>
 			<div class="admin_back">Back</div>
 		</div>

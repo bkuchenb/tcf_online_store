@@ -108,13 +108,20 @@ window.addEventListener("drop",function(e){
 
 //Get the navbar_right element.
 var navbar_right = document.getElementsByClassName('navbar_right');
-//Add a submit button to the navbar.
+//Add an update button to the navbar.
 var btn_submit = document.createElement('BUTTON');
-btn_submit.innerHTML = 'Submit';
+btn_submit.innerHTML = 'Update';
+btn_submit.className = 'navbar_button';
 btn_submit.style.fontWeight = 'bold';
 navbar_right[0].appendChild(btn_submit);
+//Add an insert button to the navbar.
+var btn_insert = document.createElement('BUTTON');
+btn_insert.innerHTML = 'Insert';
+btn_insert.className = 'navbar_button';
+btn_insert.style.fontWeight = 'bold';
+navbar_right[0].appendChild(btn_insert);
 
-//Add an action listener to the submit button.
+//Add an action listener to the update button.
 btn_submit.addEventListener("click", function(event){
 	event.preventDefault();
 	//Get the updated page data.
@@ -133,6 +140,29 @@ btn_submit.addEventListener("click", function(event){
 				//Add the back image to page_data_update.
 				page_data_update[j]['value_file_back'] = page_data[j]['value_file_back'];
 				update_database(page_data_update[j]);
+			}
+	}
+}, false);
+
+//Add an action listener to the insert button.
+btn_insert.addEventListener("click", function(event){
+	event.preventDefault();
+	//Get the updated page data.
+	var page_data_update = get_page_data();
+	//Find the changes that were made and update the database.
+	for(var j = 0; j < page_data.length; j++){
+		if(page_data[j]['value_add'] != page_data_update[j]['value_add'] ||
+			page_data[j]['value_cond'] != page_data_update[j]['value_cond'] ||
+			page_data[j]['value_price'] != page_data_update[j]['value_price'] ||
+			page_data[j]['value_file_front'] != page_data_update[j]['value_file_front'] ||
+			page_data[j]['value_file_back'] != page_data_update[j]['value_file_back']){
+				//Set a flag to tell that this row has been changed.
+				page_data[j]['changed'] = true;
+				//Add the front image to page_data_update.
+				page_data_update[j]['value_file_front'] = page_data[j]['value_file_front'];
+				//Add the back image to page_data_update.
+				page_data_update[j]['value_file_back'] = page_data[j]['value_file_back'];
+				insert_database(page_data_update[j]);
 			}
 	}
 }, false);
@@ -232,24 +262,45 @@ function update_database(obj){
 	xhttp.open('POST', 'store_001_save_file.php', true);
 	xhttp.send(formdata);
 }
-//This function is not used.
-function upload_images(file, orient, index){
+
+function insert_database(obj){
 	var xhttp = new XMLHttpRequest();
 	var formdata = new FormData();
-	formdata.append('image', file);
+	formdata.append('card_id', obj['value_card_id']);
+	formdata.append('add', obj['value_add']);
+	formdata.append('qty', obj['value_qty']);
+	formdata.append('cond', obj['value_cond']);
+	formdata.append('cond_price', obj['value_price']);
+	formdata.append('file_front', obj['value_file_front']);
+	formdata.append('file_back', obj['value_file_back']);
 	xhttp.onreadystatechange = function(){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the response from ajax.
-			var image_uploaded = xhttp.responseText;
-			if(image_uploaded){
+			/* var update = JSON.parse(xhttp.responseText);
+			if(update){
 				//Update the input text boxes.
-				var id_str = 'input_' + orient + '_' + index;
-				document.getElementById(id_str).value = file.name;
-				var id_str = 'drop_' + orient + '_' + index;
-				document.getElementById(id_str).innerHTML = 'Drop';
-			}
+				obj['element_input_add'].value = '';
+				obj['element_qty'].innerHTML = update.quantity;
+				obj['element_qty'].style.backgroundColor = '#ffff1a';
+				obj['element_desc'].style.backgroundColor = '#ffff1a';
+				obj['element_price'].style.backgroundColor = '#ffff1a';
+				obj['element_input_cond'].value = update.cond;
+				obj['element_input_cond'].style.backgroundColor = '#ffff1a';
+				obj['element_input_price'].value = ('$' + update.cond_price);
+				obj['element_input_price'].style.backgroundColor = '#ffff1a';
+				if(update.img_front != ''){
+					obj['element_input_front'].checked = 'checked';
+				}
+				obj['element_div_front'].style.backgroundColor = '#ffff1a';
+				obj['element_image_box_front'].innerHTML = 'Drop';
+				if(update.img_back != ''){
+					obj['element_input_back'].checked = 'checked';
+				}
+				obj['element_div_back'].style.backgroundColor = '#ffff1a';
+				obj['element_image_box_back'].innerHTML = 'Drop';
+			} */
 		}
 	}
-	xhttp.open('POST', 'store_001_save_file.php', true);
+	xhttp.open('POST', 'store_001_insert_file.php', true);
 	xhttp.send(formdata);
 }

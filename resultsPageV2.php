@@ -31,7 +31,7 @@ require ('mysqli_connect.php');
 //make the query:
 $q = "SELECT year, set_name, top_loader, nine_hundred, triple_shoe, details
       FROM $sport
-	  WHERE year=$year AND top_loader > 0 AND set_name LIKE $letter ORDER BY year ASC, set_name ASC";
+	  WHERE year=$year AND set_name LIKE $letter AND top_loader > 0 ORDER BY year ASC, set_name ASC";
 //run the query
 $r = @mysqli_query ($dbc, $q);
 //if it runs ok, display the records
@@ -80,14 +80,14 @@ if ($r)
 			//fetch the results
 			$row2 = mysqli_fetch_array($r2, MYSQLI_ASSOC);
 			echo '<tr class="table">
-		  <td class="setCol_year">' . $row['year'] . '</td>
-		  <td class="setCol_setResults">' . $row['set_name'] . '</td>
-		  <td class="setCol_top_loader">' . $row['top_loader'] . '</td>
-		  <td class="setCol_900">' . $row['nine_hundred'] . '</td>
-		  <td class="setCol_triple">' . $row['triple_shoe'] . '</td>
-		  <td class="setCol_triple">$' . $row2['total'] . '</td>
-		  <td class="setCol_triple">' . $row['details'] . '</td>
-		  </tr>';
+			  <td class="setCol_year">' . $row['year'] . '</td>
+			  <td class="setCol_setResults">' . $row['set_name'] . '</td>
+			  <td class="setCol_top_loader">' . $row['top_loader'] . '</td>
+			  <td class="setCol_900">' . $row['nine_hundred'] . '</td>
+			  <td class="setCol_triple">' . $row['triple_shoe'] . '</td>
+			  <td class="setCol_triple">$' . $row2['total'] . '</td>
+			  <td class="setCol_triple">' . $row['details'] . '</td>
+			  </tr>';
 		}
 		else// If it did not run OK
 		{

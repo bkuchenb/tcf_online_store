@@ -10,7 +10,7 @@ include ('header.php');
 ?>
 <body>
 <p>
-<form method="get" action="yearPageV2.php" align="center">
+<form method="get" action="yearPageV2.php" style='text-align: center;'>
 <input name="sport" class="xlarge blue button" type="submit" value="Baseball" />
 <input name="sport" class="xlarge blue button" type="submit" value="Football" />
 <input name="sport" class="xlarge blue button" type="submit" value="Basketball" />

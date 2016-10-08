@@ -11,7 +11,7 @@ include ('header.php');
 ?>
 <body>
 <p>
-<form method="get" action="resultsPageV2.php" align="center">
+<form method="get" action="resultsPageV2.php" style='text-align: center;'>
 <?php
 $counter = 0;//create a counter to put paragraph breaks between the rows
 $letters = range('A', 'Z');

@@ -20,8 +20,8 @@ echo'
 			<div class="header_row">';
 if(isset($_SESSION['cart'])){
 	echo'
-				<b>Items in Cart: (' . count($_SESSION['cart']) . ')</b>'; 
-} 
+				<b>Items in Cart: (' . count($_SESSION['cart']) . ')</b>';
+}
 else{
 	echo'
 				<b>Items in Cart: (0)</b>';
@@ -56,13 +56,13 @@ else{
 				<input class="navbar_button" name="choice" id="signup_btn" type="submit" value="Sign up" />
 				<input class="navbar_button" name="choice" id="login_btn" type="submit" value="Log in" />';
 }
-echo'				
+echo'
 			</form>
         </div>
 		<nav class="navbar" id="navcontainer">
 			<ul>
 				<li><a href="store_01_sport.php">' . $_SESSION['sport'] . '</a></li>
-				<li><a href="store_02_year.php">' . $_SESSION['year'] . '</a></li> 
+				<li><a href="store_02_year.php">' . $_SESSION['year'] . '</a></li>
 				<li><a href="store_03_letter.php">' . $_SESSION['letterClicked'] . '</a></li>';
 if($_SESSION['set_name'] != ''){
 	echo'
@@ -76,7 +76,7 @@ if(isset($_SESSION['user_info']['user_type']) && $_SESSION['set_name'] != ''){
 	if($_SESSION['user_info']['user_type'] == 'admin'){
 		echo'
 			<form id="form_navbar_right" method="POST" action="store_012_admin.php">
-				<input class="navbar_button" name="admin" id="btn_admin" type="submit" value="Admin" />
+				<input class="navbar_button" name="admin" id="btn_admin" type="submit" value="Admin">
 			</form>';
 	}
 }

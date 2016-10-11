@@ -1,4 +1,6 @@
 <?php
+//Debugging
+echo'store_012_admin.php load success.';
 //Include the head.
 include ('store_000_head.php');
 //Update the local variables.
@@ -75,7 +77,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 //Save the page values to the SESSION.
 $_SESSION['page'] = $page;
 $_SESSION['start'] = $record_start;
-		
+
 //Include the header.
 include ('store_00_header.php');
 //Get all the card data stored in set_table.
@@ -130,16 +132,16 @@ echo'
 		//Initailize the counter.
 		$counter = 0;
 		//Fetch and process the query results.
-		while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)){	
+		while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)){
 			//Store the query results in the resultsRow array
-			$resultsArray[$counter] = $row;		
+			$resultsArray[$counter] = $row;
 			//Update the counter.
-			$counter++;		   
+			$counter++;
 		}
 		//Add the results array to the session array.
 		$_SESSION['array'] = $resultsArray;
 		//Create an array to store condition
-		$conditions = ['', 'GEM-MT', 'MINT', 'NM-MT', 'NM', 'EX-MT', 'EX', 'VG-EX', 'VG', 'GOOD', 'FR', 'PR'];
+		$conditions = array('', 'GEM-MT', 'MINT', 'NM-MT', 'NM', 'EX-MT', 'EX', 'VG-EX', 'VG', 'GOOD', 'FR', 'PR');
 		//Display the results.
 		for($i = $record_start; $i < $record_end; $i++){
 			echo'
@@ -158,7 +160,7 @@ echo'
 					echo'	<option>' . $cd . '</option>';
 				}
 			}
-			echo'		
+			echo'
 						</select>
 						<input class="admin_text_cond_price" name="input_price" id="input_price_' . $resultsArray[$i]['card_id'] . '"
 							type="text "value="$' . $resultsArray[$i]['cond_price'] . '" />
@@ -188,8 +190,8 @@ echo'
 					</div>';
 		}//End of for loop that displays results.
 		//Free up the resources.
-		mysqli_free_result ($r); 
-	}//End of if statement that checks to see if the query ran okay.																	
+		mysqli_free_result ($r);
+	}//End of if statement that checks to see if the query ran okay.
 	else{
 		//Print an error message.
 		echo mysqli_error($dbc) . '<br>Query: ' . $q . '<br>';

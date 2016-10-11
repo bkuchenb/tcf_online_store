@@ -1,6 +1,4 @@
 <?php
-//Debugging
-echo'store_012_admin.php load success.';
 //Include the head.
 include ('store_000_head.php');
 //Update the local variables.

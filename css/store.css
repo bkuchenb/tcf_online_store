@@ -1,5 +1,5 @@
 
-* 
+*
 {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -231,7 +231,7 @@
 }
 .card_info{/*Placed in card.*/
     display: inline-block;/*Place items inline but allow height/width changes.*/
-	height: 100px;	
+	height: 100px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
@@ -291,7 +291,7 @@
 	text-align: center;/*Center the items in this div.*/
 	top: 135;
 	width: 100%;
-	z-index: 1; /*Place on top of container 3*/  
+	z-index: 1; /*Place on top of container 3*/
 }
 .popup_container{
 	background-color: C6CCCA;
@@ -374,6 +374,7 @@
 	display: inline-block;
 	margin-top: 5px;
 	text-align: center;
+  vertical-align: bottom;
 	width: 75px;
 }
 .admin_desc{

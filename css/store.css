@@ -152,7 +152,7 @@
 .body_header{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the table.*/
 	border-top: none;
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 36px;/*Get no smaller than the text in this div.*/
 	min-width: 625px;/*Get no smaller than the logo.*/
 	padding-left: 4px;
@@ -163,21 +163,21 @@
 .body_header_cards{/*Placed in body_header.*/
 	background-color: #5cd65c;
 	border: 1px solid black;/*Place a black border around the table.*/
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	font-weight: bold;
 	height: 26px;/*Get no smaller than the text in this div.*/
 	margin: 4px 0px 4px 2px;
 	overflow: hidden;/*Display ellipsis if text is too long.*/
 	padding: 4px 0px 2px 4px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
-	text-align: left;/*Left align the elements in this div.*/
+	text-align: center;/*Center align the elements in this div.*/
 	text-overflow: ellipsis;/*Display ellipsis if text is too long.*/
 	white-space: nowrap;/*Display ellipsis if text is too long.*/
 }
 .body_table{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the table.*/
 	border-top: none;
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 36px;/*Get no smaller than the text in this div.*/
 	min-width: 625px;/*Get no smaller than the logo.*/
 	padding-left: 4px;
@@ -188,7 +188,7 @@
 .body_table_cards{/*Placed in body_table.*/
 	background-color: white;
 	border: 1px solid black;/*Place a black border around the table.*/
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 26px;/*Get no smaller than the text in this div.*/
 	margin: 4px 0px 4px 2px;
 	overflow: hidden;/*Display ellipsis if text is too long.*/
@@ -201,7 +201,7 @@
 .div_button_view{/*Placed in body_table.*/
 	background-color: #bbff99;
 	border: none;
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 26px;/*Get no smaller than the text in this div.*/
 	margin: 4px 0px 4px 2px;
 	overflow: hidden;/*Display ellipsis if text is too long.*/
@@ -215,7 +215,7 @@
 .card{/*Placed in body_center.*/
 	border: 1px solid black;/*Place a black border around the div.*/
 	border-top: none;
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 102px;/*Get no smaller than the text image placed in this div.*/
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	text-align: left;/*Left align the elements in this div.*/
@@ -223,7 +223,7 @@
 	width: 600px;/*Get no smaller than the logo.*/
 }
 .image{/*Placed in card.*/
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	height: 100px;
 	position: relative;/*Stack on top of each other for smaller screens.*/
 	vertical-align: top;/*Place div flush with the top of the container.*/
@@ -238,7 +238,7 @@
 	width: 500px;
 }
 .card_info_text{/*Placed in card_info.*/
-    display: inline-block;/*Place items inline but allow height/width changes.*/
+  display: inline-block;/*Place items inline but allow height/width changes.*/
 	font-size: 18px;
 	height: 32px;/*Get no smaller than the text image placed in this div.*/
 	overflow: hidden;/*Display ellipsis if text is too long.*/

@@ -93,7 +93,7 @@ else
 		echo '
 		</select>
 		<select name="yearS">';
-		for($i = 2013; $i <= 2017; $i++)
+		for($i = 2013; $i <= 2020; $i++)
 		{
 			echo '<option value="' . $i . '">' . $i . '</option>';
 		}
@@ -114,7 +114,7 @@ else
 		echo '
 		</select>
 		<select name="yearE">';
-		for($i = 2013; $i <= 2017; $i++)
+		for($i = 2013; $i <= 2020; $i++)
 		{
 			echo '<option value="' . $i . '">' . $i . '</option>';
 		}

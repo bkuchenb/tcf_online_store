@@ -10,6 +10,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	-->
+	<link type="text/css" href="css/style.css" rel="stylesheet" media="screen">
 	<link href="css/tcf_header.css" rel="stylesheet" />
 	<link href="css/tcf_table.css" rel="stylesheet" />
 	<style>

@@ -5,8 +5,8 @@ $_SESSION['sport'] = '';
 $_SESSION['year'] = '';
 $_SESSION['letterClicked'] = '';
 $_SESSION['set'] = '';
-//create the header
-include ('header.php');
+//Create the header.
+include('header.php');
 ?>
 <body>
 <p>

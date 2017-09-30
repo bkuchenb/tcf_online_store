@@ -144,31 +144,60 @@ function get_set_list(){
 	xhttp.onreadystatechange = function(){
 		if (xhttp.readyState == 4 && xhttp.status == 200){
 			//Get the set list with sales totals.
-			var set_list = JSON.parse(xhttp.responseText);
+			var json_list = JSON.parse(xhttp.responseText);
+			var column_names = ['Year', 'Set', 'Sales'];
+			var json_list_keys = ['set_year', 'set_name', 'total'];
 			//Display the results.
-			create_set_list_table(set_list);
+			create_table('body_center', column_names, json_list, json_list_keys);
 		}
 	}
 	xhttp.open("POST", "ajax.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send(post_data);
 }
-function create_set_list_table(set_list){
-	var table_temp = document.createElement('table');
-	var tr_temp = document.createElement('tr');
-	tr_temp.className = 'header';
-	var th_year = document.createElement('th');
-	th_year.innerHTML = 'Year';
-	th_year.className = 'setCol_year';
-	var th_set = document.createElement('th');
-	th_set.innerHTML = 'Set';
-	th_set.className = 'setCol_setResults';
-	var th_sales = document.createElement('th');
-	th_sales.innerHTML = 'Sales';
-	th_sales.className = 'setCol_triple';
-	tr_temp.appendChild(th_year);
-	tr_temp.appendChild(th_set);
-	tr_temp.appendChild(th_sales);
-	table_temp.appendChild(tr_temp);
-	document.getElementById('body_center').appendChild(table_temp);
+function create_table(parent_node_id, column_names, json_list, json_list_keys){
+	//Clear the area where the table will go.
+	var parent_node = document.getElementById(parent_node_id);
+	parent_node.innerHTML = '';
+	//Create a table with and associated elements.
+	var temp_table = document.createElement('table');
+	temp_table.id = 'table_1';
+	temp_table.className = 'table_1';
+	var temp_thead = document.createElement('thead');
+	var temp_row = document.createElement('tr');
+	temp_row.id = 'thead_row';
+	temp_row.className = 'thead_row';
+	//Create the th cells for the thead_row.
+	for(var i = 0; i < column_names.length; i++){
+		var temp_th = document.createElement('th');
+		temp_th.innerHTML = column_names[i];
+		temp_th.className = 'th_' + i;
+		temp_row.appendChild(temp_th);
+	}
+	//Add the thead elements to table.
+	temp_thead.appendChild(temp_row);
+	temp_table.appendChild(temp_thead);
+	var temp_tbody = document.createElement('tbody');
+	//Create a new row for each entry in the json_list.
+	for(var i = 0; i < json_list.length; i++){
+		var temp_row = document.createElement('tr');
+		temp_row.id = 'tbody_row_' + i
+		temp_row.className = 'tbody_row';
+		//Create alternate striping for the rows.
+		if (!(i % 2 === 0)){
+			temp_row.style.backgroundColor = '#D3D3D3';
+		}
+		//Create cells for the row and populate with the data.
+		for(var j = 0; j < json_list_keys.length; j++){
+			var temp_td = document.createElement('td');
+			temp_th.className = 'td_' + j;
+			temp_td.innerHTML = json_list[i][json_list_keys[j]];
+			temp_row.appendChild(temp_td);
+		}
+		temp_tbody.appendChild(temp_row);
+	}
+	//Add the tbody element to the table.
+	temp_table.appendChild(temp_tbody);
+	//Add the table to the parent_node.
+	parent_node.appendChild(temp_table);
 }

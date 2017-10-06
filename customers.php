@@ -15,9 +15,13 @@ if($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['mainSort']))
 else//default to sort desc by qty
 {$mainSort = 'qty';} */
 
-    //make the query:
-$q = "SELECT firstName, lastName, email
+//Make the query:
+/* $q = "SELECT firstName, lastName, email
       FROM customers
+	  GROUP BY email
+	  ORDER BY lastName DESC"; */
+$q = "SELECT firstName, lastName, email
+      FROM tcf_customers
 	  GROUP BY email
 	  ORDER BY lastName DESC";
 

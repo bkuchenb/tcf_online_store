@@ -25,7 +25,7 @@ else//default to sort desc by qty
 
 //make the query:
 $q = "SELECT cardName, SUM(qty) as qty, SUM(total) as total
-	  FROM orderDetails
+	  FROM tcf_orderdetails
 	  GROUP BY cardName
 	  ORDER BY " . $mainSort . " DESC, " . $mainSort2 . " DESC
 	  LIMIT 100";
@@ -41,12 +41,12 @@ if ($r)
 	{
 		$array[$i] = mysqli_fetch_array($r, MYSQLI_ASSOC);
 		//find out which customer bought the most cards
-		$q2 = 'SELECT orders.email, SUM(orderDetails.qty) as qty
-			  FROM orderDetails
-			  INNER JOIN orders
-			  ON orderDetails.orderID=orders.orderID
+		$q2 = 'SELECT tcf_orders.email, SUM(tcf_orderdetails.qty) as qty
+			  FROM tcf_orderdetails
+			  INNER JOIN tcf_orders
+			  ON tcf_orderdetails.orderID=tcf_orders.orderID
 			  WHERE cardName=\'' . addslashes($array[$i]['cardName']) . '\'
-			  GROUP BY orders.email
+			  GROUP BY tcf_orders.email
 			  ORDER BY qty DESC
 			  LIMIT 1';
 

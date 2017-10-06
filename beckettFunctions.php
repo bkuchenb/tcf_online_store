@@ -3,8 +3,12 @@
 function orderAdded($dbc, $orderID)
 {
 	//create the query
-	$q = "SELECT added
+	/* $q = "SELECT added
 	      FROM orders
+	      WHERE orderID='$orderID'
+		  LIMIT 1"; */
+	$q = "SELECT added
+	      FROM tcf_orders
 	      WHERE orderID='$orderID'
 		  LIMIT 1";
 	
@@ -44,7 +48,7 @@ function customerAdded($dbc, $orderData)
 	$email = mysqli_real_escape_string($dbc, $orderData['email']);
 	//create the query
 	$q = "SELECT added
-	      FROM customers
+	      FROM tcf_customers
 	      WHERE email='$email'
 		  LIMIT 1";
 	
@@ -130,10 +134,9 @@ function spliceCard($array)
 }
 
 //function to add the card data to the orderDetails table
-function updateOrderDetails($dbc, $orderID, $cardData)
-{	
+function updateOrderDetails($dbc, $orderID, $cardData){	
 	//build the sql statement
-	$q = "INSERT INTO orderdetails(itemID, sport, year, setName, cardNumber, cardName, cond, qty, price, total, orderID)
+	$q = "INSERT INTO tcf_orderdetails(itemID, sport, year, setName, cardNumber, cardName, cond, qty, price, total, orderID)
 		VALUES ";
 		
 	for($j = 0; $j < count($cardData); $j++)//add to the sql statement
@@ -169,10 +172,9 @@ function updateOrderDetails($dbc, $orderID, $cardData)
 }//end function
 
 //function to add data to the orders table
-function updateOrders($dbc, $orderData)
-{
+function updateOrders($dbc, $orderData){
 	//build the sql statement
-	$q = 'INSERT INTO orders(orderID, email, added, date, time, shipping, tax, total)
+	$q = 'INSERT INTO tcf_orders(orderID, email, added, date, time, shipping, tax, total)
 		VALUES (\'' . $orderData['orderID'] . '\',\'' . $orderData['email'] . '\', 1,' . $orderData['date'] . ',\'' .
 		$orderData['time'] . '\',' . $orderData['shipping'] . ',' . $orderData['tax'] .
 		',' . $orderData['total'] . ')';
@@ -195,11 +197,10 @@ function updateOrders($dbc, $orderData)
 }//end of function
 
 //function to add data to the customers table
-function updateCustomers($dbc, $orderData)
-{
+function updateCustomers($dbc, $orderData){
 	
 	//build the sql statement
-	$q = 'INSERT INTO customers (added, firstName, lastName, email, phone, shipTo,
+	$q = 'INSERT INTO tcf_customers (added, firstName, lastName, email, phone, shipTo,
 		address, city, state, zipcode, country)
 		VALUES (1,\'' . addslashes($orderData['first']) . '\',\'' . addslashes($orderData['last']) . '\',\'' .
 		$orderData['email'] . '\',\'' . $orderData['phone'] . '\',\'' . addslashes($orderData['shipTo']) . '\',\'' .
@@ -225,13 +226,12 @@ function updateCustomers($dbc, $orderData)
 }//end of function
 
 //function to get customer totals
-function customerTotals($dbc, $results)
-{
+function customerTotals($dbc, $results){
 	for($i = 0; $i < count($results); $i++)
 	{
 		//build the sql statement
 		$q = 'SELECT SUM(total) as total, COUNT(email) as numOrders
-			  FROM orders
+			  FROM tcf_orders
 			  WHERE email = \'' . $results[$i]['email'] . '\'';
 		//run the query
 		$r = @mysqli_query ($dbc, $q);
@@ -265,8 +265,7 @@ function customerTotals($dbc, $results)
 	return $results;
 }//end of function
 
-function displayOrder($orderData, $cardData)
-{
+function displayOrder($orderData, $cardData){
 	echo '
 		<div id"cardData">
 		<form method="post" action="AddOrderDetails_V2.php">

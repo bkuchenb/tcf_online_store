@@ -26,12 +26,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	$r = @mysqli_query ($dbc, $q);
 }
 *********************************************************/
-//create a query that selects all orders in the database
+/* //create a query that selects all orders in the database
 $q = "SELECT *
 	  FROM orders
 	  INNER JOIN customers
 	  ON orders.email=customers.email
-	  ORDER BY orderID DESC";
+	  ORDER BY orderID DESC"; */
+//Create a query that selects all orders in the database.
+$q = "SELECT *
+	  FROM tcf_orders
+	  INNER JOIN tcf_customers
+	  ON tcf_orders.email=tcf_customers.email
+	  ORDER BY orderID DESC
+	  LIMIT 100";
 //run the query
 $r = @mysqli_query ($dbc, $q);
 //if it runs ok, display the records

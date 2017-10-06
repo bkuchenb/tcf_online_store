@@ -30,7 +30,7 @@ mysqli_set_charset($conn, 'utf8');
 
 //make the query:
 $q = "SELECT sport, year, setName, SUM(qty) as qty, SUM(total) as total
-	  FROM orderDetails
+	  FROM tcf_orderdetails
 	  GROUP BY sport, year, setName
 	  ORDER BY " . $mainSort . " DESC, sport ASC, year ASC, setName ASC
 	  LIMIT 100";

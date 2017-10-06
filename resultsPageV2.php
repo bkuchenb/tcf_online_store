@@ -51,10 +51,15 @@ if ($r)
 	
 	//query the orders database to find sales database
 	// Set the database access information as constants:
-	DEFINE ('DB_USER2', 'Mickey');
+	/* DEFINE ('DB_USER2', 'Mickey');
 	DEFINE ('DB_PASSWORD2', 'R00thMick');
 	DEFINE ('DB_HOST2', 'localhost');
-	DEFINE ('DB_NAME2', 'tcf_beckett');
+	DEFINE ('DB_NAME2', 'tcf_beckett'); */
+	//Connect to inceff database.
+	DEFINE ('DB_USER2', 'bk00chenb');
+	DEFINE ('DB_PASSWORD2', 'NR8A*Ecb*');
+	DEFINE ('DB_HOST2', 'inceff.ctlel9cvjtqf.us-west-2.rds.amazonaws.com');
+	DEFINE ('DB_NAME2', 'inceff');
 
 	// Make the connection:
 	$conn2 = @mysqli_connect(DB_HOST2, DB_USER2, DB_PASSWORD2, DB_NAME2)
@@ -63,12 +68,17 @@ if ($r)
 	// Set the encoding...
 	mysqli_set_charset($conn2, 'utf8');
 	
-	//fetch and print all the records:
+	//Fetch and print all the records:
 	while ($row = mysqli_fetch_array($r, MYSQLI_ASSOC))
 	{
-		//make the query for each set:
+		/* //Make the query for each set:
 		$q2 = 'SELECT SUM(total) as total
 			  FROM orderDetails
+			  WHERE sport = "' . $sport . '" AND year = "' . $row['year'] . 
+			  '" AND setName = "' . $row['set_name'] . '"'; */
+		//Make the query for each set:
+		$q2 = 'SELECT SUM(total) as total
+			  FROM tcf_orderdetails
 			  WHERE sport = "' . $sport . '" AND year = "' . $row['year'] . 
 			  '" AND setName = "' . $row['set_name'] . '"';
 

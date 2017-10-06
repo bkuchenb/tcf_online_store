@@ -21,11 +21,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	
 	//build the sql statement
 	$q = 'SELECT  SUM(total) AS sum, COUNT(total) as recordCount
-		FROM orders
-		INNER JOIN customers
-		ON orders.email=customers.email
+		FROM tcf_orders
+		INNER JOIN tcf_customers
+		ON tcf_orders.email=tcf_customers.email
 		WHERE state!=\'NY\' AND date >= \'' . $dateStart . '\' AND date <= \'' . $dateEnd . '\'
-		AND orders.email != \'mickeybuysgold@gmail.com\' ';
+		AND tcf_orders.email != \'mickeybuysgold@gmail.com\' ';
 		
 	//run the query
 	$r = @mysqli_query ($dbc, $q);
@@ -48,11 +48,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	
 	//build the sql statement
 	$q = 'SELECT  SUM(total) AS sum, COUNT(total) as recordCount
-		FROM orders
-		INNER JOIN customers
-		ON orders.email=customers.email
+		FROM tcf_orders
+		INNER JOIN tcf_customers
+		ON tcf_orders.email=tcf_customers.email
 		WHERE state=\'NY\' AND date >= \'' . $dateStart . '\' AND date <= \'' . $dateEnd . '\'
-		AND orders.email != \'mickeybuysgold@gmail.com\' ';
+		AND tcf_orders.email != \'mickeybuysgold@gmail.com\' ';
 		
 	//run the query
 	$r = @mysqli_query ($dbc, $q);
